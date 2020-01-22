@@ -4,7 +4,7 @@
 # seguir, incluindo as aspas: Albert Einstein certa vez disse: 
 # "Uma pessoa que nunca cometeu um erro jamais tentou nada novo."
 
-pessoa = "Wesley D'Amico"
-citacao = "Há um mundo dentro de uma garrafa de vinho."
+famous_person = "Wesley D'Amico"
+message = "Há um mundo dentro de uma garrafa de vinho."
 
-print(pessoa + " certa vez disse:\n" + '"Há um mundo dentro de uma garrafa de vinho."')
+print(famous_person + " certa vez disse:\n" + '"' + message + '"')
