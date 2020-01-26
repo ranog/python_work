@@ -1,3 +1,57 @@
+"""
+    NOME
+        motorcycles_insert.py
+
+    SINOPSES
+        python3 motorcycles_insert.py
+        # - Pag. 75: Inserindo elementos em uma lista:
+        ['honda', 'yamaha', 'suzuki']
+        ['ducati', 'honda', 'yamaha', 'suzuki']
+
+        # - Pag. 76: Removento elementos de uma lista:
+        ['honda', 'yamaha', 'suzuki']
+
+        # - Pag. 76-77: Removendo um item com o método pop():
+        ['honda', 'yamaha']
+        suzuki
+
+        # - Pag. 77-78: Removendo itens de qualquer posição em uma lista:
+        ['honda', 'yamaha', 'suzuki']
+        The first motorcycles I owned was a Honda.
+        ['yamaha', 'suzuki']
+
+        # - Pag. 78-79: Removendo um item de acordo com o valor:
+        ['honda', 'yamaha', 'suzuki', 'ducati']
+        ['honda', 'yamaha', 'suzuki']
+        ['honda', 'yamaha', 'suzuki']
+
+        A Ducati is too expensive for me.
+        
+    DESCRIÇÃO
+        Programa abortada os exemplos da página 75 (Inserindo elementos em uma lista) 
+        até a página 78 (Removendo um item de acordo com o valor).
+        
+        Demostra o funcionamento dos: 
+            Métodos: 
+                insert();
+                pop();
+                remove().
+
+            Instrução:
+                del.
+        
+---------------------------------------------------------------------
+    HISTÓRICO
+        202026011606: João Paulo, janeiro de 2020
+            - Capítulo 3 / Introdução às listas
+                - Inserindo elementos em uma lista / Pag. 75
+                - Removendo elementos de uma lista / Pag. 76
+                - Removendo um item usando a instrução del / Pag. 76
+                - Removendo um item com o método pop() / Pag. 76
+                - Removendo itens de qualquer posição em uma lista / Pag. 77
+                - Removendo um item de acordo com o valor / Pag. 78
+"""
+
 print("# - Pag. 75: Inserindo elementos em uma lista:")
 
 motorcycles = ["honda", "yamaha", "suzuki"]
