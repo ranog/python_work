@@ -31,28 +31,20 @@
         A Ducati is too expensive for me.
         
     DESCRIÇÃO
-        Programa abortada os exemplos da página 75 (Inserindo elementos em uma lista) 
-        até a página 78 (Removendo um item de acordo com o valor).
-        
-        Demostra o funcionamento dos: 
-            Métodos: 
-                insert();
-                pop();
-                remove().
-
-            Instrução:
-                del.
+        O programa demonstra o funcionamento dos métodos insert(), pop() 
+        e remove(). E o funcionamento da instrução del.
         
 ---------------------------------------------------------------------
+    
     HISTÓRICO
         202026011606: João Paulo, janeiro de 2020
-            - Capítulo 3 / Introdução às listas
-                - Inserindo elementos em uma lista / Pag. 75
-                - Removendo elementos de uma lista / Pag. 76
-                - Removendo um item usando a instrução del / Pag. 76
-                - Removendo um item com o método pop() / Pag. 76
-                - Removendo itens de qualquer posição em uma lista / Pag. 77
-                - Removendo um item de acordo com o valor / Pag. 78
+        - Capítulo 3 / Introdução às listas
+            - Inserindo elementos em uma lista / Pag. 75
+            - Removendo elementos de uma lista / Pag. 76
+            - Removendo um item usando a instrução del / Pag. 76
+            - Removendo um item com o método pop() / Pag. 76
+            - Removendo itens de qualquer posição em uma lista / Pag. 77
+            - Removendo um item de acordo com o valor / Pag. 78
 """
 
 print("# - Pag. 75: Inserindo elementos em uma lista:")
