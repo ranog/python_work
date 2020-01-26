@@ -1,9 +1,12 @@
+#! /usr/bin/env python3
+
 """
     NOME
         motorcycles_insert.py
 
     SINOPSES
-        python3 motorcycles_insert.py
+        chmod +x motorcycles_insert.py
+        ./motorcycles_insert.py
         # - Pag. 75: Inserindo elementos em uma lista:
         ['honda', 'yamaha', 'suzuki']
         ['ducati', 'honda', 'yamaha', 'suzuki']
