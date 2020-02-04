@@ -15,7 +15,9 @@
             sort().
             - Ordenando uma lista temporariamente com a função 
             sorted().
-         
+            - Exibindo uma lista em ordem inversa.
+            - Descobrindo o tamanho de uma lista.
+
 -----------------------------------------------------------------------
     
     HISTÓRICO
@@ -27,6 +29,10 @@
             - Aplicação da função sorted() para preservar a ordem 
             original de uma lista, mas apresentá-la de forma ordenada.
             
+        20200402: João Paulo, fevereiro de 2020
+            - Aplicação do método reverse().
+            - Usando a função len() para descobrir o tamanho de uma 
+            lista.
 """
 
 cars = ["bmw", "audi", "subaru"]
@@ -49,3 +55,15 @@ print(sorted(cars))
 
 print("\nHere is the original list again:")
 print(cars)
+
+print("\nMétodo reverse():")
+
+cars = ["bmw", "audi", "toyota", "subaru"]
+print(cars)
+
+cars.reverse()
+print(cars)
+
+# O método reverse() muda a ordem de uma lista de forma permanente.
+
+print("\nFunção len(): " + str(len(cars))
