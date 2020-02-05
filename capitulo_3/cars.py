@@ -7,6 +7,24 @@
     SINOPSES
         chmod +x lista_convidados.py
         ./cars.py
+        
+            ['audi', 'bmw', 'subaru']
+            ['subaru', 'bmw', 'audi']
+
+            Here is the original list:
+            ['bmw', 'audi', 'subaru']
+
+            Here is the sorted list:
+            ['audi', 'bmw', 'subaru']
+
+            Here is the original list again:
+            ['bmw', 'audi', 'subaru']
+
+            Método reverse():
+            ['bmw', 'audi', 'toyota', 'subaru']
+            ['subaru', 'toyota', 'audi', 'bmw']
+
+            Função len(): 4
 
     DESCRIÇÃO
         Capítulo 3 Introdução às listas
@@ -66,4 +84,4 @@ print(cars)
 
 # O método reverse() muda a ordem de uma lista de forma permanente.
 
-print("\nFunção len(): " + str(len(cars))
+print("\nFunção len(): " + str(len(cars)))
