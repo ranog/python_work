@@ -1,52 +1,52 @@
 #! /usr/bin/env python3
 
 """
-    NOME
-        lista_convidados.py
+NOME
+    lista_convidados.py
 
-    SINOPSES
-        chmod +x lista_convidados.py
+SINOPSES
+    chmod +x lista_convidados.py
         ./lista_convidados.py
         3.4 - Lista de convidados:
-	    João vamos jantar hoje?
-	    Paulo vamos jantar hoje?
-	    João Paulo vamos jantar hoje?
+            João vamos jantar hoje?
+            Paulo vamos jantar hoje?
+            João Paulo vamos jantar hoje?
 
         3.5 - Alterando a lista de convidados:
-	    João não poderá comparecer.
+            João não poderá comparecer.
 
-	    Paulo João vai ao jantar.
-	    Paulo vai ao jantar.
-	    João Paulo vai ao jantar.
+            Paulo João vai ao jantar.
+            Paulo vai ao jantar.
+            João Paulo vai ao jantar.
 
         3.6 - Mais convidados:
-	    Encontrei uma mesa de jantar maior.
+            Encontrei uma mesa de jantar maior.
 
-	    Johnny vai ao jantar.
-	    Paulo João vai ao jantar.
-	    Paul vai ao jantar.
-	    Paulo vai ao jantar.
-	    João Paulo vai ao jantar.
-	    Jp vai ao jantar.
+            Johnny vai ao jantar.
+            Paulo João vai ao jantar.
+            Paul vai ao jantar.
+            Paulo vai ao jantar.
+            João Paulo vai ao jantar.
+            Jp vai ao jantar.
 
         3.7 - Reduzindo a lista de convidados:
-	    Pesso desculpa a todos, mas só posso convidar apenas duas pessoas para o jantar.
+            Pesso desculpa a todos, mas só posso convidar apenas duas pessoas para o jantar.
 
-	    Johnny sinto muito por não poder convidá-lo para o jantar.
-	    Paulo João sinto muito por não poder convidá-lo para o jantar.
-	    Paul sinto muito por não poder convidá-lo para o jantar.
-	    Paulo sinto muito por não poder convidá-lo para o jantar.
+            Johnny sinto muito por não poder convidá-lo para o jantar.
+            Paulo João sinto muito por não poder convidá-lo para o jantar.
+            Paul sinto muito por não poder convidá-lo para o jantar.
+            Paulo sinto muito por não poder convidá-lo para o jantar.
 
-	    João Paulo ainda vamos jantar.
-	    Jp ainda vamos jantar.
+            João Paulo ainda vamos jantar.
+            Jp ainda vamos jantar.
 
-	    Lista de convidados: []
+            Lista de convidados: []
 
     DESCRIÇÃO
-        O programa demonstra a inserção e remoção de itens em uma lista.            
-        
+        O programa demonstra a inserção e remoção de itens em uma lista.
+
 ----------------------------------------------------------------------
-    
+
     HISTÓRICO
         20202801: João Paulo, janeiro de 2020
             - Capítulo 3 / Introdução às listas
