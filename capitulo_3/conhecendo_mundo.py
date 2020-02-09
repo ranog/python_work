@@ -57,6 +57,9 @@ HISTÓRICO
             ° 3.8 - Conhecendo o mundo
             ° 3.9 - Convidados para o jantar
             ° 3.10 - Todas as funções
+
+    20200902: João Paulo, fevereiro de 2020.
+        - Implementação do exercício 3.8, pag. 83 
 """
 
 
