@@ -59,7 +59,10 @@ HISTÓRICO
             ° 3.10 - Todas as funções
 
     20200902: João Paulo, fevereiro de 2020.
-        - Implementação do exercício 3.8, pag. 83 
+        - Implementação do exercício 3.8, pag. 83
+
+    20201703: João Paulo, março de 2020.
+        - Tentando terminar o "FAÇA VOCÊ MESMO", pag. 83
 """
 
 
@@ -84,3 +87,9 @@ print(capitais)
 
 capitais.reverse()
 print("\nMudar a ordem da lista novamente:\n" + str(capitais))
+
+capitais.sort()
+print("\nMudar a lista para ordem alfabética:\n" + str(capitais))
+
+capitais.sort(reverse=True)
+print("\nMudar a lista para ordem alfabética inversa:\n" + str(capitais))
