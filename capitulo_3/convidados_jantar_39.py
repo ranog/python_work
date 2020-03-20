@@ -6,41 +6,51 @@ NOME
 
 SINOPSES
     chmod +x convidados_jantar_39.py
-        ./convidados_jantar_39.py
-        3.4 - Lista de convidados:
-            João vamos jantar hoje?
-            Paulo vamos jantar hoje?
-            João Paulo vamos jantar hoje?
+    ./convidados_jantar_39.py
+    3.4 - Lista de convidados:
+	    João vamos jantar hoje?
+	    Paulo vamos jantar hoje?
+	    João Paulo vamos jantar hoje?
 
-        3.5 - Alterando a lista de convidados:
-            João não poderá comparecer.
+	    - 3 pessoas foram convidadas.
 
-            Paulo João vai ao jantar.
-            Paulo vai ao jantar.
-            João Paulo vai ao jantar.
 
-        3.6 - Mais convidados:
-            Encontrei uma mesa de jantar maior.
+    3.5 - Alterando a lista de convidados:
+	    João não poderá comparecer.
+        Paulo João vai ao jantar.
+        Paulo vai ao jantar.
+	    João Paulo vai ao jantar.
 
-            Johnny vai ao jantar.
-            Paulo João vai ao jantar.
-            Paul vai ao jantar.
-            Paulo vai ao jantar.
-            João Paulo vai ao jantar.
-            Jp vai ao jantar.
+	    - 3 pessoas foram convidadas.
 
-        3.7 - Reduzindo a lista de convidados:
-            Pesso desculpa a todos, mas só posso convidar apenas duas pessoas para o jantar.
 
-            Johnny sinto muito por não poder convidá-lo para o jantar.
-            Paulo João sinto muito por não poder convidá-lo para o jantar.
-            Paul sinto muito por não poder convidá-lo para o jantar.
-            Paulo sinto muito por não poder convidá-lo para o jantar.
+    3.6 - Mais convidados:
+	    Encontrei uma mesa de jantar maior.
 
-            João Paulo ainda vamos jantar.
-            Jp ainda vamos jantar.
+	    Johnny vai ao jantar.
+	    Paulo João vai ao jantar.
+	    Paul vai ao jantar.
+	    Paulo vai ao jantar.
+	    João Paulo vai ao jantar.
+	    Jp vai ao jantar.
 
-            Lista de convidados: []
+	    - 6 pessoas foram convidadas.
+
+
+    3.7 - Reduzindo a lista de convidados:
+	    Pesso desculpa a todos, mas só posso convidar apenas duas pessoas para o jantar.
+
+	    Johnny sinto muito por não poder convidá-lo para o jantar.
+	    Paulo João sinto muito por não poder convidá-lo para o jantar.
+	    Paul sinto muito por não poder convidá-lo para o jantar.
+	    Paulo sinto muito por não poder convidá-lo para o jantar.
+
+	    João Paulo ainda vamos jantar.
+	    Jp ainda vamos jantar.
+
+	    Lista de convidados: []
+
+	    - 0 pessoas foram convidadas.
 
     DESCRIÇÃO
         O programa demonstra a inserção e remoção de itens em uma lista.
@@ -66,6 +76,9 @@ SINOPSES
         20201703: João Paulo, março de 2020.
             - Implementação da função len() para exibir o número de pessoas
               convidadas.
+
+        20201903: João Paulo, março de 2020.
+            - Correção do Cabeçalho.
 """
 
 convidados = ["joão", "paulo" , "joão paulo"]
