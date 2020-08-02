@@ -45,7 +45,11 @@ class Entry(models.Model):
 
     """ Devolve uma representação em string do modelo. """
     def __str__(self):
-        return self.text[:50] + "..."
+
+        if len(self.text) > 50:
+            return self.text[:50] + "..."
+
+        return self.text
 
 """ A classe Entry herda da classe base Model de Django, assim como foi feito
 com Topic. O primeiro atributo, topic, é uma instância de ForeignKey. Uma chave
