@@ -11,6 +11,7 @@ class Topic(models.Model):
         """ Devolve uma representação em string do modelo. """
         return self.text
 
+
 """ Criamos uma clase chamada Topic, que herda de Model uma classe-pai incluída
 em Django, que define a funcionalidade básica de um modelo. A classe Topic tem
 apenas dois atributos: text e date_added.
@@ -31,3 +32,43 @@ Devemos dizer a Django qual atributo deve ser usado como default quando ele
 exibir informações sobre um assunto. O Django chama um método __str__() para
 exibir uma representação simples de um modelo. Nesse caso, escrevemos um método
 __str__() que devolve a string armazenada no atributo text. """
+
+
+""" Algo específico aprendido sobre um assunto. """
+
+class Entry(models.Model):
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta: verbose_name_plural = 'entries'
+
+    """ Devolve uma representação em string do modelo. """
+    def __str__(self):
+        return self.text[:50] + "..."
+
+""" A classe Entry herda da classe base Model de Django, assim como foi feito
+com Topic. O primeiro atributo, topic, é uma instância de ForeignKey. Uma chave
+estrangeira (foreign key) é um termo usado em banco de dados: é uma referência
+a outro registro do banco de dados. Esse é o código que associa cada entrada a
+um assundo específico. Cada assunto recede um chave, isto é, um ID, quando é
+criado.
+
+O atributo text é uma instância de TextField. Esse tipo de campo não precisa de
+um limite para o tamanho, pois não queremos restringir o tamanho das entradas
+individuais.
+
+O atributo date_added nos permite apresentar as entradas na ordem em que foram
+criadas e inserir um timestamp junto a cada entrada.
+
+Aninhamos a classe Meta em nossa classe Entry. Meta armazena informações extras
+para administrar um modelo; nesse caso, ela nos permite definir um atributo
+especial que diz a Django para usar Entries quando precisar se referir a mais
+de uma entrada (Sem isso, Django iria referenciar várias entradas como
+Entrys).
+
+O método __str__() diz a Django quais informações devem ser mostradas quando
+entradas individuais forem referenciadas. Como uma entrada pode ser um texto
+longo, dizemos a Django para mostrar apenas os primeiros 50 caracteres de text.
+Também acrescentamos reticências para deixar claro que não estamos exibindo a
+entrada completa. """
