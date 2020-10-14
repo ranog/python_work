@@ -29,5 +29,5 @@ print(players[2:])
 print(players[-3:])
 
 print("\n- Here are the firt three players on my tean:")
-for player in players[:3]:
+for player in playerh:[:3]:
     print(player.title())
