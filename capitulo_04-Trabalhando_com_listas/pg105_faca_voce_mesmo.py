@@ -32,8 +32,8 @@ print("4.13 – Buffet:")
 for prato in pratos:
     print("- " + prato.title())
 
-# pratos[0] = 'empadão'
-# pratos.append('empadão')
+# XXX pratos[0] = 'empadão'     TypeError
+# XXX pratos.append('empadão')  TypeError
 
 print("\nTupla: " + str(pratos))
 
