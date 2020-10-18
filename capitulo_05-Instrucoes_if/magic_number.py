@@ -18,15 +18,36 @@ SINOPSES
     False
     False
 
+    - Testando várias condições:
+
+    Usando and para testar várias condições:
+    False
+    True
+
+    Usando or para testar várias condições:
+    True
+    False
+
 DESCRIÇÃO
     O teste condicional passa porque o valor de answer (17) não é igual a 42.
     Como o teste passa, o bloco de código indentado é executado.
+
+    Para verificar se duas condições são True simultaneamente, utilize a
+    palavra reservada and para combinar os dois testes condicionais; se cada
+    um dos testes passar, a expressão como um todo será avaliada como True.
+    Se um dos testes falhar, ou ambos, a expressão será avaliada como False.
+
+    A palavra reservada or permite verificar várias condições também, mas o
+    teste passa se um dos testes individuais passar, ou ambos. Uma expressão
+    or falha somente quando os dois testes individuais falharem.
 
 ----------------------------------------------------------------------
 
 HISTÓRICO
     20201710: João Paulo, outubro de 2020.
-        - Implementação da função para realizar comparações numéricas.
+        - Implementação da função para realizar comparações numéricas;
+        - Usando and para testar várias condições;
+        - Usando or para testar várias condições.
 
 """
 
