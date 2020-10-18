@@ -7,6 +7,7 @@ NOME
 SINOPSES
     chmod +x toppings.py
     ./toppings.py
+    Hold the anchovies!
 
 DESCRIÇÃO
     Compara o valor de requested_topping com o valor 'anchovies'. Se esses
