@@ -49,7 +49,6 @@ if age < 21:
 if age <= 21:
     print("age <= 21: " + str(age <= 21))
 
-# Não é impresso porque os condicionais são False.
 if age > 21:
     print("age > 21: " + str(age > 21))
 else:
@@ -59,3 +58,25 @@ if age >= 21:
     print("age >= 21: " + str(age >= 21))
 else:
     print(age >= 21)
+
+print("\n- Testando várias condições: ")
+
+print("\nUsando and para testar várias condições: ")
+age_0 = 22
+age_1 = 18
+
+print(age_0 >= 21 and age_1 >= 21)
+
+age_1 = 22
+
+print(age_0 >= 21 and age_1 >= 21)
+
+print("\nUsando or para testar várias condições: ")
+age_0 = 22
+age_1 = 18
+
+print(age_0 >= 21 or age_1 >= 21)
+
+age_0 = 18
+
+print(age_0 >= 21 or age_1 >= 21)
