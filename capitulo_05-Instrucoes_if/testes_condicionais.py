@@ -140,3 +140,15 @@ print("\nanswer != 42 or age == 18?")
 print(answer != 42 or age == 18)
 print("\nanswer != 42 or age != 18?")
 print(answer != 42 or age != 18)
+
+print("\n- Testes para verificar se um item está em uma lista:")
+
+food = ["arroz", "feijão", "bife", "batata", "pudim", "miojo"]
+
+print("\nNa lista food tem pudim?")
+print('pudim' in food)
+
+print("\n- Testes para verificar se um item não está em uma lista:")
+
+print("\nArroz não está na lista food?")
+print('arroz' not in food)
