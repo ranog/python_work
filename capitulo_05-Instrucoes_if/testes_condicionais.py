@@ -117,3 +117,26 @@ print(answer == 42)
 print("\nanswer != 42?")
 print(answer != 42)
 
+print("\nanswer > 13?")
+print(answer > 13)
+print("\nanswer < 13?")
+print(answer < 13)
+
+print("\nanswer >= 42?")
+print(answer >= 42)
+print("\nanswer <= 42?")
+print(answer <= 42)
+
+print("\n- Testes usando as palavras reservadas and e or:")
+
+age = 18
+
+print("\nanswer == 42 and age == 18?")
+print(answer == 42 and age == 18)
+print("\nanswer != 42 and age == 18?")
+print(answer != 42 and age == 18)
+
+print("\nanswer != 42 or age == 18?")
+print(answer != 42 or age == 18)
+print("\nanswer != 42 or age != 18?")
+print(answer != 42 or age != 18)
