@@ -27,7 +27,12 @@ DESCRIÇÃO
 
     O teste if verifica se uma pessoa tem menos de 4 anos. Se o teste passar, uma mensagem apropriada será exibida e Python ignorará o restante dos testes. A linha elif, na verdade, é outro teste if, executado somente se o teste anterior falhar. Nesse ponto da cadeia, sabemos que a pessoa tem pelo menos 4 anos de idade, pois o primeiro teste falhou. Se a pessoa tiver menos de 18 anos, uma mensagem apropriada será exibida, e Python ignorará o bloco else. Se tanto o teste em if quanto o teste em elif falharem, Python executará o código do bloco else.
 
-As linhas em if-elif-else, definem o valor de price conforme a idade da pessoa, como no exemplo anterior. Depois que o preço é definido pela cadeia if-elif-else, uma instrução print separada e não indentada utiliza esse valor para exibir uma mensagem informando o preço de entrada da pessoa.
+    As linhas em if-elif-else, definem o valor de price conforme a idade da pessoa, como no exemplo anterior. Depois que o preço é definido pela cadeia if-elif-else, uma instrução print separada e não indentada utiliza esse valor para exibir uma mensagem informando o preço de entrada da pessoa.
+
+    Usando vários blocos elif
+
+    O segundo bloco elif agora faz uma verificação para garantir que uma pessoa tenha menos de 65 anos antes de lhe cobrar o preço da entrada inteira, que é de 10 dólares. Observe que o valor atribuído no bloco else precisa ser alterado para 5 dólares, pois as únicas idades que chegam até esse bloco são de pessoas com 65
+anos ou mais. 
 
 ----------------------------------------------------------------------
 
@@ -36,6 +41,8 @@ HISTÓRICO
         - Instruções if simples;
         - Instruções if-else;
         - Sintaxe if-elif-else;
+        - Usando vários blocos elif;
+
 
 """
 
@@ -73,7 +80,11 @@ if age < 4:
     price = 0
 elif age < 18:
     price = 5
-else:
+
+# Usando várioa blocos elif
+elif age < 65:
     price = 10
+else:
+    price = 5 
 
 print("\n- Your admission cost is $" + str(price))
