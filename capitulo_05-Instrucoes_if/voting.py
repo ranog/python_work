@@ -81,7 +81,7 @@ if age < 4:
 elif age < 18:
     price = 5
 
-# Usando várioa blocos elif
+# Usando vários blocos elif
 elif age < 65:
     price = 10
 else:
