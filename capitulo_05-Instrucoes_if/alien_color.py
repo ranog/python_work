@@ -8,6 +8,16 @@ SINOPSES
     chmod +x alien_color.py
     ./alien_color.py
 
+    - You won 10 points.
+
+    - You won 5 points.
+
+    - You won 5 points (green).
+
+    - You won 10 points (yellow).
+
+    - You won 15 points (red).
+
 DESCRIÇÃO
     5.3 – Cores de alienígenas #1: Suponha que um alienígena acabou de ser
     atingido em um jogo. Crie uma variável chamada alien_color e atribua-lhe
@@ -53,7 +63,7 @@ HISTÓRICO
     20202110: João Paulo, outubro de 2020.
         - 5.3 – Cores de alienígenas #1 (Pag. 123);
         - 5.4 – Cores de alienígenas #2 (Pag. 123);
-        - 5.5 – Cores de alienígenas #3 (Pag.123);
+        - 5.5 – Cores de alienígenas #3 (Pag. 123);
 
 """
 
