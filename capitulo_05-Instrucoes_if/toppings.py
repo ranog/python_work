@@ -28,9 +28,8 @@ DESCRIÇÃO
     simples, e não a uma instrução elif ou else, portanto esse teste é executado
     independentemente de o teste anterior ter passado ou não. 
     O código verifica se queijo extra ('extra cheese') foi pedido, não
-    importando o resultado dos dois
-primeiros testes. Esses três testes independentes são realizados sempre que o
-    programa é executado.
+    importando o resultado dos dois primeiros testes. Esses três testes 
+    independentes são realizados sempre que o programa é executado.
 ----------------------------------------------------------------------
 
 HISTÓRICO
