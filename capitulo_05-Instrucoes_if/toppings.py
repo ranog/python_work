@@ -30,6 +30,15 @@ DESCRIÇÃO
     O código verifica se queijo extra ('extra cheese') foi pedido, não
     importando o resultado dos dois primeiros testes. Esses três testes 
     independentes são realizados sempre que o programa é executado.
+
+
+    Verificando itens especiais
+
+    O código verifica se a pessoa pediu pimentões verdes. Em caso afirmativo,
+    exibimos uma mensagem informando por que ela não pode ter pimentões
+    verdes. O bloco else garante que todos os demais ingredientes serão 
+    adicionados à pizza.
+
 ----------------------------------------------------------------------
 
 HISTÓRICO
@@ -38,6 +47,7 @@ HISTÓRICO
         iguais;
         - Verificando se um valor está em uma lista;
         - Testando várias condições - Pag. 121;
+        - Verificando itens especiais - Pag. 124-125
 
 """
 
@@ -57,3 +67,11 @@ if 'pepperoni' in requested_toppings: print("\n- Adding pepperoni.")
 if 'extra cheese' in requested_toppings: print("\n- Adding extra cheese")
 
 print("\nFinished making your pizza!")
+
+requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+
+for requested_topping in requested_toppings:
+    if requested_topping == 'green peppers': print("\n- Sorry, we are out of "+ requested_topping + " right now.")
+    else: print("\n- Adding " + requested_topping + ".")
+
+print("\nFinished making your pizza!") 
