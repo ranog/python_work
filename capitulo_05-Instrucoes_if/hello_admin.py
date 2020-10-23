@@ -61,13 +61,31 @@ HISTÓRICO
         - FAÇA VOCÊ MESMO - Pag. 127-128;
         - 5.8 – Olá admin - Pag. 127-128.
 
+    20202310: João Paulo, outubro de 2020.
+        - 5.9 – Sem usuários - Pag. 128;
+        - 5.10 – Verificando nomes de usuários.
+
 """
 
-users = ['maria', 'joão', 'josé', 'joana', 'manoel', 'admin']
+# users = ['maria', 'joão', 'josé', 'joana', 'manoel', 'admin']
+users = []
 
-for user in users:
-    if user == 'admin':
-        print("\n- Olá " + user + ", gostaria de ver um relatório de status?")
-    else:
-        print("\n- Olá " + user.title() + ", obrigado por fazer login novamente.")
+if users:
+    for user in users:
+        if user == 'admin':
+            print("\n- Olá " + user + ", gostaria de ver um relatório de status?")
+        else:
+            print("\n- Olá " + user.title() + ", obrigado por fazer login novamente.")
 
+else: print("\n- Precisamos encontrar alguns usuários!")
+
+# XXX tive que colocar tudo em minuscula para a função lower() funcionar, não consigo aplicar nas duas variaveis.
+
+current_users = ['alexandre', 'eduardo', 'henrique', 'augusto', 'erick', 'isaac']
+
+new_users = ['Breno', 'Felipe', 'João', 'ISAAC', 'eRicK']
+
+for new_user in new_users:
+    if new_user.lower() in current_users:  
+        print("\n- "  + new_user + ": Usuário indisponível, fornecer um novo nome por favor.") 
+    else: print("\n- " + new_user + ": Usuário está disponível.")
