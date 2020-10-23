@@ -51,6 +51,20 @@ DESCRIÇÃO
     perguntando ao cliente se ele realmente quer uma pizza simples, sem
     ingredientes adicionais.
 
+
+    - Usando várias listas
+
+    Definimos uma lista de ingredientes disponíveis nessa pizzaria. Observe que
+    essa informação poderia ser uma tupla se a pizzaria tiver uma seleção estável
+    de ingredientes. Criamos uma lista de ingredientes solicitados por um cliente.
+    Observe a solicitação incomum, 'french fries' (batatas fritas). Percorremos
+    a lista de ingredientes solicitados em um laço. Nesse laço, inicialmente
+    verificamos se cada ingrediente solicitado está na lista de ingredientes
+    disponíveis. Se estiver, adicionamos esse ingrediente na pizza. Se o
+    ingrediente solicitado não estiver na lista de ingredientes disponíveis, o
+    bloco else será executado. Esse bloco exibe uma mensagem informando ao
+    usuário quais ingredientes não estão disponíveis.
+
 ----------------------------------------------------------------------
 
 HISTÓRICO
@@ -59,8 +73,12 @@ HISTÓRICO
         iguais;
         - Verificando se um valor está em uma lista;
         - Testando várias condições - Pag. 121;
+
+    20202210: João Paulo, outubro de 2020.
         - Verificando itens especiais - Pag. 124-125;
         - Verificando se uma lista não está vazia - Pag. 125-126;
+        - Usando várias listas - Pag. 126-127.
+
 """
 
 
@@ -100,3 +118,13 @@ if requested_toppings:
     print("\n- Finished making your pizza!")
 
 else:print("\n- Are you sure you want a plain pizza?")
+
+available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+
+for requested_topping in requested_toppings:
+    if requested_topping in available_toppings:
+        print("\n- Adding " + requested_topping + ".")
+    else: print("\n- Sorry, we don't have " + requested_topping + ".")
+
+print("\n- Finished making your pizza!")
