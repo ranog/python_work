@@ -2,129 +2,72 @@
 
 """
 NOME
-    toppings.py - Verificando a diferença
+    hello_admin.py - FAÇA VOCÊ MESMO
 
 SINOPSES
-    chmod +x toppings.py
-    ./toppings.py
-    Hold the anchovies!
-    True
-    False
+    chmod +x hello_admin.py
+    ./hello_admin.py
 
 DESCRIÇÃO
-    Compara o valor de requested_topping com o valor 'anchovies'. Se esses dois
-    valores não forem iguais, Python devolverá True e executará o código após a
-    instrução if. Se esses dois valores forem iguais, Python devolverá  False e
-    não executará o código após essa instrução.
+    FAÇA VOCÊ MESMO
 
-    A palavra reservada in diz a Python para verificar a existência de 'mushrooms'
-    e de 'pepperoni' na lista requested_toppings.
+    5.8 – Olá admin: Crie uma lista com cinco ou mais nomes de usuários,
+    incluindo o nome 'admin'. Suponha que você esteja escrevendo um código que
+    exibirá uma saudação a cada usuário depois que eles fizerem login em um site.
+    Percorra a lista com um laço e mostre uma saudação para cada usuário:
 
-    - Testando várias condições
+    • Se o nome do usuário for 'admin', mostre uma saudação especial, por exemplo,
+    Olá admin, gostaria de ver um relatório de status?
+    • Caso contrário, mostre uma saudação genérica, como Olá Eric, obrigado por
+    fazer login novamente.
 
-    Começamos com uma lista contendo os ingredientes solicitados. A instrução
-    if verifica se a pessoa pediu cogumelos ('mushrooms') em sua pizza. Em caso
-    afirmativo, uma mensagem será exibida para confirmar esse ingrediente. O
-    teste para pepperoni corresponde a outra instrução if simples, e não a uma
-    instrução elif ou else, portanto esse teste é executado independentemente
-    de o teste anterior ter passado ou não. O código verifica se queijo extra
-    ('extra cheese') foi pedido, não importando o resultado dos dois primeiros
-    testes. Esses três testes independentes são realizados sempre que o programa
-    é executado.
+    5.9 – Sem usuários: Acrescente um teste if em hello_admin.py para garantir
+    que a lista de usuários não esteja vazia.
 
+    • Se a lista estiver vazia, mostre a mensagem Precisamos encontrar alguns
+    usuários!
+    • Remova todos os nomes de usuário de sua lista e certifique-se de que a
+    mensagem correta seja exibida.
 
-    - Verificando itens especiais
+    5.10 – Verificando nomes de usuários: Faça o seguinte para criar um programa
+    que simule o modo como os sites garantem que todos tenham um nome de usuário
+    único.
 
-    O código verifica se a pessoa pediu pimentões verdes. Em caso afirmativo,
-    exibimos uma mensagem informando por que ela não pode ter pimentões verdes.
-    O bloco else garante que todos os demais ingredientes serão adicionados à
-    pizza.
+    • Crie uma lista chamada current_users com cinco ou mais nomes de usuários.
+    • Crie outra lista chamada new_users com cinco nomes de usuários. Garanta
+    que um ou dois dos novos usuários também estejam na lista current_users.
+    • Percorra a lista new_users com um laço para ver se cada novo nome de
+    usuário já foi usado. Em caso afirmativo, mostre uma mensagem informando
+    que a pessoa deverá fornecer um novo nome. Se um nome de usuário não foi
+    usado, apresente uma mensagem dizendo que o nome do usuário está disponível.
+    • Certifique-se de que sua comparação não levará em conta as diferenças
+    entre letras maiúsculas e minúsculas. Se 'John' foi usado, 'JOHN' não deverá
+    ser aceito.
 
-    - Verificando se uma lista não está vazia
+    5.11 – Números ordinais: Números ordinais indicam sua posição em uma lista,
+    por exemplo, 1st ou 2nd, em inglês. A maioria dos números ordinais nessa
+    língua termina com th, exceto 1, 2 e 3.
 
-    Dessa vez, começamos com uma lista vazia de ingredientes. Em vez de passar
-    diretamente para um laço for, fazemos uma verificação rápida. Quando o nome
-    de uma lista é usado em uma instrução if, Python devolve True se a lista
-    contiver pelo menos um item; uma lista vazia é avaliada como False. Se
-    requested_toppings passar no teste condicional, executamos o mesmo laço for
-    do exemplo anterior. Se o teste condicional falhar, exibimos uma mensagem
-    perguntando ao cliente se ele realmente quer uma pizza simples, sem
-    ingredientes adicionais.
-
-
-    - Usando várias listas
-
-    Definimos uma lista de ingredientes disponíveis nessa pizzaria. Observe que
-    essa informação poderia ser uma tupla se a pizzaria tiver uma seleção estável
-    de ingredientes. Criamos uma lista de ingredientes solicitados por um cliente.
-    Observe a solicitação incomum, 'french fries' (batatas fritas). Percorremos
-    a lista de ingredientes solicitados em um laço. Nesse laço, inicialmente
-    verificamos se cada ingrediente solicitado está na lista de ingredientes
-    disponíveis. Se estiver, adicionamos esse ingrediente na pizza. Se o
-    ingrediente solicitado não estiver na lista de ingredientes disponíveis, o
-    bloco else será executado. Esse bloco exibe uma mensagem informando ao
-    usuário quais ingredientes não estão disponíveis.
+    • Armazene os números de 1 a 9 em uma lista.
+    • Percorra a lista com um laço.
+    • Use uma cadeia if-elif-else no laço para exibir a terminação apropriada
+    para cada número ordinal. Sua saída deverá conter "1st 2nd 3rd 4th 5th
+    6th 7th 8th 9th", e cada resultado deve estar em uma linha separada.
 
 ----------------------------------------------------------------------
 
 HISTÓRICO
-    20202110: João Paulo, outubro de 2020.
-        - Implementação da função para determinar se dois valores não são
-        iguais;
-        - Verificando se um valor está em uma lista;
-        - Testando várias condições - Pag. 121;
-
     20202210: João Paulo, outubro de 2020.
-        - Verificando itens especiais - Pag. 124-125;
-        - Verificando se uma lista não está vazia - Pag. 125-126;
-        - Usando várias listas - Pag. 126-127.
+        - FAÇA VOCÊ MESMO - Pag. 127-128;
+        - 5.8 – Olá admin - Pag. 127-128.
 
 """
 
+users = ['maria', 'joão', 'josé', 'joana', 'manoel', 'admin']
 
-requested_topping = ['mushrooms']
+for user in users:
+    if user == 'admin':
+        print("\n- Olá " + user + ", gostaria de ver um relatório de status?")
+    else:
+        print("\n- Olá " + user.title() + ", obrigado por fazer login novamente.")
 
-if requested_topping != 'anchovies':
-    print("Hold the anchovies!")
-
-requested_toppings = ['mushrooms', 'onions', 'pineapple','extra cheese']
-
-print('mushrooms' in requested_toppings)
-print('pepperoni' in requested_toppings)
-
-if 'mushrooms' in requested_toppings: print("\n- Adding mushrooms.")
-if 'pepperoni' in requested_toppings: print("\n- Adding pepperoni.")
-if 'extra cheese' in requested_toppings: print("\n- Adding extra cheese")
-
-print("\nFinished making your pizza!")
-
-requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
-
-for requested_topping in requested_toppings:
-    if requested_topping == 'green peppers':
-        print("\n- Sorry, we are out of " + requested_topping + " right now.")
-    else: print("\n- Adding " + requested_topping + ".")
-
-print("\nFinished making your pizza!")
-
-requested_toppings = []
-
-if requested_toppings:
-    for requested_topping in requested_toppings:
-        if requested_topping == 'green peppers':
-            print("\n- Sorry, we are out of " + requested_topping + " right now.")
-        else: print("\n- Adding " + requested_topping + ".")
-
-    print("\n- Finished making your pizza!")
-
-else:print("\n- Are you sure you want a plain pizza?")
-
-available_toppings = ['mushrooms', 'olives', 'green peppers', 'pepperoni', 'pineapple', 'extra cheese']
-requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
-
-for requested_topping in requested_toppings:
-    if requested_topping in available_toppings:
-        print("\n- Adding " + requested_topping + ".")
-    else: print("\n- Sorry, we don't have " + requested_topping + ".")
-
-print("\n- Finished making your pizza!")
