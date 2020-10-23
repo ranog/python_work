@@ -7,34 +7,9 @@ NOME
 SINOPSES
     chmod +x toppings.py
     ./toppings.py
-
     Hold the anchovies!
     True
     False
-
-    - Adding mushrooms.
-
-    - Adding extra cheese
-
-    Finished making your pizza!
-
-    - Adding mushrooms.
-
-    - Sorry, we are out of green peppers right now.
-
-    - Adding extra cheese.
-
-    Finished making your pizza!
-
-    - Are you sure you want a plain pizza?
-
-    - Adding mushrooms.
-
-    - Sorry, we don't have french fries.
-
-    - Adding extra cheese.
-
-    - Finished making your pizza!
 
 DESCRIÇÃO
     Compara o valor de requested_topping com o valor 'anchovies'. Se esses dois
