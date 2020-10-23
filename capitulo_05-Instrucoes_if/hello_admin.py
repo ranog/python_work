@@ -8,6 +8,28 @@ SINOPSES
     chmod +x hello_admin.py
     ./hello_admin.py
 
+    - Precisamos encontrar alguns usuários!
+
+    - Breno: Usuário está disponível.
+
+    - Felipe: Usuário está disponível.
+
+    - João: Usuário está disponível.
+
+    - ISAAC: Usuário indisponível, fornecer um novo nome por favor.
+
+    - eRicK: Usuário indisponível, fornecer um novo nome por favor.
+
+    1st
+    2nd
+    3rd
+    4th
+    5th
+    6th
+    7th
+    8th
+    9th
+
 DESCRIÇÃO
     FAÇA VOCÊ MESMO
 
@@ -63,7 +85,8 @@ HISTÓRICO
 
     20202310: João Paulo, outubro de 2020.
         - 5.9 – Sem usuários - Pag. 128;
-        - 5.10 – Verificando nomes de usuários.
+        - 5.10 – Verificando nomes de usuários - 128;
+        - 5.11 – Números ordinais - Pag. 128.
 
 """
 
@@ -79,7 +102,8 @@ if users:
 
 else: print("\n- Precisamos encontrar alguns usuários!")
 
-# XXX tive que colocar tudo em minuscula para a função lower() funcionar, não consigo aplicar nas duas variaveis.
+# XXX na lista current_users tive que colocar tudo em minuscula para a função
+# lower() funcionar, não consigo aplicar a função nas duas variaveis.
 
 current_users = ['alexandre', 'eduardo', 'henrique', 'augusto', 'erick', 'isaac']
 
@@ -89,3 +113,11 @@ for new_user in new_users:
     if new_user.lower() in current_users:  
         print("\n- "  + new_user + ": Usuário indisponível, fornecer um novo nome por favor.") 
     else: print("\n- " + new_user + ": Usuário está disponível.")
+
+numbers = list(range(1, 10))
+
+for number in numbers:
+    if number == 1: print("\n" + str(number) + "st")
+    elif number == 2: print(str(number) + "nd")
+    elif number == 3: print(str(number) + "rd")
+    else: print(str(number) + "th")
