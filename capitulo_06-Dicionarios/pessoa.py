@@ -8,6 +8,11 @@ SINOPSES
     chmod +x pessoa.py
     ./pessoa.py
 
+    Nome: Johnny
+    Sobrenome: Ranog
+    Idade: 83
+    Cidade: Texas
+
 DESCRIÇÃO
     - 6.1 – Pessoa:
 
@@ -28,7 +33,7 @@ HISTÓRICO
 pessoa = {'first_name' : 'johnny',
           'last_name' : 'ranog',
           'age' : 83,
-          'city' : 'texas'}
+          'city' : 'texas',}
 
 print("\nNome: " + pessoa['first_name'].title() +
       "\nSobrenome: " + pessoa['last_name'].title() +
