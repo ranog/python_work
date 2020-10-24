@@ -102,16 +102,16 @@ if users:
 
 else: print("\n- Precisamos encontrar alguns usuários!")
 
-# XXX na lista current_users tive que colocar tudo em minuscula para a função
-# lower() funcionar, não consigo aplicar a função nas duas variaveis.
+# XXX na lista current_users tive que colocar tudo em minúscula para a função
+# lower() funcionar, não consigo aplicar a função nas duas variáveis.
 
 current_users = ['alexandre', 'eduardo', 'henrique', 'augusto', 'erick', 'isaac']
 
 new_users = ['Breno', 'Felipe', 'João', 'ISAAC', 'eRicK']
 
 for new_user in new_users:
-    if new_user.lower() in current_users:  
-        print("\n- "  + new_user + ": Usuário indisponível, fornecer um novo nome por favor.") 
+    if new_user.lower() in current_users:
+        print("\n- "  + new_user + ": Usuário indisponível, fornecer um novo nome por favor.")
     else: print("\n- " + new_user + ": Usuário está disponível.")
 
 numbers = list(range(1, 10))
