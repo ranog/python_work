@@ -34,6 +34,17 @@ SINOPSES
     Phil, thank you for taking the poll.
     Sarah, thank you for taking the poll.
 
+    The following languages have been mentioned:
+    Python
+    C
+    Ruby
+    Python
+
+    The following languages have been mentioned:
+    C
+    Ruby
+    Python
+
 DESCRIÇÃO
     - Um dicionário de objetos semelhantes
 
@@ -103,6 +114,17 @@ DESCRIÇÃO
     lista antes de percorrê-la com um laço. A saída mostra os nomes de
     todos que responderam à enquete, exibidos de forma ordenada.
 
+    - Percorrendo todos os valores de um dicionário com um laço
+
+    A instrução for, nesse caso, extrai cada valor do dicionário e o
+    armazena na variável language. Quando esses valores são exibidos,
+    temos uma lista de todas as linguagens escolhidas.
+
+    Quando colocamos set() em torno de uma lista que contenha itens
+    duplicados, Python identifica os itens únicos na lista e cria um
+    conjunto a partir desses itens. Usamos set() para extrair as
+    linguagens únicas em favorite_languages.values().
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -115,7 +137,9 @@ HISTÓRICO
         - Percorrendo todas as chaves de um dicionário com um laço
         (pg 140-141).
         - Percorrendo as chaves de um dicionário em ordem usando um laço
-        (pg 141-142)
+        (pg 141-142).
+        - Percorrendo todos os valores de um dicionário com um laço
+        (pg 142-143).
 
 """
 
@@ -157,3 +181,11 @@ print()
 
 for name in sorted(favorite_languages.keys()):
     print(name.title() + ", thank you for taking the poll.")
+
+print("\nThe following languages have been mentioned:")
+for language in favorite_languages.values():
+    print(language.title())
+
+print("\nThe following languages have been mentioned:")
+for language in set(favorite_languages.values()):
+    print(language.title())
