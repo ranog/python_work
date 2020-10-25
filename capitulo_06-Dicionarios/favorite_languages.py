@@ -29,6 +29,11 @@ SINOPSES
 
     Erin, please take our poll!
 
+    Edward, thank you for taking the poll.
+    Jen, thank you for taking the poll.
+    Phil, thank you for taking the poll.
+    Sarah, thank you for taking the poll.
+
 DESCRIÇÃO
     - Um dicionário de objetos semelhantes
 
@@ -90,6 +95,14 @@ DESCRIÇÃO
     nessa lista. Como ela não está, uma mensagem é exibida convidando-a
     a participar da enquete.
 
+    - Percorrendo as chaves de um dicionário em ordem usando um laço
+
+    Essa instrução for é como as outras instruções for, exceto que a
+    função sorted() está em torno do método dictionary.keys(). Isso diz
+    a Python para listar todas as chaves do dicionário e ordenar essa
+    lista antes de percorrê-la com um laço. A saída mostra os nomes de
+    todos que responderam à enquete, exibidos de forma ordenada.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -101,6 +114,8 @@ HISTÓRICO
         (pg 139-140).
         - Percorrendo todas as chaves de um dicionário com um laço
         (pg 140-141).
+        - Percorrendo as chaves de um dicionário em ordem usando um laço
+        (pg 141-142)
 
 """
 
@@ -137,3 +152,8 @@ for name in favorite_languages.keys():
 
 if 'erin' not in favorite_languages.keys():
     print("\nErin, please take our poll!")
+
+print()
+
+for name in sorted(favorite_languages.keys()):
+    print(name.title() + ", thank you for taking the poll.")
