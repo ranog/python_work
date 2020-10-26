@@ -204,6 +204,7 @@ if 'erin' not in favorite_languages.keys():
 
 print()
 
+# sorted() - organiza a lista
 for name in sorted(favorite_languages.keys()):
     print(name.title() + ", thank you for taking the poll.")
 
@@ -212,6 +213,8 @@ for language in favorite_languages.values():
     print(language.title())
 
 print("\nThe following languages have been mentioned:")
+
+# set() - retira a duplicidade
 for language in set(favorite_languages.values()):
     print(language.title())
 
