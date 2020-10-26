@@ -145,8 +145,7 @@ DESCRIÇÃO
     • Percorra a lista de pessoas que devem participar da enquete. Se
     elas já tiverem respondido à enquete, mostre uma mensagem
     agradecendo-lhes por responder. Se ainda não participaram da
-    enquete, apresente uma mensagem
-convidando-as a responder.
+    enquete, apresente uma mensagem convidando-as a responder.
 
 ------------------------------------------------------------------------
 
