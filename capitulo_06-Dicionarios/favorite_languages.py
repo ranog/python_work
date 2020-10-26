@@ -45,6 +45,14 @@ SINOPSES
     Ruby
     Python
 
+    - Jen obrigado por responder nossa enquete.
+
+    - Sarah obrigado por responder nossa enquete.
+
+    - Edward sua participação é muito importante.
+
+    - Phil sua participação é muito importante.
+
 DESCRIÇÃO
     - Um dicionário de objetos semelhantes
 
@@ -125,6 +133,21 @@ DESCRIÇÃO
     conjunto a partir desses itens. Usamos set() para extrair as
     linguagens únicas em favorite_languages.values().
 
+    - FAÇA VOCÊ MESMO:
+
+    6.6 – Enquete: Utilize o código em favorite_languages.py (página
+    150).
+
+    • Crie uma lista de pessoas que devam participar da enquete sobre
+    linguagem favorita. Inclua alguns nomes que já estejam no
+    dicionário e outros que não estão.
+
+    • Percorra a lista de pessoas que devem participar da enquete. Se
+    elas já tiverem respondido à enquete, mostre uma mensagem
+    agradecendo-lhes por responder. Se ainda não participaram da
+    enquete, apresente uma mensagem
+convidando-as a responder.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -140,6 +163,9 @@ HISTÓRICO
         (pg 141-142).
         - Percorrendo todos os valores de um dicionário com um laço
         (pg 142-143).
+
+    20202610: João Paulo, outubro 202.
+        - FAÇA VOCÊ MESMO: 6.6 – Enquete (pg 143-144).
 
 """
 
@@ -189,3 +215,14 @@ for language in favorite_languages.values():
 print("\nThe following languages have been mentioned:")
 for language in set(favorite_languages.values()):
     print(language.title())
+
+print()
+
+participantes = ['johnny', 'jot', 'jen', 'sarah',]
+
+for name in favorite_languages.keys():
+    if name in participantes:
+        print("\n- " + name.title() + " obrigado por responder nossa enquete.")
+
+    else:
+        print("\n- " + name.title() + " sua participação é muito importante.")
