@@ -147,6 +147,15 @@ DESCRIÇÃO
     agradecendo-lhes por responder. Se ainda não participaram da
     enquete, apresente uma mensagem convidando-as a responder.
 
+    o valor associado a
+cada nome agora é uma lista. Observe que algumas pessoas têm uma linguagem
+favorita, enquanto outras têm várias. Quando percorremos o dicionário em v
+com um laço, usamos uma variável de nome languages para armazenar cada
+valor do dicionário, pois sabemos que esse valor será uma lista. No laço
+principal do dicionário, usamos outro laço for w para percorrer a lista de
+linguagens favoritas de cada pessoa. Agora cada pessoa pode listar quantas
+linguagens favoritas quiser:
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -165,6 +174,9 @@ HISTÓRICO
 
     20202610: João Paulo, outubro 202.
         - FAÇA VOCÊ MESMO: 6.6 – Enquete (pg 143-144).
+
+    20202710: João Paulo, outubro de 2020.
+        - Uma lista em um dicionário (pg 147).
 
 """
 
@@ -228,3 +240,17 @@ for name in favorite_languages.keys():
 
     else:
         print("\n- " + name.title() + " sua participação é muito importante.")
+
+print("\n- Uma lista em um dicionário (pg 147):")
+
+favorite_languages = {
+    'jean' : ['python', 'ruby'],
+    'sarah' : ['c'],
+    'edward' : ['ruby', 'go'],
+    'phill' : ['python', 'haskell'],}
+
+for name, languages in favorite_languages.items():
+    print("\n" + name.title() + "'s favorite languages are:")
+
+    for language in languages:
+        print("\t- " + language.title())
