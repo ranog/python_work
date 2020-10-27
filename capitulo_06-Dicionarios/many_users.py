@@ -28,6 +28,18 @@ DESCRIÇÃO
     usuário na variável user_info. Depois que entrarmos no laço
     principal do dicionário, exibimos o nome do usuário.
 
+    Começamos a acessar o dicionário interno. A variável user_info, que
+    contém o dicionário com informações do usuário, tem três chaves:
+    'first', 'last' e 'location'. Usamos cada chave para gerar um nome
+    completo e a localidade formatados de modo elegante para cada
+    pessoa.
+
+    Observe que a estrutura do dicionário de cada usuário é idêntica.
+    Embora Python não exija, essa estrutura facilita trabalhar com
+    dicionários aninhados. Se o dicionário de cada pessoa tivesse chaves
+    diferentes, o código no laço for
+seria mais complicado.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
