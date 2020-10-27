@@ -37,8 +37,7 @@ DESCRIÇÃO
     Observe que a estrutura do dicionário de cada usuário é idêntica.
     Embora Python não exija, essa estrutura facilita trabalhar com
     dicionários aninhados. Se o dicionário de cada pessoa tivesse chaves
-    diferentes, o código no laço for
-seria mais complicado.
+    diferentes, o código no laço for seria mais complicado.
 
 ------------------------------------------------------------------------
 
