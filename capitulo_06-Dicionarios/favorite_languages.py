@@ -173,7 +173,7 @@ DESCRIÇÃO
     que esse valor será uma lista. No laço principal do dicionário,
     usamos outro laço for para percorrer a lista de linguagens favoritas
     de cada pessoa. Agora cada pessoa pode listar quantas linguagens
-    favoritas quiser:
+    favoritas quiser.
 
 ------------------------------------------------------------------------
 
@@ -269,7 +269,12 @@ favorite_languages = {
     'phill' : ['python', 'haskell'],}
 
 for name, languages in favorite_languages.items():
-    print("\n" + name.title() + "'s favorite languages are:")
+    if len(languages) > 1:
+        print("\n" + name.title() + "'s favorite languages are:")
 
-    for language in languages:
-        print("\t- " + language.title())
+        for language in languages:
+            print("\t- " + language.title())
+
+    else:
+        print("\n" + name.title() + "'s favorite language is " +
+              languages[0].title() + ".")
