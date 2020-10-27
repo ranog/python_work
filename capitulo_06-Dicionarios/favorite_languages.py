@@ -53,6 +53,23 @@ SINOPSES
 
     - Phil sua participação é muito importante.
 
+    - Uma lista em um dicionário (pg 147):
+
+    Jean's favorite languages are:
+        - Python
+        - Ruby
+
+    Sarah's favorite languages are:
+        - C
+
+    Edward's favorite languages are:
+        - Ruby
+        - Go
+
+    Phill's favorite languages are:
+        - Python
+        - Haskell
+
 DESCRIÇÃO
     - Um dicionário de objetos semelhantes
 
@@ -147,14 +164,16 @@ DESCRIÇÃO
     agradecendo-lhes por responder. Se ainda não participaram da
     enquete, apresente uma mensagem convidando-as a responder.
 
-    o valor associado a
-cada nome agora é uma lista. Observe que algumas pessoas têm uma linguagem
-favorita, enquanto outras têm várias. Quando percorremos o dicionário em v
-com um laço, usamos uma variável de nome languages para armazenar cada
-valor do dicionário, pois sabemos que esse valor será uma lista. No laço
-principal do dicionário, usamos outro laço for w para percorrer a lista de
-linguagens favoritas de cada pessoa. Agora cada pessoa pode listar quantas
-linguagens favoritas quiser:
+    - Uma lista em um dicionário:
+
+    O valor associado a cada nome agora é uma lista. Observe que algumas
+    pessoas têm uma linguagem favorita, enquanto outras têm várias.
+    Quando percorremos o dicionário com um laço, usamos uma variável de
+    nome languages para armazenar cada valor do dicionário, pois sabemos
+    que esse valor será uma lista. No laço principal do dicionário,
+    usamos outro laço for para percorrer a lista de linguagens favoritas
+    de cada pessoa. Agora cada pessoa pode listar quantas linguagens
+    favoritas quiser:
 
 ------------------------------------------------------------------------
 
