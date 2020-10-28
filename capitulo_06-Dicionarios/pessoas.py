@@ -26,7 +26,7 @@ DESCRIÇÃO
 ----------------------------------------------------------------------
 
 HISTÓRICO
-    20202410: João Paulo, outubro de 2020.
+    20202710: João Paulo, outubro de 2020.
         - FAÇA VOCÊ MESMO 6.7 - Pessoas (pg. 149).
 
 """
