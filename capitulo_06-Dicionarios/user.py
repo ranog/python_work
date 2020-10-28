@@ -17,6 +17,17 @@ SINOPSES
     Key: last
     Value: fermi
 
+    - 6.12 - Extensões:
+
+    Username: efermi
+    Name: Erico Fermi
+
+    Username: aeinstein
+    Name: Albert Einstein
+
+    Username: mcurie
+    Name: Marie Curie
+
 DESCRIÇÃO
     Para escrever um laço for para um dicionário, devemos criar nomes
     para as duas variáveis que armazenarão a chave e o valor de cada par
@@ -35,12 +46,21 @@ DESCRIÇÃO
     armazenados; ele só registra as conexões entre cada chave individual
     e seu valor.
 
+    6.12 – Extensões: Estamos trabalhando agora com exemplos complexos o
+    bastante para poderem ser estendidos de várias maneiras. Use um dos 
+    programas de exemplo deste capítulo e estenda-o acrescentando novas
+    chaves e valores, alterando o contexto do programa ou melhorando a
+    formatação da saída.
+
 ----------------------------------------------------------------------
 
 HISTÓRICO
     20202410: João Paulo, outubro de 2020.
         - Percorrendo todos os pares chave-valor com um laço
         (Pag. 138-139).
+
+    20202810: João Paulo, outubro de 2020.
+        - FAÇA VOCÊ MESMO 6.12 - Extensões (pg 150).
 
 """
 
@@ -50,3 +70,18 @@ user_0 = {'username' : 'efermi', 'first' : 'enrico', 'last' : 'fermi',}
 for key, value in user_0.items():
     print("\nKey: " + key)
     print("Value: " + value)
+
+print("\n- 6.12 - Extensões:")
+
+users = {
+        'efermi' : {'first' : 'erico', 'last' : 'fermi',},
+
+        'aeinstein' : {'first' : 'albert', 'last': 'einstein',},
+
+     'mcurie': {'first': 'marie', 'last': 'curie',},}
+
+for key, value in users.items():
+    print("\nUsername: " + key)
+
+    full_name = value['first'] + " " + value['last']
+    print("Name: " + full_name.title())
