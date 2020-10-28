@@ -78,7 +78,7 @@ users = {
 
         'aeinstein' : {'first' : 'albert', 'last': 'einstein',},
 
-     'mcurie': {'first': 'marie', 'last': 'curie',},}
+        'mcurie': {'first': 'marie', 'last': 'curie',},}
 
 for key, value in users.items():
     print("\nUsername: " + key)
