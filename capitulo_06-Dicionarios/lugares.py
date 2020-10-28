@@ -40,11 +40,12 @@ HISTÓRICO
 """
 
 
-favorite_places = {'john' : ['massambaba', 'praia da pontinha'],
-                   'martin' : ['praia do forte'],
-                   'frank' : ['praia do forte' , 'forte são matheus'],
-                   'jason' : ['sitio ilha do lazer'],
-                   'james' : ['massambaba', 'hotel fazenda', 'praia do forte'],}
+favorite_places = {
+    'john' : ['massambaba', 'praia da pontinha'],
+    'martin' : ['praia do forte'],
+    'frank' : ['praia do forte' , 'forte são matheus'],
+    'jason' : ['sitio ilha do lazer'],
+    'james' : ['massambaba', 'hotel fazenda', 'praia do forte'],}
 
 for name, places in favorite_places.items():
     if len(places) > 1:
@@ -54,4 +55,5 @@ for name, places in favorite_places.items():
             print("\t- " + place.title())
 
     else:
-        print("\n" + name.title() + "'s favorite place is " + places[0].title()  + ".")
+        print("\n" + name.title() + "'s favorite place is " +
+              places[0].title()  + ".")
