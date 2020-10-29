@@ -7,6 +7,17 @@ NOME
 SINOPSES
     chmod +x input.py
     ./input.py
+    7.1 – Locação de automóveis:
+    - Qual tipo de carro gostaria de alugar? opala
+    Deixe-me ver se consigo um Opala para você.
+
+    7.2 – Lugares em um restauante:
+    - Olá, mesa para quantas pessoa? 8
+    Sua mesa está pronta.
+
+    7.3 – Múltiplos de dez:
+    - Entre com um número, por favor: 99
+    O número 99 não é múltiplo de 10.
 
 DESCRIÇÃO
     FAÇA VOCÊ MESMO pg 156.
@@ -48,3 +59,15 @@ if grupo > 8:
 
 else:
     print("Sua mesa está pronta.")
+
+print("\n7.3 – Múltiplos de dez: ")
+
+number = input("- Entre com um número, por favor: ")
+
+number = int(number)
+
+if number % 10:
+    print("O número " + str(number) + " não é múltiplo de 10.")
+
+else:
+    print("O número " + str(number): + " é um múltiplo de 10.")
