@@ -35,6 +35,7 @@ HISTÓRICO
 
 name = input("Please enter your name: ")
 
+print("- Hello, " + name.title() + "!") 
 
 """ 
     Esse exemplo mostra uma maneira de criar uma string multilinha. A
