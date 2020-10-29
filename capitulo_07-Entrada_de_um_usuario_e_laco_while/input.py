@@ -9,6 +9,8 @@ SINOPSES
     ./input.py
 
 DESCRIÇÃO
+    FAÇA VOCÊ MESMO pg 156.
+
 HISTÓRICO
     20202910: João Paulo, outubro de 2020.
         FAÇA VOCÊ MESMO
@@ -34,3 +36,15 @@ print("\n7.1 – Locação de automóveis: ")
 carro = input("- Qual tipo de carro gostaria de alugar? ")
 
 print("Deixe-me ver se consigo um " + carro.title() + " para você.")
+
+print("\n7.2 – Lugares em um restauante: ")
+
+grupo = input("- Olá, mesa para quantas pessoa? ")
+
+grupo = int(grupo)
+
+if grupo > 8:
+    print("Desculpe-me mas não temos mesas vagas no momento. Favor aguardar.")
+
+else:
+    print("Sua mesa está pronta.")
