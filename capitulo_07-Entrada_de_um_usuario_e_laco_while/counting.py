@@ -51,11 +51,19 @@ DESCRIÇÃO
     laço e voltar ao início. Se o número atual não for divisível por 2,
     o restante do laço será executado e Python exibirá o número atual.
 
+    - Evitando loops infinitos:
+
+    Agora o valor de x começará em 1, mas jamais será modificado. Como
+    resultado, o teste condicional x <= 5 será sempre avaliado como True
+    e o laço while executará indefinidamente, exibindo uma série de 1s.
+
 HISTÓRICO
     20202910: João Paulo, outubro de 2020.
         - Laço while em ação (pg 157).
 
         - Usando continue em um laço (pg 161-162).
+
+        - Evitando loops infinitos (pg 162-163).
 
 """
 
@@ -76,4 +84,9 @@ while current_number < 10:
     if current_number % 2 == 0:
         continue
 
-    print(current_number)
+print("\n- Evitando loops infinitos: ") 
+x = 1
+
+while x <= 5:
+    print(x)
+    # x += 1 # esse laço executa indefinidamente!
