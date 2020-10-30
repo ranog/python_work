@@ -35,6 +35,19 @@ DESCRIÇÃO
     Agora o programa faz uma verificação rápida antes de mostrar a
     mensagem e só a exibirá se ela não for igual ao valor de saída.
 
+    - Usando uma flag:
+
+    Definimos a variável active com True para que o programa comece em
+    um estado ativo.
+    Fazer isso simplifica a instrução while, pois nenhuma comparação é
+    feita nessa instrução; a lógica é tratada em outras partes do
+    programa. Enquanto a variável active permanecer True, o laço
+    continuará a executar. Na instrução if contida no laço while,
+    verificamos o valor de message depois que o usuário fornece sua
+    entrada. Se o usuário fornecer 'quit', definimos active com False e
+    o laço while é encerrado. Se o usuário fornecer outro dado que não
+    seja 'quit', exibimos essa entrada como uma mensagem.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -43,6 +56,9 @@ HISTÓRICO
 
     20202910: João Paulo, outubro de 2020.
         - Deixando o usuário decidir quando quer sair (pg 157-158).
+
+    20203010: João Paulo, outubro de 2020.
+        - Usando uma flag (pg 159-160).
 
 """
 
@@ -59,7 +75,20 @@ prompt += "\nEnter 'quit' to end the program. "
 
 message = ""
 
-while message != 'quit':
+while message.lower() != 'quit':
     message = input(prompt)
-    if message != 'quit':
+    if message.lower() != 'quit':
+        print(message)
+
+print("\n- Usando uma flag: ")
+
+active = True
+
+while active:
+    message = input(prompt)
+
+    # A função lower() não tem no exemplo do livro.
+    if message.lower() == 'quit':
+        active = False
+    else:
         print(message)
