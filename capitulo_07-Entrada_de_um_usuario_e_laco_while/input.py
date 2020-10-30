@@ -70,4 +70,4 @@ if number % 10:
     print("O número " + str(number) + " não é múltiplo de 10.")
 
 else:
-    print("O número " + str(number): + " é um múltiplo de 10.")
+    print("O número " + str(number) + " é um múltiplo de 10.")
