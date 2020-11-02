@@ -8,6 +8,51 @@ SINOPSES
     chmod +x sandwich.py
     ./sandwich.py
 
+    7.8 - Lanchonete:
+    Preparei seu sanduíche de Pastrami
+    Preparei seu sanduíche de Katsu-Sando
+    Preparei seu sanduíche de Bánh Mì
+    Preparei seu sanduíche de Pastrami
+    Preparei seu sanduíche de Roti John
+    Preparei seu sanduíche de Bauru
+    Preparei seu sanduíche de Vada Pav
+    Preparei seu sanduíche de Pastrami
+    Preparei seu sanduíche de Bauru
+
+    Sanduíches terminados:
+    Pastrami
+    Katsu-Sando
+    Bánh Mì
+    Pastrami
+    Roti John
+    Bauru
+    Vada Pav
+    Pastrami
+    Bauru
+
+    7.9 - Sem pastrami:
+    ['bauru', 'pastrami', 'vada pav', 'bauru', 'roti john', 'pastrami', 'bánh mì', 'katsu-sando', 'pastrami']
+    ['bauru', 'vada pav', 'bauru', 'roti john', 'pastrami', 'bánh mì', 'katsu-sando', 'pastrami']
+    ['bauru', 'vada pav', 'bauru', 'roti john', 'bánh mì', 'katsu-sando', 'pastrami']
+    ['bauru', 'vada pav', 'bauru', 'roti john', 'bánh mì', 'katsu-sando']
+
+    - Hoje estamos sem Pastrami. Obrigado pela compreensão.
+
+    Estamos preparando o seu sanduíche de Katsu-Sando
+    Estamos preparando o seu sanduíche de Bánh Mì
+    Estamos preparando o seu sanduíche de Roti John
+    Estamos preparando o seu sanduíche de Bauru
+    Estamos preparando o seu sanduíche de Vada Pav
+    Estamos preparando o seu sanduíche de Bauru
+
+    Sanduíches prontos:
+    katsu-sando
+    bánh mì
+    roti john
+    bauru
+    vada pav
+    bauru
+
 DESCRIÇÃO
     FAÇA VOCÊ MESMO
 
@@ -32,7 +77,7 @@ DESCRIÇÃO
 HISTÓRICO
     20200111: João Paulo, outubro de 2020.
         - 7.8 - Lanchonete (pg 166).
-
+        - 7.9 - Sem pastrami (pg 166-167).
 """
 
 print("\n7.8 - Lanchonete: ")
