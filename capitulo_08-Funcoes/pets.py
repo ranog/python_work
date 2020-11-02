@@ -28,10 +28,21 @@ DESCRIÇÃO
     antes, a função faz sua tarefa, porém, dessa vez, exibe valores para
     um cachorro chamado Willie.
 
+    Chamar uma função várias vezes é uma maneira eficiente de trabalhar.
+
+    - A ordem é importante em argumentos posicionais:
+
+    Nessa chamada de função, listamos primeiro o nome e depois o tipo do
+    animal. Como dessa vez o argumento 'harry' foi definido antes, esse
+    valor é armazenado no parâmetro animal_type. De modo semelhante,
+    'hamster' é armazenado em pet_name. Agora temos um "harry" chamado
+    "Hamster".
+
 HISTÓRICO
     20200211: João Paulo, outubro de 2020.
         - Argumentos posicionais (pg 172).
-        - Várias chamadas de função (pg 172).
+        - Várias chamadas de função (pg 172-173).
+        - A ordem é importante em argumentos posicionais (pg 173).
 
 """
 
@@ -43,3 +54,6 @@ def describe_pet(animal_type, pet_name):
 
 describe_pet('hamster', 'harry')
 describe_pet('dog', 'willie')
+
+#XXX A orem é importante em argumentos posicionais:
+describe_pet('harry', 'hamster')
