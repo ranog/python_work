@@ -8,6 +8,34 @@ SINOPSES
     chmod +x pets.py
     ./pets.py
 
+    I have a harry.
+    My harry's name is Hamster.
+
+    I have a willie.
+    My willie's name is Dog.
+
+    I have a hamster.
+    My hamster's name is Harry.
+
+    - Argumentos nomeados:
+
+    I have a hamster.
+    My hamster's name is Harry.
+
+    I have a hamster.
+    My hamster's name is Harry.
+
+    - Valores default:
+
+    I have a dog.
+    My dog's name is Willie.
+
+    I have a dog.
+    My dog's name is Willie.
+
+    I have a hamster.
+    My hamster's name is Harry.
+
 DESCRIÇÃO
     - Argumentos posicionais:
 
@@ -47,6 +75,13 @@ DESCRIÇÃO
     animal_type e o argumento 'harry' em pet_name. A saída mostra
     corretamente que temos um hamster chamado Harry.
 
+    - Valores default
+
+    Mudamos a definição de describe_pet() para incluir um valor default
+    igual a 'dog' para animal_type.     A partir de agora, quando a
+    função for chamada sem um animal_type especificado, Python saberá
+    que deve usar o valor 'dog' para esse parâmetro.
+
 HISTÓRICO
     20200211: João Paulo, outubro de 2020.
         - Argumentos posicionais (pg 172).
@@ -55,12 +90,13 @@ HISTÓRICO
 
     20200311: João Paulo, novembro de 2020.
         - Argumentos nomeados (pg 173-174).
+        - Valores default (pg 174-175).
 
 """
 
 
 """Exibe informações sobre um animal de estimação."""
-def describe_pet(animal_type, pet_name):
+def describe_pet(pet_name, animal_type = 'dog'):
     print("\nI have a " + animal_type + ".")
     print("My " + animal_type + "'s name is " + pet_name.title() + ".")
 
@@ -76,3 +112,13 @@ dos parâmetros usados na definição da função."""
 print("\n- Argumentos nomeados: ")
 describe_pet(animal_type = 'hamster', pet_name = 'harry')
 describe_pet(pet_name = 'harry', animal_type = 'hamster')
+
+print("\n- Valores default: ")
+describe_pet(pet_name = 'willie')
+describe_pet('willie')
+describe_pet(pet_name = 'harry', animal_type = 'hamster')
+
+"""Ao usar valores default, qualquer parâmetro com um valor desse tipo
+deverá ser listado após todos os parâmetros que não tenham valores
+default. Isso permite que Python continue a interpretar os argumentos
+posicionais corretamente."""
