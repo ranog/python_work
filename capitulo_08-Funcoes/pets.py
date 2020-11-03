@@ -38,11 +38,23 @@ DESCRIÇÃO
     'hamster' é armazenado em pet_name. Agora temos um "harry" chamado
     "Hamster".
 
+    - Argumentos nomeados:
+
+    A função describe_pet() não mudou. Entretanto, quando chamamos a
+    função, dizemos explicitamente a Python a qual parâmetro cada
+    argumento deve corresponder. Quando Python lê a chamada da função,
+    ele sabe que deve armazenar o argumento 'hamster' no parâmetro
+    animal_type e o argumento 'harry' em pet_name. A saída mostra
+    corretamente que temos um hamster chamado Harry.
+
 HISTÓRICO
     20200211: João Paulo, outubro de 2020.
         - Argumentos posicionais (pg 172).
         - Várias chamadas de função (pg 172-173).
         - A ordem é importante em argumentos posicionais (pg 173).
+
+    20200311: João Paulo, novembro de 2020.
+        - Argumentos nomeados (pg 173-174).
 
 """
 
@@ -57,3 +69,10 @@ describe_pet('dog', 'willie')
 
 #XXX A orem é importante em argumentos posicionais:
 describe_pet('harry', 'hamster')
+
+"""Quando usar argumentos nomeados, lembre-se de usar os nomes exatos
+dos parâmetros usados na definição da função."""
+
+print("\n- Argumentos nomeados: ")
+describe_pet(animal_type = 'hamster', pet_name = 'harry')
+describe_pet(pet_name = 'harry', animal_type = 'hamster')
