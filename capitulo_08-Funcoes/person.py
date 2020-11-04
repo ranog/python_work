@@ -8,6 +8,8 @@ SINOPSES
     chmod +x person.py
     ./person.py
 
+    Devolvendo um dicionário:
+    {'first': 'jimi', 'last': 'hendrix', 'age': 27}
 
 DESCRIÇÃO
     A função build_person() aceita um primeiro nome e um sobrenome e
