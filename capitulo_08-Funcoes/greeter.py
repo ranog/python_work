@@ -15,6 +15,17 @@ SINOPSES
     Hello, Jesse!
     Hello, Sarah!
 
+    - Usando uma função com um laço while:
+
+    Please tell me your name:
+    (enter 'q' at any time to quit)
+    First name: eric
+    Last name: matthes
+    Hello, Eric Matthes!
+
+    Please tell me your name:
+    (enter 'q' at any time to quit)
+    First name: q
 
 DESCRIÇÃO
     - Definindo uma função:
@@ -75,10 +86,22 @@ DESCRIÇÃO
     passado para a função greet_users() e o valor foi armazenado no
     parâmetro username.
 
+    - Usando uma função com um laço while:
+
+    O laço while pede que o usuário forneça seu nome; além disso,
+    solicitamos o primeiro nome e o sobrenome separadamente.
+    Adicionamos uma mensagem que informa como o usuário pode sair e
+    então encerramos o laço se o usuário fornecer o valor de saída em
+    qualquer um dos prompts. Agora o programa continuará saudando as
+    pessoas até que alguém forneça 'q' em algum dos nomes.
+
 HISTÓRICO
     20200211: João Paulo, outubro de 2020.
         - Definindo uma função (pg 169).
         - Passando informações para uma função (pg 170)
+    
+    20200411: João Paulo, outubro de 2020.
+        - Usando uma função com um laço while (pg 181-182).
 
 """
 
@@ -96,3 +119,25 @@ greet_user()
 print("\n- Passando informações para uma função: ")
 greet_users('jesse')
 greet_users('sarah')
+
+print("\n- Usando uma função com um laço while: ")
+
+def get_formatted_name(first_name, last_name):
+    """Devolve um nome completo formatado de modo elegante."""
+
+    full_name = first_name + ' ' + last_name
+
+    return full_name.title()
+
+while True:
+    print("\nPlease tell me your name: ")
+    print("(enter 'q' at any time to quit)")
+    f_name = input("First name: ")
+    if f_name == 'q': break
+
+    l_name = input("Last name: ")
+    if l_name == 'q': break
+
+    formatted_name = get_formatted_name(f_name, l_name)
+
+    print("Hello, " + formatted_name + "!")
