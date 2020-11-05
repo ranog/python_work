@@ -10,6 +10,7 @@ SINOPSES
     {'artista': 'Pink Floyd', 'album': 'The Dark Side of the Moon'}
     {'artista': 'Nirvana', 'album': 'Nevermind'}
     {'artista': 'Metallica ', 'album': 'Metallica'}
+    {'artista': 'Red Hot Chili Peppers ', 'album': 'Californication', 'faixa': 6}
 
 DESCRIÇÃO
     8.7 – Álbum: Escreva uma função chamada make_album() que construa um
@@ -32,8 +33,11 @@ HISTÓRICO
 """
 
 
-def make_album(nome_artista, titulo_album):
-    albuns = {'artista' : nome_artista, 'album' : titulo_album}
+def make_album(nome_artista, titulo_album, faixas = ''):
+    albuns = {'artista' : nome_artista, 'album' : titulo_album,}
+
+    if faixas:
+        albuns['faixa'] = faixas
 
     print(albuns)
 
@@ -41,3 +45,4 @@ def make_album(nome_artista, titulo_album):
 make_album('Pink Floyd', 'The Dark Side of the Moon')
 make_album('Nirvana', 'Nevermind')
 make_album('Metallica ', 'Metallica')
+make_album('Red Hot Chili Peppers ', 'Californication', 6)
