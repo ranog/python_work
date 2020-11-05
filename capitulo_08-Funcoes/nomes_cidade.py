@@ -31,8 +31,8 @@ HISTÓRICO
 def city_country(cidade, pais):
     full_name = '"' + cidade + ', ' + pais + '"'
 
-    return full_name.title()
+    print(full_name.title())
 
-print(city_country('são paulo', 'brasil'))
-print(city_country('toronto', 'canada'))
-print(city_country('texas', 'estados unidos'))
+city_country('são paulo', 'brasil')
+city_country('toronto', 'canada')
+city_country('texas', 'estados unidos')
