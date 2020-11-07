@@ -7,6 +7,7 @@ NOME
 SINOPSES
     chmod +x magicos.py
     ./magicos.py
+
     Mágicos famosos:
     - Harry Houdini
     - Fu-Manchu
