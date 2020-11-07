@@ -46,6 +46,14 @@ HISTÓRICO
 """
 
 
+"""
+Para enviar a cópia de uma lista para uma função:
+nome_da_função(nome_da_lista[:])
+
+Devemos passar a lista original para as funções, a menos que tenha um
+motivo específico para passar uma cópia.
+
+"""
 def print_models(unprinted_designs, completed_models):
 
     """ Simula a impressão de cada design, até que não haja mais nenhum.
