@@ -25,7 +25,7 @@ DESCRIÇÃO
 
 HISTÓRICO
     20200611: João Paulo, outubro de 2020.
-        - 8.10 - Grandes mágicos (pg 187).
+        - 8.9 - Mágicos (pg 187).
 
 """
 
