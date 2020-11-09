@@ -40,12 +40,26 @@ DESCRIÇÃO
     funções quiser de um módulo separando o nome de cada função com uma
     vírgula: from nome_do_módulo import função_0, função_1, função_2.
 
+    - Usando a palavra reservada as para atribuir um alias a uma função:
+
+    A instrução import no exemplo renomeia a função make_pizza() para
+    mp() nesse programa. Sempre que quiser chamar make_pizza(), você
+    pode simplesmente escrever mp() em seu lugar, e Python executará o
+    código de make_pizza(), ao mesmo tempo que evitará confusão com
+    outra função make_pizza() que você possa ter escrito nesse arquivo
+    de programa.
+
+    A sintaxe geral para fornecer um alias é:
+    from nome_do_módulo import nome_da_função as nf
+
 HISTÓRICO
     20200811: João Paulo, novembro de 2020.
         - Importando um módulo completo (pg 191-192).
 
     20200911: João Paulo, novembro de 2020.
         - Importando funções específicas (pg 192).
+        - Usando a palavra reservada as para atribuir um alias a uma
+        função (pg 192-193).
 
 """
 
@@ -55,7 +69,10 @@ HISTÓRICO
 # pizza.make_pizza(16, 'pepperoni')
 # pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
-from pizza import make_pizza
+from pizza import make_pizza as mp
 
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+#make_pizza(16, 'pepperoni')
+#make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+mp(16, 'pepperoni')
+mp(12, 'mushrooms', 'green peppers', 'extra cheese')
