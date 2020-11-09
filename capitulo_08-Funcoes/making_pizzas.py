@@ -52,6 +52,19 @@ DESCRIÇÃO
     A sintaxe geral para fornecer um alias é:
     from nome_do_módulo import nome_da_função as nf
 
+    - Importando todas as funções de um módulo:
+
+     O asterisco na instrução import diz a Python para copiar todas as
+     funções do módulo pizza para esse arquivo de programa. Como todas
+     as funções são importadas, podemos chamar qualquer função pelo
+     nome, sem usar a notação de ponto. No entanto, é melhor não usar
+     essa abordagem quando trabalhar com módulos maiores, que não foram
+     escritos por você: se o módulo tiver um nome de função que seja
+     igual a um nome existente em seu projeto, você poderá ter alguns
+     resultados inesperados. Python poderá ver várias funções ou
+     variáveis com o mesmo nome e, em vez de importar todas as funções
+     separadamente, ele as sobrescreverá.
+
 HISTÓRICO
     20200811: João Paulo, novembro de 2020.
         - Importando um módulo completo (pg 191-192).
@@ -60,6 +73,7 @@ HISTÓRICO
         - Importando funções específicas (pg 192).
         - Usando a palavra reservada as para atribuir um alias a uma
         função (pg 192-193).
+        - Importando todas as funções de um módulo (pg 193-194).
 
 """
 
@@ -69,10 +83,15 @@ HISTÓRICO
 # pizza.make_pizza(16, 'pepperoni')
 # pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
-from pizza import make_pizza as mp
+# from pizza import make_pizza
 
-#make_pizza(16, 'pepperoni')
-#make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+# make_pizza(16, 'pepperoni')
+# make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
 
-mp(16, 'pepperoni')
-mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+# from pizza import make_pizza as mp
+# mp(16, 'pepperoni')
+# mp(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+from pizza import *
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
