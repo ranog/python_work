@@ -34,14 +34,28 @@ DESCRIÇÃO
     programa executa. Tudo que você precisa saber é que qualquer função
     definida em pizza.py agora estará disponível em making_pizzas.py.
 
+    - Importando funções específicas:
+
+    from nome_do_módulo import nome_da_função Você pode importar quantas
+    funções quiser de um módulo separando o nome de cada função com uma
+    vírgula: from nome_do_módulo import função_0, função_1, função_2.
+
 HISTÓRICO
     20200811: João Paulo, novembro de 2020.
         - Importando um módulo completo (pg 191-192).
 
+    20200911: João Paulo, novembro de 2020.
+        - Importando funções específicas (pg 192).
+
 """
 
 
-import pizza
+# import pizza
 
-pizza.make_pizza(16, 'pepperoni')
-pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+# pizza.make_pizza(16, 'pepperoni')
+# pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+
+from pizza import make_pizza
+
+make_pizza(16, 'pepperoni')
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
