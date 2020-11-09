@@ -65,6 +65,13 @@ DESCRIÇÃO
      variáveis com o mesmo nome e, em vez de importar todas as funções
      separadamente, ele as sobrescreverá.
 
+    A melhor abordagem é importar a função ou as funções que você quiser
+    ou importar o módulo todo e usar a notação de ponto. Isso resulta em
+    um código claro, mais fácil de ler e de entender. Incluí esta seção
+    para que você possa reconhecer instruções import como esta quando as
+    vir no código de outras pessoas:
+    from nome_do_módulo import *
+
 HISTÓRICO
     20200811: João Paulo, novembro de 2020.
         - Importando um módulo completo (pg 191-192).
