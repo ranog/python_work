@@ -45,6 +45,7 @@ def print_models(unprinted_designs, completed_models):
         
         completed_models.append(current_design)
 
+
 def show_completed_models(completed_models):
     """Mostra todos os modelos impressos."""
     print("\nThe following models have been printed:") 
