@@ -74,12 +74,48 @@ DESCRIÇÃO
     controlar um robô, esses métodos direcionariam os movimentos para
     fazer um cachorro-robô sentar e rolar.
 
+    - Criando uma instância a partir de uma classe:
+
+    Dizemos a Python para criar um cachorro de nome 'willie' e idade
+    igual a 6. Quando Python lê essa linha, ele chama o método
+    __init__() de Dog com os argumentos 'willie' e 6. O método
+    __init__() cria uma instância que representa esse cachorro em
+    particular e define os atributos name e age com os valores que
+    fornecemos.
+    Esse método não tem uma instrução return explícita, mas Python
+    devolve automaticamente uma instância que representa esse cachorro.
+    Armazenamos essa instância na variável my_dog. A convenção de
+    nomenclatura é útil nesse caso: em geral, podemos supor que um nome
+    com a primeira letra maiúscula como Dog refere-se a uma classe,
+    enquanto um nome com letras minúsculas como my_dog refere-se a uma
+    única instância criada a partir de uma classe.
+   
+    - Acessando atributos:
+
+    Para acessar os atributos de uma instância utilize a notação de
+    ponto.
+    Acessamos o valor do atributo name de my_dog escrevendo:
+    
+    my_dog.name
+
+    A notação de ponto é usada com frequência em Python. Essa sintaxe
+    mostra como Python encontra o valor de um atributo. Nesse caso, o
+    interpretador olha para a instância my_dog e encontra o atributo 
+    name associado a ela. É o mesmo atributo referenciado como self.name
+    na classe Dog. Usamos a mesma abordagem para trabalhar com o
+    atributo age. Em nossa primeira instrução print, my_dog.name.title()
+    faz com que 'willie' – o valor do atributo name de my_dog – comece
+    com uma letra maiúscula. Na segunda instrução print, str(my_dog.age)
+    converte 6 – o valor do atributo age de my_dog – em uma string.
+    A saída é um resumo do que sabemos sobre my_dog.
+
 HISTÓRICO
     20201011: João Paulo, novembro de 2020.
         - Criando a classe Dog (pg 200-202).
 
     20201111: João Paulo, novembro de 2020.
         - Criando uma instância a partir de uma classe (pg 202-203).
+        - Acessando atributos (pg 203).
 
 """
 
