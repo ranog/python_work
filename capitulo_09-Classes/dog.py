@@ -11,6 +11,9 @@ SINOPSES
     My dog's name is Willie.
     My dog is 6 years old.
 
+    Willie is now sitting.
+    Willie rolled over!
+
 DESCRIÇÃO
     Definimos uma classe chamada Dog. Por convenção, nomes com a
     primeira letra maiúscula referem-se a classes em Python. Os
@@ -109,6 +112,15 @@ DESCRIÇÃO
     converte 6 – o valor do atributo age de my_dog – em uma string.
     A saída é um resumo do que sabemos sobre my_dog.
 
+    - Chamando métodos
+
+    Para chamar um método, especifique o nome da instância (nesse caso,
+    my_dog) e o método que você quer chamar, separados por um ponto.
+
+    Quando Python lê my_dog.sit(), ele procura o método sit() na classe
+    Dog e executa esse código. A linha my_dog.roll_over() é interpretada
+    do mesmo modo.
+
 HISTÓRICO
     20201011: João Paulo, novembro de 2020.
         - Criando a classe Dog (pg 200-202).
@@ -116,6 +128,7 @@ HISTÓRICO
     20201111: João Paulo, novembro de 2020.
         - Criando uma instância a partir de uma classe (pg 202-203).
         - Acessando atributos (pg 203).
+        - Chamando métodos (pg 203-204).
 
 """
 
@@ -143,3 +156,6 @@ my_dog = Dog('willie', 6)
 
 print("\nMy dog's name is " + my_dog.name.title() + ".")
 print("My dog is " + str(my_dog.age) + " years old.\n")
+
+my_dog.sit()
+my_dog.roll_over()
