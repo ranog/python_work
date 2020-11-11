@@ -14,6 +14,11 @@ SINOPSES
     Willie is now sitting.
     Willie rolled over!
 
+    Your dog's name is Lucy.
+    Your dog is 3 years old.
+
+    Lucy is now sitting.
+
 DESCRIÇÃO
     Definimos uma classe chamada Dog. Por convenção, nomes com a
     primeira letra maiúscula referem-se a classes em Python. Os
@@ -121,6 +126,15 @@ DESCRIÇÃO
     Dog e executa esse código. A linha my_dog.roll_over() é interpretada
     do mesmo modo.
 
+    - Criando várias instâncias:
+
+    Nesse exemplo, criamos um cachorro chamado Willie e uma cadela de
+    nome Lucy. Cada cachorro é uma instância separada, com seu próprio
+    conjunto de atributos, capaz de realizar o mesmo conjunto de ações.
+
+    Mesmo que usássemos o mesmo nome e a mesma idade para o segundo
+    cachorro, Python criaria uma instância separada da classe Dog.
+
 HISTÓRICO
     20201011: João Paulo, novembro de 2020.
         - Criando a classe Dog (pg 200-202).
@@ -129,6 +143,7 @@ HISTÓRICO
         - Criando uma instância a partir de uma classe (pg 202-203).
         - Acessando atributos (pg 203).
         - Chamando métodos (pg 203-204).
+        - Criando várias instâncias (pg 204).
 
 """
 
@@ -159,3 +174,10 @@ print("My dog is " + str(my_dog.age) + " years old.\n")
 
 my_dog.sit()
 my_dog.roll_over()
+
+your_dog = Dog('lucy', 3)
+
+print("\nYour dog's name is " + your_dog.name.title() + ".")
+print("Your dog is " + str(your_dog.age) + " years old.\n")
+
+your_dog.sit()
