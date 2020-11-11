@@ -5,7 +5,11 @@ NOME
     dog.py - Criando a classe Dog.
 
 SINOPSES
+    chmod +x dog.py
+    ./dog.py
 
+    My dog's name is Willie.
+    My dog is 6 years old.
 
 DESCRIÇÃO
     Definimos uma classe chamada Dog. Por convenção, nomes com a
@@ -75,7 +79,8 @@ HISTÓRICO
         - Criando a classe Dog (pg 200-202).
 
     20201111: João Paulo, novembro de 2020.
-        - Anotações.
+        - Criando uma instância a partir de uma classe (pg 202-203).
+
 """
 
 
@@ -96,3 +101,9 @@ class Dog():
     def roll_over(self):
         """Simula um cachorro rolando em resposta a um comando."""
         print(self.name.title() + " rolled over!")
+
+
+my_dog = Dog('willie', 6)
+
+print("\nMy dog's name is " + my_dog.name.title() + ".")
+print("My dog is " + str(my_dog.age) + " years old.\n")
