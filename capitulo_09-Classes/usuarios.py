@@ -7,20 +7,22 @@ NOME
 SINOPSES
     chmod +x usuarios.py
     ./usuarios.py
-Nome completo: MarioSchenberg
-Username: mschenberg
-e-mail: mario@schenberg.com.br
-Olá, Mario, obrigado por se cadastrar.
 
-Nome completo: ManoelAmoroso Costa
-Username: macosta
-e-mail: manoel@costa.com.br
-Olá, Manoel, obrigado por se cadastrar.
+    Nome completo: MarioSchenberg
+    Username: mschenberg
+    e-mail: mario@schenberg.com.br
+    Olá, Mario, obrigado por se cadastrar.
 
-Nome completo: AbrahãoDe Moraes
-Username: amores
-e-mail: abrahao@moraes.com.br
-Olá, Abrahão, obrigado por se cadastrar.
+    Nome completo: ManoelAmoroso Costa
+    Username: macosta
+    e-mail: manoel@costa.com.br
+    Olá, Manoel, obrigado por se cadastrar.
+
+    Nome completo: AbrahãoDe Moraes
+    Username: amores
+    e-mail: abrahao@moraes.com.br
+    Olá, Abrahão, obrigado por se cadastrar.
+
 DESCRIÇÃO
     9.3 – Usuários: Crie uma classe chamada User. Crie dois atributos de
     nomes first_name e last_name e, então, crie vários outros atributos
@@ -39,7 +41,7 @@ HISTÓRICO
 
 
 class User():
-    """Um modelo simples de um perfil de usuário.1"""
+    """Um modelo simples de um perfil de usuário."""
 
     def __init__(self, first_name, last_name, username, email):
         self.first_name = first_name
@@ -47,15 +49,19 @@ class User():
         self.username = username
         self.email = email
 
+
     def describe_user(self):
         """Resumo das informações do usuário."""
         print("\nNome completo: " + self.first_name.title() +
               self.last_name.title())
         print("Username: " + self.username.lower())
         print("e-mail: " + self.email.lower())
+
+
     def greet_user(self):
         """Mostra uma saudação personalizada para o usuário."""
         print("Olá, " + self.first_name.title() + ", obrigado por se cadastrar.")
+
 
 usuario = User('mario', 'schenberg','mschenberg', 'mario@schenberg.com.br') 
 usuario.describe_user()
