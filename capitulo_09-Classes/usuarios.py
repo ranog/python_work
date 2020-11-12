@@ -8,20 +8,20 @@ SINOPSES
     chmod +x usuarios.py
     ./usuarios.py
 
-    Nome completo: MarioSchenberg
+    Nome completo: Mario Schenberg
     Username: mschenberg
     e-mail: mario@schenberg.com.br
     Olá, Mario, obrigado por se cadastrar.
 
-    Nome completo: ManoelAmoroso Costa
+    Nome completo: Manoel Amoroso Costa
     Username: macosta
     e-mail: manoel@costa.com.br
     Olá, Manoel, obrigado por se cadastrar.
 
-    Nome completo: AbrahãoDe Moraes
+    Nome completo: Abrahão De Moraes
     Username: amores
     e-mail: abrahao@moraes.com.br
-    Olá, Abrahão, obrigado por se cadastrar.
+    Olá, Abrahão, obrigado por se cadastraii
 
 DESCRIÇÃO
     9.3 – Usuários: Crie uma classe chamada User. Crie dois atributos de
@@ -52,7 +52,7 @@ class User():
 
     def describe_user(self):
         """Resumo das informações do usuário."""
-        print("\nNome completo: " + self.first_name.title() +
+        print("\nNome completo: " + self.first_name.title() + " " +
               self.last_name.title())
         print("Username: " + self.username.lower())
         print("e-mail: " + self.email.lower())
