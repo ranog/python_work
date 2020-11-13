@@ -8,6 +8,7 @@ SINOPSES
     chmod +x car.py
     ./car.py
     2016 Audi A4
+    This car has 0 miles on it.
 
 DESCRIÇÃO
     Na classe Car definimos o método __init__() com o parâmetro self em
@@ -26,9 +27,19 @@ DESCRIÇÃO
     variável my_new_car. Então chamamos get_descriptive_name() para
     mostrar o tipo de carro.
 
+    - Definindo um valor default para um atributo:
+
+    Dessa vez, quando Python chama o método __init__() para criar uma
+    nova instância, os valores para o fabricante, o modelo e o ano são
+    armazenados como atributos, como fizemos no exemplo anterior. Em
+    seguida, Python cria um novo atributo chamado odometer_reading e
+    define seu valor inicial com 0. Também temos um novo método de nome
+    read_odometer() que facilita a leitura da milhagem de um carro.
+
 HISTÓRICO
     20201211: João Paulo, novembro de 2020.
         - Classe Car (pg 205-206).
+        - Definindo um valor default para um atributo (pg 206-207).
 
 """
 
@@ -42,6 +53,7 @@ class Car():
         self.model = model
         self.year = year
 
+        self.odometer_reading = 0
 
     def get_descriptive_name(self):
         """Devolve um nome descritivo, formatado de modo elegante."""
@@ -49,7 +61,12 @@ class Car():
 
         return long_name.title()
 
+    def read_odometer(self):
+        """Exibe uma frase que mostra a milhagem do carro."""
+        print("This car has " + str(self.odometer_reading) + " miles on it.")
+
 
 my_new_car = Car('audi', 'a4', 2016)
 
 print(my_new_car.get_descriptive_name())
+my_new_car.read_odometer()
