@@ -62,18 +62,54 @@ class Restaurant():
         self.cuisine_type = cuisine_type
         self.number_served = 0
 
+
     def describe_restaurant(self):
         """Descreve o restaurante"""
-        print("\nO " + self.restaurant_name.title() +
-              " tem uma culinária " + self.cuisine_type + ".")
+        print("\nRestaurante: " + self.restaurant_name.title() +
+              "\nCulinária: " + self.cuisine_type.title())
+
 
     def open_restaurant(self):
         """Horário de funcionamento do restaurante"""
-        print("- Horário de funcionamento:\n\t06:00-11:00\n\t11:30-23:00") 
+        print("- Horário de funcionamento:\n\t06:00-11:00\n\t11:30-23:00")
+
+
+    def numero_clientes(self):
+        """Apresenta o número de clientes atendidos pelo restaurante.
+        """
+        print("- Foram atendidos " + str(self.number_served) + " clientes.")
+
+    def set_number_served(self, clientes):
+        """Permite definir o número de clientes atendidos
+        """
+        if clientes >= 0:
+            self.number_served = clientes
+
+
+    def increment_number_served(self, cliente):
+        """Incrementa o número de clientes servidos.
+        """
+        self.number_served += cliente
+        print("- Atendemos " + str(self.number_served) +
+              " clientes em um dia de funcionamento.")
 
 restaurante = Restaurant('alcazar', 'tradicional')
 
 restaurante.describe_restaurant()
 restaurante.open_restaurant()
 
-print("\n9.4 – Pessoas atendidas: ") 
+print("\n9.4 – Pessoas atendidas: ")
+restaurant = Restaurant('bom boi', 'churrascaria')
+restaurant.describe_restaurant()
+#restaurant.number_served = 42
+#restaurant.numero_clientes()
+#restaurant.number_served = 13
+#restaurant.numero_clientes()
+
+restaurant.set_number_served(42)
+restaurant.numero_clientes()
+
+restaurant.set_number_served(13)
+restaurant.numero_clientes()
+
+restaurant.increment_number_served(42)
