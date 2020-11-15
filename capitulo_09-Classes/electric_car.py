@@ -9,6 +9,10 @@ SINOPSES
     ./electric_car.py
     2016 Tesla Model S
     This car has a 70-kWh battery.
+    This car doesn't need a gas tank!
+
+    1990 Lamborghini Lm002
+    Tank capacity is 290 L.
 
 DESCRIÇÃO
     Começamos com Car. Quando criamos uma classe-filha, a classe-pai
@@ -61,6 +65,9 @@ HISTÓRICO
         - Método __init__() de uma classe-filha (pg 211-212).
         - Definindo atributos e métodos da classe-filha (pg 212-213).
 
+    20201511: João Paulo, novembro de 2020.
+        - Sobrescrevendo métodos da classe-pai (pg 214).
+
 """
 
 
@@ -106,6 +113,10 @@ class Car():
         self.odometer_reading += miles
 
 
+    def fill_gas_tank(self):
+        print("Tank capacity is 290 L.")
+
+
 class ElectricCar(Car):
     """Representa aspectos específicos de veículos elétricos.
     """
@@ -123,7 +134,20 @@ class ElectricCar(Car):
         print("This car has a " + str(self.battery_size) + "-kWh battery.")
 
 
+    def fill_gas_tank(self):
+        """Carros elétricos não têm tanques de gasolina.
+        """
+        print("This car doesn't need a gas tank!")
+
+
 my_tesla = ElectricCar('tesla', 'model s', 2016)
 
 print(my_tesla.get_descriptive_name())
 my_tesla.describe_battery()
+my_tesla.fill_gas_tank()
+
+print()
+
+my_car = Car('lamborghini', 'LM002', 1990)
+print(my_car.get_descriptive_name())
+my_car.fill_gas_tank()
