@@ -9,6 +9,7 @@ SINOPSES
     ./electric_car.py
     2016 Tesla Model S
     This car has a 70-kWh battery.
+    This car can go approximately 240 miles on a full charge.
     This car doesn't need a gas tank!
 
     1990 Lamborghini Lm002
@@ -61,6 +62,33 @@ DESCRIÇÃO
     elétricos.
 
     - Instâncias como atributos:
+
+    Definimos uma nova classe chamada Battery que não herda de nenhuma
+    outra classe. O método __init__() tem um parâmetro, battery_size,
+    além de self. É um parâmetro opcional que define a capacidade da
+    bateria com 70 se nenhum valor for especificado. O método
+    describe_battery() também foi transferido para essa classe.
+    Na classe ElectricCar, adicionamos um atributo chamado self.battery.
+    Essa linha diz a Python para criar uma nova instância de Battery
+    (com capacidade default de 70, pois não estamos especificando nenhum
+    valor) e armazenar essa instância no atributo self.battery. Isso
+    acontecerá sempre que o método __init__() for chamado; qualquer
+    instância de ElectricCar agora terá uma instância de Battery criada
+    automaticamente.
+    Criamos um carro elétrico e o armazenamos na variável my_tesla.
+    Quando quisermos descrever a bateria, precisaremos trabalhar com o
+    atributo battery do carro: my_tesla.battery.describe_battery() Essa
+    linha diz a Python para usar a instância my_tesla, encontrar seu
+    atributo battery e chamar o método describe_battery() associado à
+    instância de Battery armazenada no atributo.
+    A saída é idêntica àquela que vimos antes.
+
+    O novo método get_range() efetua uma análise simples. Se a
+    capacidade da bateria for de 70 kWh, get_range() define o alcance do
+    carro com 240 milhas; se a capacidade for de 85 kWh, o alcance será
+    definido com 270 milhas. Esse valor é então apresentado. Quando
+    quisermos usar esse método, novamente, devemos chamá-lo por meio do
+    atributo battery do carro.
 
 HISTÓRICO
     20201411: João Paulo, novembro de 2020.
@@ -120,6 +148,35 @@ class Car():
         print("Tank capacity is 290 L.")
 
 
+class Battery():
+    """Uma tentativa simples de modelar uma bateria para um carro elétrico.
+    """
+    def __init__(self, battery_size=70):
+        """Inicializa os atributos da bateria.
+        """
+        self.battery_size = battery_size
+
+
+    def describe_battery(self):
+        """Exibe uma frase que descreve a capacidade da bateria.
+        """
+        print("This car has a " + str(self.battery_size) + "-kWh battery.")
+
+
+    def get_range(self):
+        """Exibe uma frase sobre a distância que o carro é capaz de
+        percorrer com essa bateria.
+        """
+        if self.battery_size == 70:
+            range = 240
+        elif self.battery_size == 85:
+            range = 270
+
+        message = "This car can go approximately " + str(range) 
+        message += " miles on a full charge."
+
+        print(message)
+
 class ElectricCar(Car):
     """Representa aspectos específicos de veículos elétricos.
     """
@@ -128,7 +185,7 @@ class ElectricCar(Car):
         os atributos específicos de um carro elétrico.
         """
         super().__init__(make, model, year)
-        self.battery_size = 70
+        self.battery = Battery()
 
 
     def describe_battery(self):
@@ -146,8 +203,10 @@ class ElectricCar(Car):
 my_tesla = ElectricCar('tesla', 'model s', 2016)
 
 print(my_tesla.get_descriptive_name())
-my_tesla.describe_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
 my_tesla.fill_gas_tank()
+
 
 print()
 
