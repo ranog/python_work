@@ -60,6 +60,8 @@ DESCRIÇÃO
     para as informações e comportamentos específicos de veículos
     elétricos.
 
+    - Instâncias como atributos:
+
 HISTÓRICO
     20201411: João Paulo, novembro de 2020.
         - Método __init__() de uma classe-filha (pg 211-212).
@@ -67,6 +69,7 @@ HISTÓRICO
 
     20201511: João Paulo, novembro de 2020.
         - Sobrescrevendo métodos da classe-pai (pg 214).
+        - Instâncias como atributos (pg 214-216).
 
 """
 
