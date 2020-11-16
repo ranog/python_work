@@ -90,6 +90,16 @@ DESCRIÇÃO
     quisermos usar esse método, novamente, devemos chamá-lo por meio do
     atributo battery do carro.
 
+    9.9 – Upgrade de bateria: Use a última versão de electric_car.py
+    desta seção.
+    Acrescente um método chamado upgrade_battery() na classe Battery.
+    Esse método deve verificar a capacidade da bateria e defini-la com
+    85 se o valor for diferente. Crie um carro elétrico com uma
+    capacidade de bateria default, chame get_range() uma vez e, em
+    seguida, chame get_range() uma segunda vez após fazer um upgrade da
+    bateria. Você deverá ver um aumento na distância que o carro é capaz
+    de percorrer.
+
 HISTÓRICO
     20201411: João Paulo, novembro de 2020.
         - Método __init__() de uma classe-filha (pg 211-212).
@@ -98,6 +108,9 @@ HISTÓRICO
     20201511: João Paulo, novembro de 2020.
         - Sobrescrevendo métodos da classe-pai (pg 214).
         - Instâncias como atributos (pg 214-216).
+
+    20201611: João Paulo, novembro de 2020.
+        - 9.9 – Upgrade de bateria (pg 218).
 
 """
 
@@ -176,6 +189,13 @@ class Battery():
         message += " miles on a full charge."
 
         print(message)
+
+
+    def upgrade_battery(self):
+        """Verificar a capacidade da bateria e defini com 85 se o valor
+        for diferente.
+        """
+        
 
 class ElectricCar(Car):
     """Representa aspectos específicos de veículos elétricos.
