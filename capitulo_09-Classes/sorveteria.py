@@ -96,8 +96,8 @@ class IceCreamStand(Restaurant):
 
         print("Flavors: ")
 
-        for flavor in self.flavors:
-            print("- " + flavor.title())
+        for self_flavor in self.flavors:
+            print("- " + self_flavor.title())
 
 
 sorveteria = IceCreamStand('giolitti', 'sorveteria tradicional')
