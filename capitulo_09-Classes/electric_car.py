@@ -7,10 +7,14 @@ NOME
 SINOPSES
     chmod +x electric_car.py
     ./electric_car.py
+    
     2016 Tesla Model S
     This car has a 70-kWh battery.
-    This car can go approximately 240 miles on a full charge.
     This car doesn't need a gas tank!
+    This car can go approximately 240 miles on a full charge.
+
+    This car has a 85-kWh battery.
+    This car can go approximately 270 miles on a full charge.
 
     1990 Lamborghini Lm002
     Tank capacity is 290 L.
@@ -195,6 +199,8 @@ class Battery():
         """Verificar a capacidade da bateria e defini com 85 se o valor
         for diferente.
         """
+        if self.battery_size != 85:
+            self.battery_size = 85
         
 
 class ElectricCar(Car):
@@ -224,9 +230,14 @@ my_tesla = ElectricCar('tesla', 'model s', 2016)
 
 print(my_tesla.get_descriptive_name())
 my_tesla.battery.describe_battery()
-my_tesla.battery.get_range()
 my_tesla.fill_gas_tank()
+my_tesla.battery.get_range()
 
+print()
+
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
 
 print()
 
