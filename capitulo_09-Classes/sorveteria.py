@@ -82,7 +82,7 @@ class IceCreamStand(Restaurant):
     """
     def __init__(self, restaurant_name, cuisine_type):
         """Inicializa os atributos da classe-pai (Restaurant).
-        E armazene uma lista de sabores de sorvete.
+        E inicializa uma lista de sabores de sorvete (self.flavors).
         """
         super().__init__(restaurant_name, cuisine_type)
         self.flavors = []
