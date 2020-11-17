@@ -67,6 +67,12 @@ DESCRIÇÃO
     show_privileges() para mostrar que tudo está funcionando de forma
     apropriada.
 
+
+    9.12 – Vários módulos: Armazene a classe User em um módulo e as 
+    classes Privileges e Admin em um módulo separado. Em outro arquivo,
+    crie uma instância de Admin e chame show_privileges() para mostrar
+    que tudo continua funcionando de forma apropriada.
+
 HISTÓRICO
     20201211: João Paulo, novembro de 2020.
         - 9.3 – Usuários (pg 204).
@@ -75,12 +81,13 @@ HISTÓRICO
         - 9.5 – Tentativas de login (pg 210).
 
     20201711: João Paulo, novembro de 2020.
-       - 9.11 – Importando Admin (pg 224).
-
+        - 9.11 – Importando Admin (pg 224).
+        - 9.12 – Vários módulos (pg 224).
 """
 
 
-from privilegios import User, Privileges, Admin
+from user import User
+from privilegios import Privileges, Admin
 
 
 usuario = User('mario', 'schenberg','mschenberg', 'mario@schenberg.com.br') 
