@@ -16,17 +16,31 @@ DESCRIÇÃO
     poderá criar quantas instâncias de cada classe quantas forem
     necessárias.
 
+    - Importando um módulo completo:
+    Importamos o módulo car inteiro. Então acessamos as classes
+    necessárias por meio da sintaxe nome_do_módulo.nome_da_classe.
+    Criamos novamente um Volkswagen Beetle e um Tesla Roadster.
+
 HISTÓRICO
     20201711: João Paulo, novembro de 2020.
         - Importando várias classes de um módulo (pg 221).
+        - Importando um módulo completo (pg 221).
 
 """
 
 
-from car import Car, ElectricCar
+#from car import Car, ElectricCar
 
-my_beetle = Car('volkswagen', 'beetle', 2016)
+#my_beetle = Car('volkswagen', 'beetle', 2016)
+#print(my_beetle.get_descriptive_name())
+
+#my_tesla = ElectricCar('tesla', 'roadster', 2016)
+#print(my_tesla.get_descriptive_name())
+
+import car
+
+my_beetle = car.Car('volkswagem', 'beetle', 2016)
 print(my_beetle.get_descriptive_name())
 
-my_tesla = ElectricCar('tesla', 'roadster', 2016)
+my_tesla = car.ElectricCar('tesla', 'roadster', 2016)
 print(my_tesla.get_descriptive_name())
