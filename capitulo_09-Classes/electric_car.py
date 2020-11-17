@@ -116,54 +116,17 @@ HISTÓRICO
     20201611: João Paulo, novembro de 2020.
         - 9.9 – Upgrade de bateria (pg 218).
 
+    20201711: João Paulo, novembro de 2020.
+        - Importando um módulo em um módulo. (pg 222-223).
+
 """
 
 
-class Car():
-    """Uma tentativa simples de representar um carro."""
+"""Um conjunto de classes que pode ser usado para representar carros
+elétricos.
+"""
 
-    def __init__(self, make, model, year):
-        """Inicializa os atributos que descrevem um carro."""
-        self.make = make
-        self.model = model
-        self.year = year
-
-        self.odometer_reading = 0
-
-
-    def get_descriptive_name(self):
-        """Devolve um nome descritivo, formatado de modo elegante."""
-        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
-
-        return long_name.title()
-
-
-    def read_odometer(self):
-        """Exibe uma frase que mostra a milhagem do carro."""
-        print("This car has " + str(self.odometer_reading) + " miles on it.")
-
-
-    # Modificando o valor de um atributo com um método:
-    def update_odometer(self, mileage):
-        """Define o valor de leitura do hodômetro com o valor
-        especificado. Rejeita a alteração se for tentativa de definir
-        um valor menor para o hodômetro."""
-        if mileage >= self.odometer_reading:
-            self.odometer_reading = mileage
-        else:
-            print("You can't roll back an odometer!")
-
-
-    # Incrementando o valor de um atributo com um método
-    def increment_odometer(self, miles):
-        """Soma a quantidade especificada ao valor de leitura do
-        hodômetro."""
-        self.odometer_reading += miles
-
-
-    def fill_gas_tank(self):
-        print("Tank capacity is 290 L.")
-
+from car import Car
 
 class Battery():
     """Uma tentativa simples de modelar uma bateria para um carro elétrico.
@@ -224,23 +187,3 @@ class ElectricCar(Car):
         """Carros elétricos não têm tanques de gasolina.
         """
         print("This car doesn't need a gas tank!")
-
-
-my_tesla = ElectricCar('tesla', 'model s', 2016)
-
-print(my_tesla.get_descriptive_name())
-my_tesla.battery.describe_battery()
-my_tesla.fill_gas_tank()
-my_tesla.battery.get_range()
-
-print()
-
-my_tesla.battery.upgrade_battery()
-my_tesla.battery.describe_battery()
-my_tesla.battery.get_range()
-
-print()
-
-my_car = Car('lamborghini', 'LM002', 1990)
-print(my_car.get_descriptive_name())
-my_car.fill_gas_tank()
