@@ -7,11 +7,21 @@ NOME
 SINOPSES
     chmod +x restaurante.py
     ./restaurante.py
+    9.1 – Restaurante:
 
-    O Alcazar tem uma culinária tradicional.
+    Restaurante: Alcazar
+    Culinária: Tradicional
     - Horário de funcionamento:
-            06:00-11:00
-            11:30-23:00
+	    06:00-11:00
+	    11:30-23:00
+
+    9.4 – Pessoas atendidas:
+
+    Restaurante: Bom Boi
+    Culinária: Churrascaria
+    - Foram atendidos 42 clientes.
+    - Foram atendidos 13 clientes.
+    - Atendemos 55 clientes em um dia de funcionamento.
 
 DESCRIÇÃO
     9.1 – Restaurante: Crie uma classe chamada Restaurant.
@@ -23,7 +33,7 @@ DESCRIÇÃO
     Crie uma instância chamada restaurant a partir de sua classe. Mostre
     os dois atributos individualmente e, em seguida, chame os dois
     métodos.
-    
+
     acesso ao site (11 de novembro de 2020):
         https://www.google.com/amp/s/viagemeturismo.abril.com.br/
         especiais/os-restaurantes-mais-classicos-de-sao-paulo-por
@@ -43,6 +53,12 @@ DESCRIÇÃO
     qualquer número que você quiser e que represente quantos clientes
     foram atendidos, por exemplo, em um dia de funcionamento.
 
+    9.10 – Importando Restaurant: Usando sua classe Restaurant mais
+    recente, armazene-a em um módulo. Crie um arquivo separado que
+    importe Restaurant.
+    Crie uma instância de Restaurant e chame um de seus métodos para
+    mostrar que a instrução import funciona de forma apropriada.
+
 HISTÓRICO
     20201111: João Paulo, novembro de 2020.
         - 9.1 – Restaurante (pg 204).
@@ -50,66 +66,31 @@ HISTÓRICO
     20201311: João Paulo, novembro de 2020.
         - 9.4 – Pessoas atendidas (pg 210).
 
+    20201711: João Paulo, novembro de 2020.
+        - 9.10 – Importando Restaurant (pg 223-224).
+
 """
 
 
-class Restaurant():
-    """Modela um restaurante"""
-
-    def __init__(self, restaurant_name, cuisine_type):
-        """Inicializa os atributos restaurant_name e cuisine_type"""
-        self.restaurant_name = restaurant_name
-        self.cuisine_type = cuisine_type
-        self.number_served = 0
+import restaurant
 
 
-    def describe_restaurant(self):
-        """Descreve o restaurante"""
-        print("\nRestaurante: " + self.restaurant_name.title() +
-              "\nCulinária: " + self.cuisine_type.title())
-
-
-    def open_restaurant(self):
-        """Horário de funcionamento do restaurante"""
-        print("- Horário de funcionamento:\n\t06:00-11:00\n\t11:30-23:00")
-
-
-    def numero_clientes(self):
-        """Apresenta o número de clientes atendidos pelo restaurante.
-        """
-        print("- Foram atendidos " + str(self.number_served) + " clientes.")
-
-    def set_number_served(self, clientes):
-        """Permite definir o número de clientes atendidos
-        """
-        if clientes >= 0:
-            self.number_served = clientes
-
-
-    def increment_number_served(self, cliente):
-        """Incrementa o número de clientes servidos.
-        """
-        self.number_served += cliente
-        print("- Atendemos " + str(self.number_served) +
-              " clientes em um dia de funcionamento.")
-
-restaurante = Restaurant('alcazar', 'tradicional')
+print("\n9.1 – Restaurante: ")
+restaurante = restaurant.Restaurant('alcazar', 'tradicional')
 
 restaurante.describe_restaurant()
 restaurante.open_restaurant()
 
 print("\n9.4 – Pessoas atendidas: ")
-restaurant = Restaurant('bom boi', 'churrascaria')
+restaurant = restaurant.Restaurant('bom boi', 'churrascaria')
+
 restaurant.describe_restaurant()
 #restaurant.number_served = 42
 #restaurant.numero_clientes()
 #restaurant.number_served = 13
 #restaurant.numero_clientes()
-
 restaurant.set_number_served(42)
 restaurant.numero_clientes()
-
 restaurant.set_number_served(13)
 restaurant.numero_clientes()
-
 restaurant.increment_number_served(42)
