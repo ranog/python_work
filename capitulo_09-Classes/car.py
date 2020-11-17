@@ -5,16 +5,7 @@ NOME
     car.py - Classe Car.
 
 SINOPSES
-    chmod +x car.py
-    ./car.py
-    2016 Audi A4
-    This car has 23 miles on it.
-    This car has 46 miles on it.
-    You can't roll back an odometer!
-
-    2013 Subaru Outback
-    This car has 23500 miles on it.
-    This car has 23600 miles on it.
+    from car import Car
 
 DESCRIÇÃO
     Na classe Car definimos o método __init__() com o parâmetro self em
@@ -75,6 +66,12 @@ DESCRIÇÃO
     increment_odometer() e passamos o valor 100 para somar as cem milhas
     que dirigimos entre comprar o carro e registrá-lo.
 
+    - Importando uma única classe:
+
+    Incluímos uma docstring no nível de módulo que descreve rapidamente
+    o conteúdo desse módulo. Escreva uma docstring para cada módulo que
+    criar.
+
 HISTÓRICO
     20201211: João Paulo, novembro de 2020.
         - Classe Car (pg 205-206).
@@ -83,9 +80,14 @@ HISTÓRICO
     20201311: João Paulo, novembro de 2020.
         - Modificando valores de atributos (pg 207-210).
 
+    20201611: João Paulo, novembro de 2020.
+        - Importando uma única classe (pg 218-219).
+
 """
 
 
+"""Uma classe que pode ser usada para representar um carro.
+"""
 class Car():
     """Uma tentativa simples de representar um carro."""
 
@@ -124,27 +126,3 @@ class Car():
         """Soma a quantidade especificada ao valor de leitura do
         hodômetro."""
         self.odometer_reading += miles
-
-
-my_new_car = Car('audi', 'a4', 2016)
-
-print(my_new_car.get_descriptive_name())
-
-# Modificando o valor de um atributo diretamente:
-my_new_car.odometer_reading = 23
-my_new_car.read_odometer()
-
-# Modificando o valor de um atributo com um método:
-my_new_car.update_odometer(46)
-my_new_car.read_odometer()
-
-my_new_car.update_odometer(13)
-
-print()
-# Incrementando o valor de um atributo com um método:
-my_used_car = Car('subaru', 'outback', 2013)
-print(my_used_car.get_descriptive_name())
-my_used_car.update_odometer(23500)
-my_used_car.read_odometer()
-my_used_car.increment_odometer(100)
-my_used_car.read_odometer()
