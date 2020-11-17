@@ -21,10 +21,22 @@ SINOPSES
     Nome completo: Abrahão De Moraes
     Username: amores
     e-mail: abrahao@moraes.com.br
-    Olá, Abrahão, obrigado por se cadastraii
+    Olá, Abrahão, obrigado por se cadastrar.
 
     - Logins: 10
     - Reset Logins: 0
+
+    Cadastro do administrador do sistema:
+
+    Nome completo: Johnny Ramnog
+    Username: ranog
+    e-mail: johnny@ranog.com.br
+    Olá, Johnny, obrigado por se cadastrar.
+
+    Lista de privilégios de administrador:
+    - can add post
+    - can delete post
+    - can ban user
 
 DESCRIÇÃO
     9.3 – Usuários: Crie uma classe chamada User. Crie dois atributos de
@@ -48,6 +60,13 @@ DESCRIÇÃO
     reset_login_attempts(). Exiba login_attempts novamente para
     garantir que seu valor foi reiniciado com 0.
 
+
+    9.11 – Importando Admin: Comece com seu programa do Exercício 9.8
+    (página 241). Armazene as classes User, Privileges e Admin em um
+    módulo. Crie um arquivo separado e uma instância de Admin e chame
+    show_privileges() para mostrar que tudo está funcionando de forma
+    apropriada.
+
 HISTÓRICO
     20201211: João Paulo, novembro de 2020.
         - 9.3 – Usuários (pg 204).
@@ -55,45 +74,13 @@ HISTÓRICO
     20201311: João Paulo, novembro de 2020.
         - 9.5 – Tentativas de login (pg 210).
 
+    20201711: João Paulo, novembro de 2020.
+       - 9.11 – Importando Admin (pg 224).
+
 """
 
 
-class User():
-    """Um modelo simples de um perfil de usuário.
-    """
-    def __init__(self, first_name, last_name, username, email):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.username = username
-        self.email = email
-        self.login_attempts = 0
-
-
-    def describe_user(self):
-        """Resumo das informações do usuário.
-        """
-        print("\nNome completo: " + self.first_name.title() + " " +
-              self.last_name.title())
-        print("Username: " + self.username.lower())
-        print("e-mail: " + self.email.lower())
-
-
-    def greet_user(self):
-        """Mostra uma saudação personalizada para o usuário.
-        """
-        print("Olá, " + self.first_name.title() + ", obrigado por se cadastrar.")
-
-
-    def increment_login_attempts(self):
-        """Incrementa o valor de login_attempts em 1.
-        """
-        self.login_attempts += 1
-
-
-    def reset_login_attempts(self):
-        """Reinicia o valor de login_attempts com 0.
-        """
-        self.login_attempts = 0
+from privilegios import User, Privileges, Admin
 
 
 usuario = User('mario', 'schenberg','mschenberg', 'mario@schenberg.com.br') 
@@ -123,3 +110,10 @@ print("\n- Logins: " + str(usuario.login_attempts))
 
 usuario.reset_login_attempts()
 print("- Reset Logins: " + str(usuario.login_attempts))
+
+
+print("\nCadastro do administrador do sistema: ")
+root = Admin('johnny', 'ramnog','ranog', 'johnny@ranog.com.br')
+root.describe_user()
+root.greet_user()
+root.privileges.show_privileges()

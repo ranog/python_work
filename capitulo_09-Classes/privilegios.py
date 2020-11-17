@@ -5,18 +5,7 @@ NOME
     privilegios.py - FAÇA VOÇE MESMO.
 
 SINOPSES
-    chmod +x privilegios.py
-    ./privilegios.py
-
-    Nome completo: Mario Schenberg
-    Username: mschenberg
-    e-mail: mario@schenberg.com.br
-    Olá, Mario, obrigado por se cadastrar.
-
-    Lista de privilégios de administrador:
-    - can add post
-    - can delete post
-    - can ban user
+    from nome_do_módulo import nome_da_classe, nome_da_classe, ...
 
 DESCRIÇÃO
     9.8 – Privilégios: Escreva uma classe Privileges separada. A classe
@@ -26,9 +15,20 @@ DESCRIÇÃO
     como um atributo da classe Admin. Crie uma nova instância de Admin e
     use seu método para exibir os privilégios.
 
+
+    9.11 - Importando Admin: Comece com seu programa do Exercício 9.8
+    (página 241). Armazene as classes User, Privileges e Admin em um
+    módulo. Crie um arquivo separado e uma instância de Admin e chame
+    show_privileges() para mostrar que tudo está funcionando de forma
+    apropriada.
+
+
 HISTÓRICO
     20201611: João Paulo, novembro de 2020.
         - 9.8 – Privilégios (pg 217).
+
+    20201711: João Paulo, novembro de 2020.
+        - 9.11 – Importando Admin (pg 224).
 
 """
 
@@ -98,10 +98,3 @@ class Admin(User):
         """
         super().__init__(first_name, last_name, username, email)
         self.privileges = Privileges()
-
-
-root = Admin('mario', 'schenberg','mschenberg', 'mario@schenberg.com.br') 
-root.describe_user()
-root.greet_user()
-
-root.privileges.show_privileges()
