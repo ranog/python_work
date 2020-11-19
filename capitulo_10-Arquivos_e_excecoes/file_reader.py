@@ -61,15 +61,31 @@ DESCRIÇÃO
     remover essa linha em branco extra, rstrip() pode ser usada na
     instrução print.
 
+
+    - Lendo dados linha a linha:
+        Armazenamos o nome do arquivo que estamos lendo em uma variável
+        filename. Essa é uma convenção comum quando trabalhamos com
+        arquivos. Como a variável filename não representa o arquivo
+        propriamente dito – é apenas uma string que diz a Python em que
+        lugar o arquivo se encontra – você pode facilmente trocar
+        'pi_digits.txt' pelo nome de outro arquivo com o qual você
+        queira trabalhar. Depois da chamada a open(), um objeto que
+        representa o arquivo e seu conteúdo é armazenado na variável
+        file_object. Novamente, usamos a sintaxe with para deixar Python
+        abrir e fechar o arquivo de modo apropriado. Para analisar o
+        conteúdo do arquivo, trabalhamos com cada linha do arquivo
+        percorrendo o objeto arquivo em um laço.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20201911: João Paulo, novembro de 2020.
         - Lendo um arquivo inteiro (pg 230-231).
+        - Lendo dados linha a linha (pg 233-234).
 
 """
 
-
+"""
 with open('pi_digits.txt') as file_object:
     contents = file_object.read()
 
@@ -79,3 +95,12 @@ with open('pi_digits.txt') as file_object:
     # do lado direito de uma string. Agora a saída será exatamente igual
     # ao conteúdo do arquivo original:
     print(contents.rstrip())
+"""
+
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+
+    for line in file_object:
+        print(line.rstrip()) # XXX Se usarmos rstrip() em cada linha na
+        # instrução print, eliminamos essas linhas em branco extras.
