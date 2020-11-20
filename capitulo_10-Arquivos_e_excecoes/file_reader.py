@@ -10,10 +10,8 @@ SINOPSES
     3.1415926535
     8979323846
     2643383279
-
-    3.1415926535
-    8979323846
-    2643383279
+    3.141592653589793238462643383279
+    32
 
 ------------------------------------------------------------------------
 
@@ -87,6 +85,24 @@ DESCRIÇÃO
         Como cada item de lines corresponde a uma linha do arquivo, a
         saída será exatamente igual ao conteúdo do arquivo.
 
+
+    - Trabalhando como conteúdo de um arquivo:
+
+        Começamos abrindo o arquivo e armazenando cada linha de dígitos
+        em uma lista, como fizemos no exemplo anterior. Em u criamos uma
+        variável pi_string para armazenar os dígitos de pi. Então
+        criamos um laço que acrescenta cada uma das linhas de dígitos em
+        pi_string removendo o caractere de quebra de linha. Exibimos
+        essa string e mostramos também o seu tamanho.
+        
+    NOTA:
+        Quando Python lê um arquivo-texto, todo o texto do arquivo é
+        interpretado como uma string. Se você ler um número e quiser
+        trabalhar com esse valor em um contexto numérico, será
+        necessário convertê-lo em um inteiro usando a função int() ou
+        convertê-lo em um número de
+ponto flutuante com a função float(). 
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -96,6 +112,7 @@ HISTÓRICO
 
     20202011: João Paulo, novembro de 2020.
         - Criando uma lista de linhas de um arquivo (pg 234-235).
+        - Trabalhando como conteúdo de um arquivo (pg 235).
 
 """
 
@@ -126,3 +143,12 @@ with open(filename) as file_object:
 
 for line in lines:
     print(line.rstrip())
+
+
+pi_string = ''
+
+for line in lines:
+    pi_string += line.strip() # tira os espaços em branco
+
+print(pi_string)
+print(len(pi_string))
