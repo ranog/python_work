@@ -32,6 +32,9 @@ DESCRIÇÃO
 
     - Seu aniversário está contido em pi (pg 236-237)?:
 
+        Pedimos a data de nascimento do usuário e, em seguida,
+        verificamos se essa string está em pi_string.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
