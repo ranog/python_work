@@ -46,6 +46,7 @@ DESCRIÇÃO
 HISTÓRICO
     20202111: João Paulo, novembro de 2020.
         - Escrevendo dados em um arquivo vazio (pg 237-238).
+        - Escrevendo várias linhas (pg 238-239).
 
 """
 
@@ -54,3 +55,4 @@ filename = 'programming.txt'
 
 with open(filename, 'w') as file_object:
     file_object.write("I love programming.\n")
+    file_object.write("I love creating new games.\n")
