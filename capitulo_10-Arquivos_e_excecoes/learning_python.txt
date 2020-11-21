@@ -1,0 +1,8 @@
+Em Python podemos representar um string colando-o entre aspas ou apóstrofes.
+Em Python podemos colocar um else no laço de repetição e que será executado no final da iteração.
+Em Python podemos usar variáveis também para armazenar e processar textos.
+Em Python podemos ter listas de números, strings e também de valores booleanos. 
+Em Python podemos usar and para exigir que duas condições sejam verdadeiras ao mesmo tempo.
+Em Python podemos usar o método findall() para extrair todas as substrings que correspondem à expressão regular.
+Em Python podemos usar uma estrutura while ou uma estrutura for. 
+Em Python podemos implementar e definir a funcionalidade de diversos operadores como +, *,. == como parte de nossas classes. 
