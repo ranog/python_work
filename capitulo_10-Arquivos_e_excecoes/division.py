@@ -11,17 +11,19 @@ SINOPSES
     You can't divide by zero!
 
     Give me two numbers, and I'll divide them.
-    Enter 'q' to quit.
+    - Enter 'q' to quit.
 
     First number: 5
 
     Second number: 0
-    Traceback (most recent call last):
-    File "./division.py", line 86, in <module>
-        answer = int(first_number) / int(second_number)
-    ZeroDivisionError: division by zero
+    You can't divide by 0!
 
-    o shell devolveu 1
+    First number: 5
+
+    Second number: 2
+    2.5
+
+    First number: q
 
 ------------------------------------------------------------------------
 
@@ -67,6 +69,30 @@ DESCRIÇÃO
         invasor habilidoso pode usar essas informações para determinar
         os tipos de ataque que podem usar contra o seu código.
 
+
+    - Bloco else:
+        Pedimos a Python para tentar concluir a operação de divisão em
+        um bloco try, que inclui apenas o código que pode causar um
+        erro. Qualquer código que dependa do sucesso do bloco try é
+        adicionado no bloco else. Nesse caso, se a operação de divisão
+        for bem-sucedida, usamos o bloco else para exibir o resultado.
+
+        O bloco except diz como Python deve responder quando um
+        ZeroDivisionError ocorrer. Se a instrução try não for
+        bem-sucedida por causa de um erro de divisão por zero,
+        mostraremos uma mensagem simpática informando o usuário de que
+        modo esse tipo de erro pode ser evitado. O programa continua
+        executando e o usuário jamais verá um traceback.
+
+        O bloco try-except-else funciona assim: Python tenta executar o
+        código que está na instrução try. O único código que deve estar
+        em uma instrução try é aquele que pode fazer uma exceção ser
+        levantada. Às vezes, você terá um código adicional que deverá
+        ser executado somente se o bloco try tiver sucesso; esse código
+        deve estar no bloco else. O bloco except diz a Python o que ele
+        deve fazer, caso uma determinada exceção ocorra quando ele
+        tentar executar o código que está na instrução try.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -74,6 +100,7 @@ HISTÓRICO
         - Tratando a exceção ZeroDivisionError (pg 240).
         - Usando blocos try-except (pg 241).
         - Usando exceções para evitar falhas (pg 241-242).
+        - Bloco else (pg 242-243).
 
 """
 
@@ -96,5 +123,11 @@ while True:
     if second_number.lower() == 'q':
         break
 
-    answer = int(first_number) / int(second_number)
-    print(answer)
+    try:
+        answer = int(first_number) / int(second_number)
+
+    except ZeroDivisionError:
+        print("You can't divide by 0!")
+
+    else:
+        print(answer)
