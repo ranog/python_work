@@ -85,7 +85,7 @@ except ZeroDivisionError:
     print("\nYou can't divide by zero!")
 
 print("\nGive me two numbers, and I'll divide them.")
-print("Enter 'q' to quit.")
+print("- Enter 'q' to quit.")
 
 while True:
     first_number = input("\nFirst number: ")
