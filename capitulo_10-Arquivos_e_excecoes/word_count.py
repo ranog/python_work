@@ -44,4 +44,8 @@ def count_words(filename):
         words = contents.split()
         num_words = len(words)
 
-        print("\nThe file " + filename + " has about " + str(num_words) + " words.")
+        print("\nThe file " + filename + " has about " +
+                str(num_words) + " words.")
+
+filename = 'alice.txt'
+count_words(filename)
