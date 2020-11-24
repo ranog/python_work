@@ -2,67 +2,52 @@
 
 """
 NOME
-    gatos_e_cachorros.py - .
+    gatos_e_cachorros.py - Gatos e cachorros.
 
 SINOPSES
-    chmod +x gatos_e_cachorrospy
-    ./sum.py
-    
-    - Entre com 'q' para sair.
-    Entre com o 1° número: a
-    Entre com o 2° número: 1
-    - Não podemos realizar essa soma no momento, volte mais tarde. ;)
-
-    - Entre com 'q' para sair.
-    Entre com o 1° número: 1
-    Entre com o 2° número: 2
-    1 + 2 = 3.0
-
-    - Entre com 'q' para sair.
-    Entre com o 1° número: q
+    chmod +x gatos_e_cachorros.py
+    ./gatos_e_cachorros.py
 
 ------------------------------------------------------------------------
 
 DESCRIÇÃO
-    10.6 – Adição: Um problema comum quando pedir entradas numéricas
-        ocorre quando as pessoas fornecem texto no lugar de números. Ao
-        tentar converter a entrada para um int, você obterá um
-        TypeError.
-        Escreva um programa que peça dois números ao usuário. Some-os e
-        mostre o resultado. Capture o TypeError caso algum dos valores
-        de entrada não seja um número e apresente uma mensagem de erro
-        simpática. Teste seu programa fornecendo dois números e, em
-        seguida, digite um texto no lugar de um número.
-    
-    10.7 – Calculadora para adição:         Coloque o código do
-        Exercício 10.6 em um laço while para que o usuário possa
-        continuar fornecendo números, mesmo se cometerem um erro e
-        digitarem um texto no lugar de um número.
+    10.8 – Gatos e cachorros:
+        Crie dois arquivos, cats.txt e dogs.txt. Armazene pelo menos
+        três nomes de gatos no primeiro arquivo e três nomes de cachorro
+        no segundo arquivo. Escreva um programa que tente ler esses
+        arquivos e mostre o conteúdo do arquivo na tela. Coloque seu
+        código em um bloco try-except para capturar o erro FileNotFound
+        e apresente uma mensagem simpática caso o arquivo não esteja
+        presente. Mova um dos arquivos para um local diferente de seu
+        sistema e garanta que o código no bloco except seja executado de
+        forma apropriada.
 
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20202411: João Paulo, novembro de 2020.
-        - 10.6 - Adição (pg 248).
-        - 10.7 – Calculadora para adição (pg 248).
+        - 10.8 - Gatos e cachorros (pg 248).
 
 """
 
 
-while True:
-    print("\n- Entre com 'q' para sair.")
-    
-    x = input("Entre com o 1° número: ")
-    if x.lower() == 'q':
-        break
-
-    y = input("Entre com o 2° número: ")
-    if y.lower() == 'q':
-        break
+def ler_arquivo(arquivos):
+    """Abre um arquivo e devolve uma lista do conteudo."""
 
     try:
-        print(int(x) + int(y))
+        with open(arquivos) as objeto:
+            conteudo = objeto.read()
 
-    except ValueError:
-        print("- Não podemos realizar essa soma no momento, volte mais tarde. ;)")
+    except FileNotFoundError:
+        print("Desculpa mas o arquivo " +
+               arquivos +
+               " não está em casa nesse momento, somente depois das 18:00 horas.")
 
+    else:
+        print("Nomes para seu animal de estimação:\n " + str(conteudo))
+
+
+nomes_animais = ['cats.txt', 'dogs.txt']
+
+for nome_animal in nomes_animais:
+    ler_arquivo(nome_animal)
