@@ -2,21 +2,21 @@
 
 """
 NOME
-    sum.py - FAÇA VOCÊ MESNO.
+    gatos_e_cachorros.py - .
 
 SINOPSES
     chmod +x sum.py
     ./sum.py
     
     - Entre com 'q' para sair.
-    Entre com o 1° número: 1
-    Entre com o 2° número: 2
-    3
-
-    - Entre com 'q' para sair.
     Entre com o 1° número: a
     Entre com o 2° número: 1
     - Não podemos realizar essa soma no momento, volte mais tarde. ;)
+
+    - Entre com 'q' para sair.
+    Entre com o 1° número: 1
+    Entre com o 2° número: 2
+    1 + 2 = 3.0
 
     - Entre com 'q' para sair.
     Entre com o 1° número: q
@@ -65,3 +65,4 @@ while True:
 
     except ValueError:
         print("- Não podemos realizar essa soma no momento, volte mais tarde. ;)")
+
