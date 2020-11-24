@@ -7,6 +7,10 @@ NOME
 SINOPSES
     chmod +x gatos_e_cachorros.py
     ./gatos_e_cachorros.py
+     Abbie
+    Abigail
+    Afrodite
+    ...
 
 ------------------------------------------------------------------------
 
@@ -22,11 +26,17 @@ DESCRIÇÃO
         sistema e garanta que o código no bloco except seja executado de
         forma apropriada.
 
+
+        10.9 – Gatos e cachorros silenciosos:
+            Modifique o seu bloco except do Exercício 10.8 para falhar
+            silenciosamente caso um dos arquivos esteja ausente.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20202411: João Paulo, novembro de 2020.
         - 10.8 - Gatos e cachorros (pg 248).
+        - 10.9 – Gatos e cachorros silenciosos (pg 248).
 
 """
 
@@ -39,9 +49,12 @@ def ler_arquivo(arquivos):
             conteudo = objeto.read()
 
     except FileNotFoundError:
-        print("Desculpa mas o arquivo " +
-               arquivos +
-               " não está em casa nesse momento, somente depois das 18:00 horas.")
+        #print("Desculpa mas o arquivo " +
+        # arquivos +
+        #" não está em casa nesse momento, somente depois das 18:00 \
+        # horas.")
+
+        pass # Falha silenciosa
 
     else:
         print("Nomes para seu animal de estimação:\n " + str(conteudo))
