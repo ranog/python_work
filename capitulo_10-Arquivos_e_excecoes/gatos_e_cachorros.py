@@ -5,7 +5,7 @@ NOME
     gatos_e_cachorros.py - .
 
 SINOPSES
-    chmod +x sum.py
+    chmod +x gatos_e_cachorrospy
     ./sum.py
     
     - Entre com 'q' para sair.
