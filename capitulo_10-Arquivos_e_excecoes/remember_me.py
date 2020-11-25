@@ -2,19 +2,21 @@
 
 """
 NOME
-    remenber_me.py - .
+    remenber_me.p - Salvando e lendo dados gerados pelo usuário.
 
 SINOPSES
     chmod +x remenber_me.py
     ./remenber_me.py
-
+    - What is your name? Eric
+    We'll remember you when you come back, Eric!
 ------------------------------------------------------------------------
 
 DESCRIÇÃO
-    Pedimos o nome do usuário para que seja armazenado. Em seguida,
-    usamos json.dump(), passando-lhe um nome de usuário e um objeto
-    arquivo em que esse nome será armazenado. Então exibimos uma
-    mensagem informando o usuário que armazenamos suas informações.
+    - Salvando e lendo dados gerados pelo usuário:
+        Pedimos o nome do usuário para que seja armazenado. Em seguida,
+        usamos json.dump(), passando-lhe um nome de usuário e um objeto
+        arquivo em que esse nome será armazenado. Então exibimos uma
+        mensagem informando o usuário que armazenamos suas informações.
 
 ------------------------------------------------------------------------
 

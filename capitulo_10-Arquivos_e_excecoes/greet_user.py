@@ -2,19 +2,20 @@
 
 """
 NOME
-    greet_user.py - .
+    greet_user.py - Salvando e lendo dados gerados pelo usuário.
 
 SINOPSES
     chmod +x greet_user.py
     ./greet_user.py
+    - Welcome back, Eric!
 
 ------------------------------------------------------------------------
 
 DESCRIÇÃO
-    Usamos json.load() para ler as informações armazenadas em
-    username.json na variável username.
-    Agora que recuperamos o nome do usuário, podemos lhe desejar as
-    boas-vindas de volta.
+    - Salvando e lendo dados gerados pelo usuário:
+        Usamos json.load() para ler as informações armazenadas em
+        username.json na variável username. Agora que recuperamos o nome
+        do usuário, podemos lhe desejar as boas-vindas de volta.
 
 ------------------------------------------------------------------------
 
