@@ -29,6 +29,16 @@ SINOPSES
 
     FAILED (errors=1) 
 
+
+    ..
+    --------------------------------------------------------------------
+    --
+    Ran 2 tests in 0.001s
+
+    OK
+
+------------------------------------------------------------------------
+
 DESCRIÇÃO
     - Um teste que passa:
          Inicialmente importamos unittest e a função
@@ -81,6 +91,7 @@ DESCRIÇÃO
         Se o caso de teste passar, saberemos que a função continua
         funcionando para nomes como Janis Joplin.
 
+    
     - Um teste que falha:
         O primeiro item da saída é um único E, que nos informa que um
         teste de unidade do caso de teste resultou em erro. A seguir,
@@ -99,12 +110,33 @@ DESCRIÇÃO
         cima em uma listagem longa de saída para descobrir quantos
         testes falharam.
 
+
+    - Adicionando novos testes:
+        Chamamos esse novo método de test_first_last_middle_name(). O
+        nome do método deve começar com test_ para que seja executado
+        automaticamente quando test_name_function.py for executado.
+        Nomeamos o método de modo a deixar claro qual é o comportamento
+        de get_formatted_name() que estamos testando. Como resultado,
+        se o teste falhar, saberemos de imediato quais tipos de nome
+        serão afetados. Nomes longos para os métodos em nossas classes
+        TestCase não são um problema. Eles devem ser descritivos para
+        que você possa compreender a saída quando seus testes falharem,
+        e pelo fato de Python os chamar automaticamente, você não
+        precisará escrever código para chamar esses métodos.
+        Para testar a função, chamamos get_formatted_name() com um
+        primeiro nome, um sobrenome e um nome do meio e, em seguida,
+        usamos assertEqual() para conferir se o nome completo devolvido
+        coincide como nome completo (primeiro nome, nome do meio e
+        sobrenome) esperado. Se executarmos test_name_function.py
+        novamente, veremos que os dois testes passam.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20202711: João Paulo, novembro de 2020.
         - Um teste que passa (pg 258-259).
         - Um teste que falha (pg 260-261).
+        - Adicionando novos testes (pg 262-263).
 
 """
 
@@ -123,5 +155,10 @@ class NamesTestCase(unittest.TestCase):
 
         self.assertEqual(formatted_name, 'Janis Joplin')
 
+
+    def test_first_last_middle_name(self):
+        """Nomes como 'Wolfgang Amadeus Mozart' funcionam?"""
+        formatted_name = get_formatted_name('wolfgang', 'mozart', 'amadeus')
+        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
 
 unittest.main()
