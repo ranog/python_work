@@ -16,6 +16,19 @@ SINOPSES
     --------------------------------------------------------------------
     ----
 
+    ERROR: test_first_last_name (__main__.NamesTestCase) ---------------
+    -------------------------------------------------------
+    Traceback (most recent call last): File "test_name_function.py",
+    line 8, in test_first_last_name formatted_name =
+    get_formatted_name('janis', 'joplin') TypeError:
+    get_formatted_name() missing 1 required positional argument: 'last'
+    --------------------------------------------------------------------
+    --
+    
+    Ran 1 test in 0.000s
+
+    FAILED (errors=1) 
+
 DESCRIÇÃO
     - Um teste que passa:
          Inicialmente importamos unittest e a função
@@ -68,11 +81,30 @@ DESCRIÇÃO
         Se o caso de teste passar, saberemos que a função continua
         funcionando para nomes como Janis Joplin.
 
+    - Um teste que falha:
+        O primeiro item da saída é um único E, que nos informa que um
+        teste de unidade do caso de teste resultou em erro. A seguir,
+        vemos que test_first_last_name() em NamesTestCase causou um
+        erro. Saber qual teste falhou será crucial quando o seu caso de
+        teste tiver muitos testes de unidade. Vemos um traceback padrão,
+        que informa que a chamada de função get_formatted_name('janis',
+        'joplin') não funciona mais, pois um argumento posicional
+        obrigatório está ausente. Também podemos ver que um único teste
+        de unidade foi executado. Por fim, vemos uma mensagem adicional
+        informando que o caso de teste como um todo falhou e que houve
+        um erro em sua execução.
+        
+        Essa informação aparece no final da saída para que possa ser
+        vista de imediato; você não vai querer fazer uma rolagem para
+        cima em uma listagem longa de saída para descobrir quantos
+        testes falharam.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20202711: João Paulo, novembro de 2020.
         - Um teste que passa (pg 258-259).
+        - Um teste que falha (pg 260-261).
 
 """
 

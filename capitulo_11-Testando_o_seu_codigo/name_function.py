@@ -21,12 +21,16 @@ HISTÓRICO
     20202611: João Paulo, novembro de 2020.
         - Testando uma função (pg 257).
 
+    20202711: João Paulo, novembro de 2020.
+        - Um teste que falha (pg 260-261).
+
+
 """
 
 
-def get_formatted_name(first, last):
+def get_formatted_name(first, middle, last):
     """Gera um nome completo formatado de modo elegante."""
 
-    full_name = first + ' ' + last
+    full_name = first + ' ' + middle + ' ' + last
 
     return full_name.title()
