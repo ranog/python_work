@@ -7,6 +7,15 @@ NOME
 SINOPSES
     chmod +x verificando_usuario.py
     ./verificando_usuario.py
+    - What is your name? eric
+    We'll remember you when you come back, Eric!
+
+    Eric. Is your name correct, (y)es or (N)o? y
+    - Welcome back, Eric!
+
+    Eric. Is your name correct, (y)es or (N)o? n
+    - What is your name? cire
+    We'll remember you when you come back, Cire!
 
 ------------------------------------------------------------------------
 
@@ -61,16 +70,25 @@ def get_new_username():
 
 def correct_user():
     """Verifica se é o usuário correto."""
-    answers = input("Is your name correct, yes or no?")
 
-    if answers == 'yes':
-        return True
+    username = get_stored_username()
+
+    if username:
+        answers = input(username.title() +
+                ". Is your name correct, (y)es or (N)o? ")
+
+        if answers.lower() == 'y' or answers.lower() == 'yes':
+            return username
+
     else:
-        return False
+        return None
+
 
 def greet_user():
     """Saúda o usuário pelo nome."""
-    username = get_stored_username() 
+    username = correct_user()
+
+
     if username:
         print("- Welcome back, " + username.title() + "!")
 
