@@ -24,10 +24,10 @@ SINOPSES
     get_formatted_name() missing 1 required positional argument: 'last'
     --------------------------------------------------------------------
     --
-    
+
     Ran 1 test in 0.000s
 
-    FAILED (errors=1) 
+    FAILED (errors=1)
 
 
     ..
@@ -50,9 +50,9 @@ DESCRIÇÃO
          palavra Test no nome da classe. Essa classe deve herdar da
          classe unittest.TestCase para que Python saiba executar os
          testes que você escrever.
-        
+
         NamesTestCase contém um único método que testa um aspecto de
-        get_formatted_name(). Chamamos esse método de 
+        get_formatted_name(). Chamamos esse método de
         test_first_last_name() porque estamos verificando se os nomes
         que têm apenas o primeiro nome e o sobrenome são formatados
         corretamente. Qualquer método que comece com test_ será
@@ -91,7 +91,7 @@ DESCRIÇÃO
         Se o caso de teste passar, saberemos que a função continua
         funcionando para nomes como Janis Joplin.
 
-    
+
     - Um teste que falha:
         O primeiro item da saída é um único E, que nos informa que um
         teste de unidade do caso de teste resultou em erro. A seguir,
@@ -104,7 +104,7 @@ DESCRIÇÃO
         de unidade foi executado. Por fim, vemos uma mensagem adicional
         informando que o caso de teste como um todo falhou e que houve
         um erro em sua execução.
-        
+
         Essa informação aparece no final da saída para que possa ser
         vista de imediato; você não vai querer fazer uma rolagem para
         cima em uma listagem longa de saída para descobrir quantos
@@ -147,18 +147,19 @@ from name_function import get_formatted_name
 
 class NamesTestCase(unittest.TestCase):
     """Testes para 'name_function.py'."""
-    
+
     def test_first_last_name(self):
         """Nomes como 'Janis Joplin' funcionam?"""
-        
-        formatted_name = get_formatted_name('janis', 'joplin')
 
+        formatted_name = get_formatted_name('janis', 'joplin')
         self.assertEqual(formatted_name, 'Janis Joplin')
 
 
     def test_first_last_middle_name(self):
         """Nomes como 'Wolfgang Amadeus Mozart' funcionam?"""
+
         formatted_name = get_formatted_name('wolfgang', 'mozart', 'amadeus')
         self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+
 
 unittest.main()
