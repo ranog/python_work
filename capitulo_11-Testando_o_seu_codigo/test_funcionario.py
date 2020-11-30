@@ -11,6 +11,13 @@ NOME
 SINOPSES
     $ chmod +x test_funcionario .py
     $ ./test_funcionario.py
+    18500
+    .15000
+    .
+    --------------------------------------------------------------------
+    Ran 2 tests in 0.001s
+
+    OK
 
 ------------------------------------------------------------------------
 
@@ -52,25 +59,20 @@ class TestEmployee(unittest.TestCase):
         métodos de teste."""
         nome = "Eric"
         sobrenome = "Cire"
-        salario_anual = 8500
+        salario_anual = 10000
         self.funcionario = Employee(nome, sobrenome, salario_anual)
 
 
-
-    def test_store_single_response(self):
-        """Testa se uma única resposta é armazenada de forma
-        apropriada."""
-        self.my_survey.store_response(self.responses[0])
-        self.assertIn(self.responses[0], self.my_survey.responses)
+    def test_give_default_raise(self):
+        """Testa o valor de aumento padrão."""
+        salario = self.funcionario.give_raise()
+        self.assertEqual(self.funcionario.salario_anual, 15000)
 
 
-    def test_store_three_responses(self):
-        """Testa se três respostas individuais são armazenadas de forma
-        apropriada."""
-        for response in self.responses:
-            self.my_survey.store_response(response)
-        for response in self.responses:
-            self.assertIn(response, self.my_survey.responses)
+    def test_give_custom_raise(self):
+        """Testa o valor de aumento customizado."""
+        salario = self.funcionario.give_raise(8500)
+        self.assertEqual(self.funcionario.salario_anual, 18500)
 
 
 unittest.main()

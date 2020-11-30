@@ -50,14 +50,6 @@ class Employee():
 
     def give_raise(self, aumento=5000):
         """Soma cinco mil dólares ao salário anual."""
-        
-        plus = input("Aumento padrão de $5.000, (S)im ou (n)ão? ")
-
-        if plus.lower() == 's':
-            self.salario_anual += aumento
-            print(self.salario_anual)
-        else:
-            aumento = input("Novo valor: ")
-            aumento = float(aumento)
-            self.salario_anual += aumento
-            print(self.salario_anual)
+        self.salario_anual += aumento
+   
+        print(self.salario_anual)
