@@ -82,7 +82,7 @@ DESCRIÇÃO
         respostas, você poderia executar esses testes e garantir que não
         afetou a capacidade de armazenar uma única resposta ou uma série
         de respostas individuais.
-        
+
         Quando testar suas próprias classes, o método setUp() poderá
         facilitar a escrita de seus métodos de teste. Crie apenas um
         conjunto de instâncias e de atributos em setUp() e então utilize
@@ -111,7 +111,6 @@ HISTÓRICO
         - Método setUp() (pg 268-270).
 
 ------------------------------------------------------------------------
-
 """
 
 
