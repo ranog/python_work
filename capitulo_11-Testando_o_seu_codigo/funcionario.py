@@ -51,5 +51,4 @@ class Employee():
     def give_raise(self, aumento=5000):
         """Soma cinco mil dólares ao salário anual."""
         self.salario_anual += aumento
-   
         print(self.salario_anual)
