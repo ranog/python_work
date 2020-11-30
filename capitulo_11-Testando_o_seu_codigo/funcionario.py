@@ -37,29 +37,27 @@ HISTÓRICO
 """
 
 
-class AnonymousSurvey():
-    """Coleta respostas anônimas para uma pergunta de uma pesquisa."""
+class Employee():
+    """Modelo simples de um funcionario e seus ganhos anuais."""
 
 
-    def __init__(self, question):
-        """Armazena uma pergunta e se prepara para armazenar as
-        respostas."""
-        self.question = question
-        self.responses = []
+    def __init__(self, nome, sobrenome, salario_anual):
+        """Inicialização dos atributos do funcionario."""
+        self.nome = nome
+        self.sobrenome = sobrenome
+        self.salario_anual = salario_anual
 
 
-    def show_question(self):
-        """Mostra a pergunta da pesquisa."""
-        print(self.question)
+    def give_raise(self, aumento=5000):
+        """Soma cinco mil dólares ao salário anual."""
+        
+        plus = input("Aumento padrão de $5.000, (S)im ou (n)ão? ")
 
-
-    def store_response(self, new_response):
-        """Armazena uma única resposta da pesquisa."""
-        self.responses.append(new_response)
-
-
-    def show_results(self):
-        """Mostra todas as respostas dadas."""
-        print("Survey results: ")
-        for response in self.responses:
-            print("- " + response)
+        if plus.lower() == 's':
+            self.salario_anual += aumento
+            print(self.salario_anual)
+        else:
+            aumento = input("Novo valor: ")
+            aumento = float(aumento)
+            self.salario_anual += aumento
+            print(self.salario_anual)
