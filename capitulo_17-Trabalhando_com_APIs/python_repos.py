@@ -11,7 +11,9 @@ NOME
 SINOPSES
     $ chmod +x python_repos.py
     $ ./python_repos.py
-
+    Status code: 200
+    dict_keys(['items', 'total_count', 'incomplete_results'])
+    
 ------------------------------------------------------------------------
 
 DESCRIÇÃO
@@ -28,18 +30,16 @@ DESCRIÇÃO
     Armazenamos o dicionário resultante em response_dict.
     Por fim, exibimos as chaves de response_dict.
 
- 
-# XXX tenho que arrumar isso:
- : Status
-code: 200
-dict_keys(['items', 'total_count', 'incomplete_results']) Como o código
-de status é 200, sabemos que a requisição teve sucesso. O dicionário com
-a resposta contém apenas três chaves: 'items', 'total_count' e
-'incomplete_results'.
-NOTA Chamadas simples como essa devem devolver um conjunto completo
-de resultados, portanto é seguro ignorar o valor associado a
-'incomplete_results'. Porém, quando fizer chamadas de API mais
-complexas, seu programa deverá conferir esse valor.
+    Como o código de status é 200, sabemos que a requisição teve sucesso. 
+    O dicionário com a resposta contém apenas três chaves: 'items', 
+    'total_count' e 'incomplete_results'. 
+    
+    NOTA 
+        Chamadas simples como essa devem devolver um conjunto completo
+        de resultados, portanto é seguro ignorar o valor associado a
+        'incomplete_results'. Porém, quando fizer chamadas de API mais
+        complexas, seu programa deverá conferir esse valor.
+        
 ------------------------------------------------------------------------
 
 HISTÓRICO
