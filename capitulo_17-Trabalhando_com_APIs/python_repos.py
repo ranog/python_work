@@ -96,6 +96,16 @@ SINOPSES
     watchers
     watchers_count
 
+    Selected information about first repository:
+    Name: system-design-primer
+    Owner: donnemartin
+    Stars: 113811
+    Repository: https://github.com/donnemartin/system-design-primer
+    Created: 2017-02-26T16:15:28Z
+    Updated: 2020-12-02T20:14:33Z
+    Description: Learn how to design large-scale systems. Prep for the
+    system design interview.  Includes Anki flashcards.
+
 ------------------------------------------------------------------------
 
 DESCRIÇÃO
@@ -128,14 +138,14 @@ DESCRIÇÃO
     total de repositórios Python no GitHub.
     O valor associado a 'items' é uma lista que contém vários
     dicionários, cada um contendo dados sobre um repositório Python
-    individual. Armazenamos essa lista de dicionários em repo_dicuiA
+    individual. Armazenamos essa lista de dicionários em repo_dicts.
     Então exibimos o tamanho de repo_dicts para ver o número de
     repositórios para os quais temos informações.
     Para observar melhor as informações devolvidas sobre cada
     repositório, extraímos o primeiro item de repo_dicts e o armazenamos
     em repo_dict. Então exibimos a quantidade de chaves do dicionário
-    para ver quantas informações temyyp
-    Exibimos todas as chayyp (keys) do dicionário para ver quais tipos
+    para ver quantas informações temos.
+    Exibimos todas as chaves (keys) do dicionário para ver quais tipos
     de informação estão incluídos.
     O resultado começa a nos dar uma imagem mais clara dos dados
     propriamente ditos.
@@ -146,6 +156,18 @@ DESCRIÇÃO
     projeto. (A única maneira de saber quais informações estão
     disponíveis por meio de uma API é ler a documentação ou analisar as
     informações por meio de código, como estamos fazendo nesse caso.).
+
+------------------------------------------------------------------------
+
+    Nesse exemplo exibimos os valores de diversas chaves do dicionário
+    do primeiro repositório. Exibimos o nome do projeto. Um dicionário
+    completo representa o dono do projeto; assim usamos a chave owner
+    para acessar o dicionário que o representa e então usamos a chave
+    login para obter o seu nome de login. Exibimos a quantidade de
+    estrelas que o projeto recebeu e o URL do repositório do projeto no
+    GitHub. Em seguida, mostramos a data em que o projeto foi criado e
+    quando foi atualizado pela última vez. Por fim, exibimos a descrição
+    do repositório.
 
 ------------------------------------------------------------------------
 
@@ -186,4 +208,12 @@ print("\nKeys =", len(repo_dict))
 for key in sorted(repo_dict.keys()):
     print(key)
 
-# pg 428: print("\nSelected information about first repository:")
+print("\nSelected information about first repository:")
+
+print('Name:', repo_dict['name'])
+print('Owner:', repo_dict['owner']['login'])
+print('Stars:', repo_dict['stargazers_count'])
+print('Repository:', repo_dict['html_url'])
+print('Created:', repo_dict['created_at'])
+print('Updated:', repo_dict['updated_at'])
+print('Description:', repo_dict['description'])
