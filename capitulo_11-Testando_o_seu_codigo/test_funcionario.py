@@ -51,11 +51,11 @@ from funcionario import Employee
 
 
 class TestEmployee(unittest.TestCase):
-    """Testes para a classe A Employee."""
+    """Testes para a classe Employee."""
 
 
     def setUp(self):
-        """Cria uma funcionario que podera ser usados em todos os
+        """Cria um funcionario que podera ser usados em todos os
         métodos de teste."""
         nome = "Eric"
         sobrenome = "Cire"
@@ -64,13 +64,13 @@ class TestEmployee(unittest.TestCase):
 
 
     def test_give_default_raise(self):
-        """Testa o valor de aumento padrão."""
+        """Testa o aumento padrão."""
         salario = self.funcionario.give_raise()
         self.assertEqual(self.funcionario.salario_anual, 15000)
 
 
     def test_give_custom_raise(self):
-        """Testa o valor de aumento customizado."""
+        """Testa o aumento customizado."""
         salario = self.funcionario.give_raise(8500)
         self.assertEqual(self.funcionario.salario_anual, 18500)
 
