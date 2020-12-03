@@ -177,6 +177,31 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Começamos importando o pygal e os estilos do Pygal de que
+    precisaremos para o gráfico. Continuamos exibindo o status da
+    resposta da chamada à API e o número total de repositórios
+    encontrados para que possamos saber caso haja algum problema com a
+    chamada da API. Não exibimos mais as informações sobre os projetos
+    específicos devolvidos, pois elas serão incluídas na visualização.
+    Criamos duas listas vazias para armazenar os dados que incluiremos
+    no gráfico. Precisaremos do nome de cada projeto para rotular as
+    barras e do número de estrelas para determinar a altura delas. No
+    laço, concatenamos nessas listas o nome de cada projeto e o número
+    de estrelas que ele tem. Em seguida, definimos um estilo usando a
+    classe LightenStyle (alias LS) e usamos um tom de azul-escuro como
+    base. Também passamos o argumento base_style para utilizar a classe
+    LightColorizedStyle (alias LCS).
+    Então usamos Bar() para criar um gráfico de barras simples e lhe
+    passamos my_style. Além disso, passamos outros dois argumentos de
+    estilo: definimos a rotação dos nomes ao longo do eixo x em 45 graus
+    (x_label_rotation=45) e ocultamos a legenda, pois estamos plotando
+    apenas uma série no gráfico (show_legend=False). Então fornecemos um
+    título ao gráfico e definimos o atributo x_labels com a lista names.
+    Como não é necessário nomear essa série de dados, passamos uma
+    string vazia para o rótulo quando adicionamos os dados. 
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Processando uma resposta de AP (pg 425-426).
