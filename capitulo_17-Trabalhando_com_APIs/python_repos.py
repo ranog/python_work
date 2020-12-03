@@ -105,6 +105,7 @@ SINOPSES
     Updated: 2020-12-02T20:14:33Z
     Description: Learn how to design large-scale systems. Prep for the
     system design interview.  Includes Anki flashcards.
+    ...
 
 ------------------------------------------------------------------------
 
@@ -171,6 +172,11 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Exibimos uma mensagem introdutória. Percorremos todos os dicionários
+    em repo_dicts com um laço.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Processando uma resposta de AP (pg 425-426).
@@ -178,6 +184,9 @@ HISTÓRICO
 
     20200212: João Paulo, dezembro de 2020.
         - Trabalhando como dicionário deresposta (pg 426-428).
+
+    20200312: João Paulo, dezembro de 2020.
+        - Resumo dos principais repositórios (pg 428-429).
 
 ------------------------------------------------------------------------
 """
@@ -202,18 +211,21 @@ print("Total repositories:", response_dict['total_count'])
 repo_dicts = response_dict['items']
 print("Repositories returned:", len(repo_dicts))
 
-# Analisa o 1° repositório
+
+"""# Analisa o 1° repositório
 repo_dict = repo_dicts[0]
 print("\nKeys =", len(repo_dict))
 for key in sorted(repo_dict.keys()):
-    print(key)
+    print(key)"""
 
-print("\nSelected information about first repository:")
+print("\nSelected information about each repository:")
 
-print('Name:', repo_dict['name'])
-print('Owner:', repo_dict['owner']['login'])
-print('Stars:', repo_dict['stargazers_count'])
-print('Repository:', repo_dict['html_url'])
-print('Created:', repo_dict['created_at'])
-print('Updated:', repo_dict['updated_at'])
-print('Description:', repo_dict['description'])
+for repo_dict in repo_dicts:
+    print('Name:', repo_dict['name'])
+    print('Owner:', repo_dict['owner']['login'])
+    print('Stars:', repo_dict['stargazers_count'])
+    print('Repository:', repo_dict['html_url'])
+    print('Created:', repo_dict['created_at'])
+    print('Updated:', repo_dict['updated_at'])
+    print('Description:', repo_dict['description'])
+    print()
