@@ -89,6 +89,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Importamos Settings no arquivo principal do programa e, em seguida,
+    criamos uma instância de Settings e a armazenamos em ai_settings
+    depois de fazer a chamada a pygame.init(). Quando criamos uma tela,
+    usamos os atributos screen_width e screen_height de ai_settings e
+    então usamos ai_settings também para acessar a cor de fundo quando
+    preenchemos a tela
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -99,6 +108,7 @@ HISTÓRICO
 
     20200312: João Paulo, dezembro de 2020.
         - Definindo a cor de fundo (pg 283-284).
+        - Criando uma classe de configurações (pg 284-285).
 
 ------------------------------------------------------------------------
 
@@ -107,16 +117,19 @@ HISTÓRICO
 
 import sys
 import pygame
+from settings import Settings
 
 
 def run_game():
     # Inicializa o jogo e cria um objeto para a tela
     pygame.init()
-    screen = pygame.display.set_mode((1200, 600))
-    pygame.display.set_caption("Alien Invasion")
 
-    # Define a cor de fundo
-    bg_color = (230, 230, 230)
+    # Instância da classe Settings do módulo settings.py.
+    ai_settings = Settings()
+
+    screen = pygame.display.set_mode(
+            (ai_settings.screen_width, ai_settings.screen_height))
+    pygame.display.set_caption("Alien Invasion")
 
     # Inicia o laço principal do jogo
     while True:
@@ -126,7 +139,7 @@ def run_game():
                 sys.exit()
 
         # Redesenha a tela a cada passagem pelo laço
-        screen.fill(bg_color)
+        screen.fill(ai_settings.bg_color)
 
         # Deixa a tela mais recente visível
         pygame.display.flip()
