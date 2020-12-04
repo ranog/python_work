@@ -202,6 +202,33 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Criamos uma instância chamada my_config da classe Config do Pygal;
+    modificar os atributos de my_config personalizará a aparência do
+    gráfico.
+
+    Definimos os dois atributos x_label_rotation e show_legend,
+    originalmente passados como argumentos nomeados quando criamos uma
+    instância de Bar. Definimos o tamanho da fonte para o título do
+    gráfico e para os rótulos menores e maiores. Os rótulos menores
+    nesse gráfico são os nomes dos projetos ao longo do eixo x e a maior
+    parte dos números no eixo y. Os rótulos maiores são apenas os
+    rótulos do eixo y que marcam incrementos de 5.000 estrelas. Esses
+    rótulos serão maiores, e é por isso que os diferenciamos. Usamos
+    truncate_label para reduzir os nomes de projeto mais longos a 15
+    caracteres. (Quando você passar o mouse sobre um nome de projeto
+    truncado na tela, o nome completo aparecerá.) Em seguida, ocultamos
+    as linhas horizontais do gráfico definindo show_y_guides com False.
+    Por fim, definimos uma largura personalizada para que o gráfico use
+    mais do espaço disponível no navegador.
+
+    Agora, quando criamos uma instância de Bar(), passamos my_config
+    como primeiro argumento, e todas as nossas definições de
+    configuração serão enviadas em um só argumento. Podemos fazer
+    quantas modificações de estilo e de configuração quisermos por meio
+    de my_config. 
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Processando uma resposta de AP (pg 425-426).
@@ -213,6 +240,9 @@ HISTÓRICO
     20200312: João Paulo, dezembro de 2020.
         - Resumo dos principais repositórios (pg 428-429).
         - Visualizando os repositórios usando o Pygal (pg 430-432).
+
+    20200412: João Paulo, dezembro de 2020.
+        - Aperfeiçoando os gráficos do Pygal (pg 432-433).
 
 ------------------------------------------------------------------------
 """
@@ -280,9 +310,18 @@ for repo_dict in repo_dicts:
     stars.append(repo_dict['stargazers_count'])
     # Cria uma visualização
     my_style = LS('#333366', base_style=LCS)
-    chart = pygal.Bar(style=my_style, x_label_rotation=45, show_legend=False)
+    my_config = pygal.Config()
+    my_config.x_label_rotation = 45
+    my_config.show_legend = False
+    my_config.title_font_size = 24
+    my_config.label_font_size = 14
+    my_config.major_label_font_size = 18
+    my_config.truncate_label = 15
+    my_config.show_y_guides = False
+    my_config.width = 1000
+
+    chart = pygal.Bar(my_config, style=my_style)
     chart.title = 'Most-Starred Python Projects on GitHub'
     chart.x_labels = names
     chart.add('', stars) 
     chart.render_to_file('python_repos.svg')
-
