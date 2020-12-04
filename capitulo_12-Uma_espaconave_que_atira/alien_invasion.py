@@ -111,12 +111,12 @@ HISTÓRICO
         - Criando uma classe de configurações (pg 284-285).
 
 ------------------------------------------------------------------------
-
 """
 
 
 import sys
 import pygame
+
 from settings import Settings
 
 
