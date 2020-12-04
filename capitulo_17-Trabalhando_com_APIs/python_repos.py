@@ -243,6 +243,9 @@ HISTÓRICO
 
     20200412: João Paulo, dezembro de 2020.
         - Aperfeiçoando os gráficos do Pygal (pg 432-433).
+        
+    20200412: João Paulo, dezembro de 2020.
+        - Plotando os dados (pg 435).
 
 ------------------------------------------------------------------------
 """
@@ -269,14 +272,13 @@ response_dict = r.json()
 # print(response_dict.keys()) pg: 425-426
 
 #-----------------------------------------------------------------------
+
 print("Total repositories:", response_dict['total_count'])
 
 # Explora informações sobre os repositórios
 repo_dicts = response_dict['items']
+print("Number of items:", len(repo_dicts))
 
-#-----------------------------------------------------------------------
-
-# print("Repositories returned:", len(repo_dicts))
 
 #-----------------------------------------------------------------------
 
