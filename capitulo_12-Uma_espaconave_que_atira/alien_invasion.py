@@ -98,6 +98,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Importamos Ship e então criamos uma instância de Ship (chamada ship)
+    depois que a tela foi criada. Essa operação deve estar antes do laço
+    while principal para que uma nova instância da espaçonave não seja
+    criada a cada passagem pelo laço. Desenhamos a espaçonave na tela
+    chamando ship.blitme() depois de preencher a cor de fundo; assim a
+    espaçonave aparecerá sobre essa cor
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -110,6 +119,9 @@ HISTÓRICO
         - Definindo a cor de fundo (pg 283-284).
         - Criando uma classe de configurações (pg 284-285).
 
+    20200512: João Paulo, dezembro de 2020.
+        - Desenhando a espaçonave na tela (pg 288).
+
 ------------------------------------------------------------------------
 """
 
@@ -118,6 +130,7 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 
 def run_game():
@@ -131,6 +144,9 @@ def run_game():
             (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
+    # Cria uma espaçonave
+    ship = Ship(screen)
+
     # Inicia o laço principal do jogo
     while True:
         # Observa eventos de teclado e de mouse
@@ -140,6 +156,7 @@ def run_game():
 
         # Redesenha a tela a cada passagem pelo laço
         screen.fill(ai_settings.bg_color)
+        ship.blitme()
 
         # Deixa a tela mais recente visível
         pygame.display.flip()
