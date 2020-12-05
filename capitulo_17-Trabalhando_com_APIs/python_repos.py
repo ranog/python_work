@@ -239,6 +239,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    O Pygal usa o URL associado a 'xlink' para transformar cada barra em
+    um link ativo. Você pode clicar em qualquer uma das barras do
+    gráfico e a página desse projeto no GitHub será automaticamente
+    aberta em uma nova aba em seu navegador. Agora você tem uma
+    visualização informativa e interativa dos dados obtidos por meio de
+    uma API!
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Processando uma resposta de AP (pg 425-426).
@@ -253,6 +262,8 @@ HISTÓRICO
     20200412: João Paulo, dezembro de 2020.
         - Aperfeiçoando os gráficos do Pygal (pg 432-433).
         - Plotando os dados (pg 435).
+        - Adicionando links que podem ser clicados em nosso gráfico (pg
+        436).
 
 ------------------------------------------------------------------------
 """
@@ -317,7 +328,8 @@ for repo_dict in repo_dicts:
     names.append(repo_dict['name'])
 
     plot_dict = {'value': repo_dict['stargazers_count'],
-                 'label': repo_dict['description'],}
+                 'label': repo_dict['description'],
+                 'xlink': repo_dict['html_url'],}
     plot_dicts.append(plot_dict)
 
 # Cria uma visualização
