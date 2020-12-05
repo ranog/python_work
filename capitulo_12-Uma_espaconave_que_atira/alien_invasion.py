@@ -107,6 +107,13 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Não precisamos mais importar sys diretamente no arquivo principal do
+    programa, pois ele é usado apenas no módulo game_functions agora.
+    Atribuímos o alias gf ao módulo importado game_functions para
+    simplificar.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -121,14 +128,15 @@ HISTÓRICO
 
     20200512: João Paulo, dezembro de 2020.
         - Desenhando a espaçonave na tela (pg 288).
+        - Função check_events() (pg 289-290).
 
 ------------------------------------------------------------------------
 """
 
 
-import sys
 import pygame
 
+import game_functions as gf
 from settings import Settings
 from ship import Ship
 
@@ -150,9 +158,7 @@ def run_game():
     # Inicia o laço principal do jogo
     while True:
         # Observa eventos de teclado e de mouse
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        gf.check_events()
 
         # Redesenha a tela a cada passagem pelo laço
         screen.fill(ai_settings.bg_color)
