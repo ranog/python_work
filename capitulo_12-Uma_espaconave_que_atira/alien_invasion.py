@@ -114,6 +114,12 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Essas duas funções deixam o laço while mais simples e facilitará os
+    desenvolvimentos futuros. Em vez de trabalhar em run_game(), podemos
+    fazer a maior parte de nossas tarefas no módulo game_functions.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -129,6 +135,7 @@ HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Desenhando a espaçonave na tela (pg 288).
         - Função check_events() (pg 289-290).
+        - Função update_screen() (pg 290-291).
 
 ------------------------------------------------------------------------
 """
@@ -157,15 +164,8 @@ def run_game():
 
     # Inicia o laço principal do jogo
     while True:
-        # Observa eventos de teclado e de mouse
         gf.check_events()
-
-        # Redesenha a tela a cada passagem pelo laço
-        screen.fill(ai_settings.bg_color)
-        ship.blitme()
-
-        # Deixa a tela mais recente visível
-        pygame.display.flip()
+        gf.update_screen(ai_settings, screen, ship)
 
 
 run_game()
