@@ -13,7 +13,7 @@ SINOPSES
     $ ./python_repos.py
     Status code: 200
     dict_keys(['items', 'total_count', 'incomplete_results'])
-       
+
 ------------------------------------------------------------------------
 
     Status code: 200
@@ -123,16 +123,16 @@ DESCRIÇÃO
     Armazenamos o dicionário resultante em response_dict.
     Por fim, exibimos as chaves de response_dict.
 
-    Como o código de status é 200, sabemos que a requisição teve sucesso. 
-    O dicionário com a resposta contém apenas três chaves: 'items', 
-    'total_count' e 'incomplete_results'. 
-    
-    NOTA 
+    Como o código de status é 200, sabemos que a requisição teve sucesso.
+    O dicionário com a resposta contém apenas três chaves: 'items',
+    'total_count' e 'incomplete_results'.
+
+    NOTA
         Chamadas simples como essa devem devolver um conjunto completo
         de resultados, portanto é seguro ignorar o valor associado a
         'incomplete_results'. Porém, quando fizer chamadas de API mais
         complexas, seu programa deverá conferir esse valor.
-        
+
 ------------------------------------------------------------------------
 
     Exibimos o valor associado a 'total_count', que representa o número
@@ -198,7 +198,7 @@ DESCRIÇÃO
     apenas uma série no gráfico (show_legend=False). Então fornecemos um
     título ao gráfico e definimos o atributo x_labels com a lista names.
     Como não é necessário nomear essa série de dados, passamos uma
-    string vazia para o rótulo quando adicionamos os dados. 
+    string vazia para o rótulo quando adicionamos os dados.
 
 ------------------------------------------------------------------------
 
@@ -225,14 +225,13 @@ DESCRIÇÃO
     como primeiro argumento, e todas as nossas definições de
     configuração serão enviadas em um só argumento. Podemos fazer
     quantas modificações de estilo e de configuração quisermos por meio
-    de my_config. 
+    de my_config.
 
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Processando uma resposta de AP (pg 425-426).
-    
 
     20200212: João Paulo, dezembro de 2020.
         - Trabalhando como dicionário deresposta (pg 426-428).
@@ -243,8 +242,6 @@ HISTÓRICO
 
     20200412: João Paulo, dezembro de 2020.
         - Aperfeiçoando os gráficos do Pygal (pg 432-433).
-        
-    20200412: João Paulo, dezembro de 2020.
         - Plotando os dados (pg 435).
 
 ------------------------------------------------------------------------
@@ -279,10 +276,6 @@ print("Total repositories:", response_dict['total_count'])
 repo_dicts = response_dict['items']
 print("Number of items:", len(repo_dicts))
 
-names, plot_dicts = [], []
-
-
-
 #-----------------------------------------------------------------------
 
 """# Analisa o 1° repositório
@@ -308,7 +301,7 @@ for repo_dict in repo_dicts:
 
 #-----------------------------------------------------------------------
 
-names, stars = [], []
+names, plot_dicts = [], []
 
 for repo_dict in repo_dicts:
     names.append(repo_dict['name'])
@@ -316,7 +309,7 @@ for repo_dict in repo_dicts:
     plot_dict = {'value' : repo_dict['stargazers_count'],
             'label' : repo_dict['description'],}
     plot_dicts.append(plot_dict)
-   
+
     # Cria uma visualização
     my_style = LS('#333366', base_style=LCS)
     my_config = pygal.Config()
@@ -332,5 +325,5 @@ for repo_dict in repo_dicts:
     chart = pygal.Bar(my_config, style=my_style)
     chart.title = 'Most-Starred Python Projects on GitHub'
     chart.x_labels = names
-    chart.add('', plot_dicts) 
+    chart.add('', plot_dicts)
     chart.render_to_file('python_repos.svg')
