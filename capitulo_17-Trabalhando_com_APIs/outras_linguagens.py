@@ -38,7 +38,7 @@ from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
 # Faz uma chamada de API e armazena a resposta.
 
-linguagens = ['javascript', 'ruby', 'c', 'java', 'perl']
+linguagens = ['javascript', 'ruby', 'c', 'java', 'perl', 'haskell', 'go']
 
 for linguagem in linguagens:
 
@@ -46,6 +46,7 @@ for linguagem in linguagens:
 
     r = requests.get(url)
     print("Status code:", r.status_code)
+    print("Linguage:", linguagem.title())
 
     # Armazena a resposta da API em uma variável
     response_dict = r.json()
@@ -79,7 +80,7 @@ for linguagem in linguagens:
     my_config.width = 1000
 
     chart = pygal.Bar(my_config, style=my_style)
-    chart.title = 'Most-Starred ' + linguagem + ' Projects on GitHub'
+    chart.title = 'Most-Starred ' + linguagem.title() + ' Projects on GitHub'
     chart.x_labels = names
 
     chart.add('', plot_dicts)
