@@ -11,6 +11,24 @@ NOME
 SINOPSES
     $ chmod +x outras_linguagens.py
     $ ./outras_libguagens.py
+    Status code: 200
+    Linguage: Javascript
+    Total repositories: 12255827
+    Status code: 200
+    Linguage: Ruby
+    Total repositories: 2302515
+    Status code: 200
+    Linguage: C
+    Total repositories: 1573698
+    Status code: 200
+    Linguage: Java
+    Total repositories: 8650500
+    Status code: 200
+    Linguage: Haskell
+    Total repositories: 107736
+    Status code: 200
+    Linguage: Go
+    Total repositories: 712957
 
 ------------------------------------------------------------------------
 
@@ -37,8 +55,8 @@ from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
 
 # Faz uma chamada de API e armazena a resposta.
-
-linguagens = ['javascript', 'ruby', 'c', 'java', 'perl', 'haskell', 'go']
+# XXX Com a linguagem Perl não funciona, não sei o por que.
+linguagens = ['javascript', 'ruby', 'c', 'java', 'haskell', 'go']
 
 for linguagem in linguagens:
 
