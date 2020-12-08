@@ -312,7 +312,7 @@ my_config.width = 1000
 
 chart = pygal.Bar(my_config, style=my_style)
 chart.title = 'Discussões mais entusiasmadas do momento no Hacker News'
-chart.x_labels = titles    
+chart.x_labels = titles   
 
-chart.add('', submission_dict)
+chart.add('', submission_dicts)
 chart.render_to_file('hn_submissions.svg')
