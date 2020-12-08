@@ -225,16 +225,31 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    17.2 – Discussões entusiasmadas: Usando os dados de 
+    hn_submissions.py, crie um gráfico de barras que mostre as
+    discussões mais entusiasmadas do momento no Hacker News. A altura de
+    cada barra deve corresponder ao número de comentários que cada
+    artigo submetido tem. O rótulo de cada barra deve incluir o título
+    do artigo submetido, e cada barra deve atuar como um link para a
+    página de discussão desse artigo.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200712: João Paulo, dezembro de 2020.
         - A API de Hacker News (pg 436-439).
+        
+    20200812: João Paulo, dezembro de 2020.
+        - 17.2 – Discussões entusiasmadas (pg ).
 
 ------------------------------------------------------------------------
 """
 
 
 import requests
+import pygal
 
+from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 from operator import itemgetter
 
 
@@ -269,3 +284,23 @@ for submission_dict in submission_dicts:
     print("\nTitle:", submission_dict['title'])
     print("Discussion link:", submission_dict['link'])
     print("Comments:", submission_dict['comments'])
+   
+# Cria uma visualização
+my_style = LS('#333366', base_style=LCS)
+
+my_config = pygal.Config()
+my_config.x_label_rotation = 45
+my_config.show_legend = False
+my_config.title_font_size = 24
+my_config.label_font_size = 14
+my_config.major_label_font_size = 18
+my_config.truncate_label = 15
+my_config.show_y_guides = False
+my_config.width = 1000
+
+chart = pygal.Bar(my_config, style=my_style)
+chart.title = 'Discussões mais entusiasmadas do momento no Hacker News'
+chart.x_labels = names
+
+chart.add('', submission_dicts)
+chart.render_to_file('hn_sudmissions.svg')
