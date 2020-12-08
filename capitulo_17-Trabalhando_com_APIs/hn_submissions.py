@@ -273,29 +273,30 @@ for submission_id in submission_ids[:30]:
 
     response_dict = submission_r.json() 
     titles.append(response_dict['title'])
-    
-    for repo_dict in repo_dicts:
-    names.append(repo_dict['name'])
+    """    
+        for repo_dict in repo_dicts:
+        names.append(repo_dict['name'])
 
-    plot_dict = {'value': repo_dict['stargazers_count'],
+        plot_dict = {'value': repo_dict['stargazers_count'],
                  'label': repo_dict['description'],
                  'xlink': repo_dict['html_url'],}
-    plot_dicts.append(plot_dict)
+        plot_dicts.append(plot_dict)
+    """    
     
-    
-    submission_dict = {'title': response_dict['title'],
-            'link': 'http://news.ycombinator.com/item?id=' +
-            str(submission_id), 'comments': response_dict.get('descendants', 0) }
+    submission_dict = {'label': response_dict['title'],
+            'xlink': 'http://news.ycombinator.com/item?id=' + str(submission_id),
+            'value': response_dict.get('descendants', 0) }
+
     submission_dicts.append(submission_dict)
 
-submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
+submission_dicts = sorted(submission_dicts, key=itemgetter('value'),
             reverse=True)
-
+"""
 for submission_dict in submission_dicts:
-    print("\nTitle:", submission_dict['title'])
+    print("\nTitle:", submission_dict['label'])
     print("Discussion link:", submission_dict['link'])
     print("Comments:", submission_dict['comments'])
-   
+"""   
 # Cria uma visualização
 my_style = LS('#333366', base_style=LCS)
 
