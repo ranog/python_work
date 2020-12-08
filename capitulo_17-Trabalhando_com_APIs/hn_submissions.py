@@ -273,6 +273,16 @@ for submission_id in submission_ids[:30]:
 
     response_dict = submission_r.json() 
     titles.append(response_dict['title'])
+    
+    for repo_dict in repo_dicts:
+    names.append(repo_dict['name'])
+
+    plot_dict = {'value': repo_dict['stargazers_count'],
+                 'label': repo_dict['description'],
+                 'xlink': repo_dict['html_url'],}
+    plot_dicts.append(plot_dict)
+    
+    
     submission_dict = {'title': response_dict['title'],
             'link': 'http://news.ycombinator.com/item?id=' +
             str(submission_id), 'comments': response_dict.get('descendants', 0) }
