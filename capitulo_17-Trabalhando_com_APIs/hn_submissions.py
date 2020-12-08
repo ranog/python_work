@@ -273,15 +273,6 @@ for submission_id in submission_ids[:30]:
 
     response_dict = submission_r.json() 
     titles.append(response_dict['title'])
-    """    
-        for repo_dict in repo_dicts:
-        names.append(repo_dict['name'])
-
-        plot_dict = {'value': repo_dict['stargazers_count'],
-                 'label': repo_dict['description'],
-                 'xlink': repo_dict['html_url'],}
-        plot_dicts.append(plot_dict)
-    """    
     
     submission_dict = {'label': response_dict['title'],
             'xlink': 'http://news.ycombinator.com/item?id=' + str(submission_id),
@@ -291,12 +282,12 @@ for submission_id in submission_ids[:30]:
 
 submission_dicts = sorted(submission_dicts, key=itemgetter('value'),
             reverse=True)
-"""
+
 for submission_dict in submission_dicts:
     print("\nTitle:", submission_dict['label'])
-    print("Discussion link:", submission_dict['link'])
-    print("Comments:", submission_dict['comments'])
-"""   
+    print("Discussion link:", submission_dict['xlink'])
+    print("Comments:", submission_dict['value'])
+
 # Cria uma visualização
 my_style = LS('#333366', base_style=LCS)
 
