@@ -261,7 +261,7 @@ print("Status code:", r.status_code)
 
 # Processa informações sobre cada artigo submetido
 submission_ids = r.json()
-submission_dicts = []
+submission_dicts, titles = [], []
 
 for submission_id in submission_ids[:30]: 
     # Cria uma chamada de API separada para cada artigo submetido
@@ -272,6 +272,7 @@ for submission_id in submission_ids[:30]:
     print(submission_r.status_code)
 
     response_dict = submission_r.json() 
+    titles.append(response_dict['title'])
     submission_dict = {'title': response_dict['title'],
             'link': 'http://news.ycombinator.com/item?id=' +
             str(submission_id), 'comments': response_dict.get('descendants', 0) }
@@ -280,11 +281,7 @@ for submission_id in submission_ids[:30]:
 submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
             reverse=True)
 
-titles = []
-
 for submission_dict in submission_dicts:
-    titles.append(submission_dict['title'])
-
     print("\nTitle:", submission_dict['title'])
     print("Discussion link:", submission_dict['link'])
     print("Comments:", submission_dict['comments'])
