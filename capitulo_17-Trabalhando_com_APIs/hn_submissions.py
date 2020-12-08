@@ -240,7 +240,7 @@ HISTÓRICO
         - A API de Hacker News (pg 436-439).
         
     20200812: João Paulo, dezembro de 2020.
-        - 17.2 – Discussões entusiasmadas (pg ).
+        - 17.2 – Discussões entusiasmadas (pg 440).
 
 ------------------------------------------------------------------------
 """
@@ -280,7 +280,11 @@ for submission_id in submission_ids[:30]:
 submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
             reverse=True)
 
+titles = []
+
 for submission_dict in submission_dicts:
+    titles.append(submission_dict['title'])
+
     print("\nTitle:", submission_dict['title'])
     print("Discussion link:", submission_dict['link'])
     print("Comments:", submission_dict['comments'])
@@ -300,7 +304,7 @@ my_config.width = 1000
 
 chart = pygal.Bar(my_config, style=my_style)
 chart.title = 'Discussões mais entusiasmadas do momento no Hacker News'
-chart.x_labels = names
+chart.x_labels = titles    
 
 chart.add('', submission_dicts)
-chart.render_to_file('hn_sudmissions.svg')
+chart.render_to_file('hn_submissions.svg')
