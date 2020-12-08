@@ -203,7 +203,7 @@ DESCRIÇÃO
     ou o valor que você fornecer se ela não existir (0 nesse exemplo).
 
     Por fim, concatenamos cada submission_dict à lista submission_dicts.
-    
+
     Os artigos submetidos no Hacker News são classificados de acordo com
     uma pontuação geral, baseada em vários fatores, incluindo quantos
     votos receberam, quantos comentários foram feitos e quão
@@ -225,7 +225,7 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
-    17.2 – Discussões entusiasmadas: Usando os dados de 
+    17.2 – Discussões entusiasmadas: Usando os dados de
     hn_submissions.py, crie um gráfico de barras que mostre as
     discussões mais entusiasmadas do momento no Hacker News. A altura de
     cada barra deve corresponder ao número de comentários que cada
@@ -238,7 +238,7 @@ DESCRIÇÃO
 HISTÓRICO
     20200712: João Paulo, dezembro de 2020.
         - A API de Hacker News (pg 436-439).
-        
+
     20200812: João Paulo, dezembro de 2020.
         - 17.2 – Discussões entusiasmadas (pg 440).
 
@@ -263,17 +263,17 @@ print("Status code:", r.status_code)
 submission_ids = r.json()
 submission_dicts, titles = [], []
 
-for submission_id in submission_ids[:30]: 
+for submission_id in submission_ids[:30]:
     # Cria uma chamada de API separada para cada artigo submetido
     url = ('https://hacker-news.firebaseio.com/v0/item/' + str(submission_id) +
             '.json')
-    
+
     submission_r = requests.get(url)
     print(submission_r.status_code)
 
-    response_dict = submission_r.json() 
+    response_dict = submission_r.json()
     titles.append(response_dict['title'])
-    
+
     submission_dict = {'label': response_dict['title'],
             'xlink': 'http://news.ycombinator.com/item?id=' + str(submission_id),
             'value': response_dict.get('descendants', 0) }
@@ -303,7 +303,7 @@ my_config.width = 1000
 
 chart = pygal.Bar(my_config, style=my_style)
 chart.title = 'Discussões mais entusiasmadas do momento no Hacker News'
-chart.x_labels = titles   
+chart.x_labels = titles
 
 chart.add('', submission_dicts)
 chart.render_to_file('hn_submissions.svg')
