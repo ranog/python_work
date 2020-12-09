@@ -333,6 +333,7 @@ for repo_dict in repo_dicts:
                  'xlink': repo_dict['html_url'],}
     plot_dicts.append(plot_dict)
 
+"""
 # Cria uma visualização
 my_style = LS('#333366', base_style=LCS)
 
@@ -352,3 +353,5 @@ chart.x_labels = names
 
 chart.add('', plot_dicts)
 chart.render_to_file('python_repos.svg')
+
+"""
