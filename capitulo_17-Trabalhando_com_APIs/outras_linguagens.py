@@ -56,7 +56,11 @@ from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
 # Faz uma chamada de API e armazena a resposta.
 # XXX Com a linguagem Perl não funciona, não sei o por que.
-linguagens = ['javascript', 'ruby', 'c', 'java', 'haskell', 'go']
+# XXX Alguns repositorios a descrição está vazia, levantando uma exceção,
+# nesta caso, foi resolvido o problema com a linguagem Perl colocando um
+# or '' depois de 'label': repo_dict['description'].
+
+linguagens = ['javascript', 'ruby', 'c', 'java', 'haskell', 'go', 'perl']
 
 for linguagem in linguagens:
 
@@ -70,6 +74,7 @@ for linguagem in linguagens:
     response_dict = r.json()
 
     print("Total repositories:", response_dict['total_count'])
+    print()
 
     # Explora informações sobre os repositórios
     repo_dicts = response_dict['items']
@@ -80,7 +85,7 @@ for linguagem in linguagens:
         names.append(repo_dict['name'])
 
         plot_dict = {'value': repo_dict['stargazers_count'],
-                 'label': repo_dict['description'],
+                 'label': repo_dict['description'] or '',
                  'xlink': repo_dict['html_url'],}
         plot_dicts.append(plot_dict)
 

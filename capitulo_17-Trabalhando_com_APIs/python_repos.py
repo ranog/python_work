@@ -284,56 +284,39 @@ print("Status code:", r.status_code)
 # Armazena a resposta da API em uma variável
 response_dict = r.json()
 
-#-----------------------------------------------------------------------
-
-# Processa o resultado
-# print(response_dict.keys()) pg: 425-426
-
-#-----------------------------------------------------------------------
-
 print("Total repositories:", response_dict['total_count'])
 
 # Explora informações sobre os repositórios
 repo_dicts = response_dict['items']
-# print("Number of items:", len(repo_dicts))
 
-#-----------------------------------------------------------------------
-
-"""# Analisa o 1° repositório
-repo_dict = repo_dicts[0]
-print("\nKeys =", len(repo_dict))
-for key in sorted(repo_dict.keys()):
-    print(key)"""
-
-#-----------------------------------------------------------------------
-
-"""
 print("\nSelected information about each repository:")
 
-for repo_dict in repo_dicts:
-    print('Name:', repo_dict['name'])
-    print('Owner:', repo_dict['owner']['login'])
-    print('Stars:', repo_dict['stargazers_count'])
-    print('Repository:', repo_dict['html_url'])
-    print('Created:', repo_dict['created_at'])
-    print('Updated:', repo_dict['updated_at'])
-    print('Description:', repo_dict['description'])
+for info in repo_dicts:
+    print('Name:', info['name'])
+    print('Owner:', info['owner']['login'])
+    print('Stars:', info['stargazers_count'])
+    print('Repository:', info['html_url'])
+    print('Created:', info['created_at'])
+    print('Updated:', info['updated_at'])
+    print('Description:', info['description'])
     print()
-"""
 
 #-----------------------------------------------------------------------
 
 names, plot_dicts = [], []
 
 for repo_dict in repo_dicts:
+    
     names.append(repo_dict['name'])
 
+    # XXX Em algums repositorios o description está vasio levantanto um
+    # Traceback, que foi resolvido com or ''.
     plot_dict = {'value': repo_dict['stargazers_count'],
-                 'label': repo_dict['description'],
+                 'label': repo_dict['description'] or '',
                  'xlink': repo_dict['html_url'],}
+    
     plot_dicts.append(plot_dict)
 
-"""
 # Cria uma visualização
 my_style = LS('#333366', base_style=LCS)
 
@@ -351,7 +334,5 @@ chart = pygal.Bar(my_config, style=my_style)
 chart.title = 'Most-Starred Python Projects on GitHub'
 chart.x_labels = names
 
-chart.add('', plot_dicts)
+chart.add('Stars', plot_dicts)
 chart.render_to_file('python_repos.svg')
-
-"""
