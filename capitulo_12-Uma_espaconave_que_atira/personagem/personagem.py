@@ -86,7 +86,7 @@ HISTÓRICO
 import pygame
 
 
-class Ship():
+class Personagem():
     """Administra a maior parte do comportamento da espaçonave do
     jogador."""
 
