@@ -265,6 +265,9 @@ HISTÓRICO
         - Adicionando links que podem ser clicados em nosso gráfico (pg
         436).
 
+    20201012: João Paulo, dezembro de 2020.
+        - Refatorando o código.
+
 ------------------------------------------------------------------------
 """
 
@@ -275,13 +278,20 @@ import pygal
 from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
 
-# Faz uma chamada de API e armazena a resposta.
-url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
+def chamada_api():
+    # Faz uma chamada de API e armazena a resposta.
+    url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'
 
-r = requests.get(url)
-print("Status code:", r.status_code)
+    r = requests.get(url)
+    #print("Status code:", r.status_code)
+
+    return r
 
 # Armazena a resposta da API em uma variável
+
+r = chamada_api()
+print("Status code:", r.status_code)
+
 response_dict = r.json()
 
 print("Total repositories:", response_dict['total_count'])

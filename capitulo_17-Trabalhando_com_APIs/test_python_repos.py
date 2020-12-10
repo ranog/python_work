@@ -29,9 +29,8 @@ HISTÓRICO
 
 
 import unittest
-import requests
 
-import python_repos
+from python_repos import chamada_api
 
 
 class PythonReposTestCase(unittest.TestCase):
@@ -39,17 +38,25 @@ class PythonReposTestCase(unittest.TestCase):
 
     def test_status_code(self):
         """O valor de status_code é 200?""" 
-        
-        url = 'https://api.github.com/search/repositories?q=language:python&sort=stars'   
-        r = requests.get(url)
+        r = chamada_api()
+
         self.assertEqual(r.status_code, 200)
 
-"""
-    def test_first_last_middle_name(self):
-        Nomes como 'Wolfgang Amadeus Mozart' funcionam?
 
-        formatted_name = get_formatted_name('wolfgang', 'mozart', 'amadeus')
-        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
-"""
+    def test_num_repos(self):
+        """O número total de repositórios é maior que 600000?."""
+        r = chamada_api()
+        response_dict = r.json()
+        
+        # Testa se x >= y
+        self.assertGreaterEqual(int(response_dict['total_count']), 600000)
 
-unittest.main()
+
+    def test_num_itens(self):
+        """o número de itens devolvidos é o que se espera?"""
+        r = chamada_api()
+        response_dict = r.json()
+        num_items = len(response_dict['items'])
+        
+        self.assertGreaterEqual(num_items, 20)
+        self.assertEqual(num_items, 30)
