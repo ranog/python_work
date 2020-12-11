@@ -41,16 +41,16 @@ from python_repos import chamada_api
 
 class PythonReposTestCase(unittest.TestCase):
     """Testes para 'python_repos.py'."""
-    
+
 
     def setUp(self):
-        """Faz a chamada da API para todos os testes."""
+        """Faz a chamada da API e cria o .json para todos os testes."""
         self.r = chamada_api()
         self.response_dict = self.r.json()
 
 
     def test_status_code(self):
-        """O valor de status_code é 200?""" 
+        """O valor de status_code é 200?"""
         self.assertEqual(self.r.status_code, 200)
 
 
@@ -63,7 +63,7 @@ class PythonReposTestCase(unittest.TestCase):
     def test_num_itens(self):
         """o número de itens devolvidos é o que se espera?"""
         num_items = len(self.response_dict['items'])
-        
+
         self.assertGreaterEqual(num_items, 20)
         self.assertEqual(num_items, 30)
 
