@@ -120,6 +120,11 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Devemos ver a nave mover-se para a direita em um pixel sempre que a
+    seta para a direita for pressionada.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -164,7 +169,7 @@ def run_game():
 
     # Inicia o laço principal do jogo
     while True:
-        gf.check_events()
+        gf.check_events(ship)
         gf.update_screen(ai_settings, screen, ship)
 
 
