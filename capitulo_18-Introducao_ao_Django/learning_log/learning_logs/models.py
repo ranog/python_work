@@ -2,7 +2,9 @@ from django.db import models
 
 # Create your models here.
 
-""" Criamos uma classe chamada Topic, que herda de Model – uma
+"""---------------------------------------------------------------------
+
+Criamos uma classe chamada Topic, que herda de Model – uma
 classe-pai incluída em Django, que define a funcionalidade básica de um
 modelo.
 
@@ -52,3 +54,64 @@ class Topic(models.Model):
     def __str__(self):
         """Devolve uma representação em string do modelo."""
         return self.text
+
+
+""" Definindo o modelo Entry (pg 455-456):
+
+    A classe Entry herda da classe base Model de Django, assim como foi
+    feito com Topic.
+
+    O primeiro atributo, topic, é uma instância de ForeignKey.
+
+    Uma chave estrangeira (foreign key) é um termo usado em banco de
+    dados: é uma referência a outro registro do banco de dados.
+
+    Esse é o código que associa cada entrada a um assunto específico.
+
+    Cada assunto recebe uma chave, isto é, um ID, quando é criado.
+
+    Quando Django precisa estabelecer uma conexão entre dois dados, ele
+    usa a chave associada a cada informação.
+
+    Em seguida, temos um atributo chamado text, que é uma instância de
+    TextField.
+
+    Esse tipo de campo não precisa de um limite para o tamanho, pois não
+    queremos restringir o tamanho das entradas individuais.
+
+    O atributo date_added nos permite apresentar as entradas na ordem em
+    que foram criadas e inserir um timestamp junto a cada entrada.
+
+    Aninhamos a classe Meta em nossa classe Entry.
+
+    Meta armazena informações extras para administrar um modelo; nesse
+    caso, ela nos permite definir um atributo especial que diz a Django
+    para usar Entries quando precisar se referir a mais de uma entrada.
+    (Sem isso, Django iria referenciar várias entradas como Entrys.)
+
+    Por fim, o método __str__() diz a Django quais informações devem ser
+    mostradas quando entradas individuais forem referenciadas.
+
+    Como uma entrada pode ser um texto longo, dizemos a Django para
+    mostrar apenas os primeiros 50 caracteres de text.
+
+    Também acrescentamos reticências para deixar claro que não estamos
+    exibindo a entrada completa."""
+
+
+class Entry(models.Model):
+    """Algo específico aprendido sobre um assunto."""
+
+    topic = models.ForeignKey(Topic)
+    text = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+
+    class META:
+        verbose_name_plural = 'entries'
+
+
+    def __str__(self):
+        """Devolve uma representação em string do modelo."""
+
+        return self.text[:50] + "..."
