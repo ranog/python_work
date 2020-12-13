@@ -75,9 +75,18 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Adicionamos um atributo self.moving_right no método __init__() e o
+    definimos com False inicialmente. Então acrescentamos update() , que
+    move a espaçonave para a direita se a flag for True.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Criando a classe Ship (pg 286-288).
+
+    20201212: João Paulo, dezembro de 2020.
+        - Permitindo um movimento contínuo (pg 292-294).
 
 ------------------------------------------------------------------------
 """
@@ -90,18 +99,33 @@ class Ship():
     """Administra a maior parte do comportamento da espaçonave do
     jogador."""
 
+
     def __init__(self, screen):
         """Inicializa a espaçonave e define sua posição inicial."""
+
         self.screen = screen
+
         # Carrega a imagem da espaçonave e obtém seu rect
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
+
         # Inicia cada nova espaçonave na parte inferior central da tela
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
+        # Flag de movimento
+        self.moving_right = False
+
+
+    def update(self):
+        """Atualiza a posição da espaçonave de acordo com a flag de movimento."""
+
+        if self.moving_right:
+            self.rect.centerx += 1
+
 
     def blitme(self):
         """Desenha a espaçonave em sua posição atual. """
+
         self.screen.blit(self.image, self.rect)

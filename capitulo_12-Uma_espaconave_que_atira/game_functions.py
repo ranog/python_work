@@ -30,10 +30,22 @@ DESCRIÇÃO
     pressionada. Em check_events(), acrescentamos um bloco elif no laço
     de eventos para responder quando o Pygame detectar um evento
     KEYDOWN.
+
     Verificamos se a tecla pressionada é a seta para a direita
     (pygame.K_RIGHT) lendo o atributo event.key. Se a seta para a
     direita foi pressionada, movemos a espaçonave para a direita
     incrementando o valor de ship.rect.centerx de 1.
+
+------------------------------------------------------------------------
+
+    Modificamos o modo como o jogo responde quando o jogador pressiona a
+    seta para a direita; em vez de mudar a posição da espaçonave de
+    forma direta, simplesmente definimos moving_right com True.
+
+    Adicionamos um novo bloco elif que responde a eventos KEYUP.
+
+    Quando o jogador soltar a tecla de seta para a direita (K_RIGHT),
+    definiremos moving_right com False.
 
 ------------------------------------------------------------------------
 
@@ -44,6 +56,9 @@ HISTÓRICO
 
     20201112: João Paulo, dezembro de 2020.
         - Respondendo a um pressionamento de tecla (pg 291-292).
+
+    20201212: João Paulo, dezembro de 2020.
+        - Permitindo um movimento contínuo (pg 292-294).
 
 ------------------------------------------------------------------------
 """
@@ -58,10 +73,15 @@ def check_events(ship):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
+
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
-                # Move a espaçonave para a direita
-                ship.rect.centerx += 1
+                ship.moving_right = True
+
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_RIGHT:
+                ship.moving_right = False
+
 
 
 def update_screen(ai_settings, screen, ship):

@@ -125,6 +125,19 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    A posição da espaçonave será atualizada depois que verificarmos os
+    eventos de teclado e antes de atualizarmos a tela.
+
+    Isso permite que a posição da nave seja atualizada em resposta a uma
+    entrada do jogador e garante que a posição atualizada seja usada
+    quando a espaçonave for desenhada na tela.
+
+    Ao executar alien_invasion.py e manter a seta para a direita
+    pressionada, a espaçonave deverá mover-se continuamente para a
+    direita até que a tecla seja solta.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -141,6 +154,9 @@ HISTÓRICO
         - Desenhando a espaçonave na tela (pg 288).
         - Função check_events() (pg 289-290).
         - Função update_screen() (pg 290-291).
+
+    20201212: João Paulo, dezembro de 2020.
+        - Permitindo um movimento contínuo (pg 292-294).
 
 ------------------------------------------------------------------------
 """
@@ -170,6 +186,7 @@ def run_game():
     # Inicia o laço principal do jogo
     while True:
         gf.check_events(ship)
+        ship.update()
         gf.update_screen(ai_settings, screen, ship)
 
 
