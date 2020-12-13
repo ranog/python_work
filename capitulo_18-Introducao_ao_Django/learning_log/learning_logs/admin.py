@@ -6,6 +6,7 @@ from django.contrib import admin
 usa admin.site.register() para dizer a Django que administre nosso
 modelo por meio do site de administração."""
 
-from learning_logs.models import Topic
+from learning_logs.models import Topic, Entry
 
 admin.site.register(Topic)
+admin.site.register(Entry)

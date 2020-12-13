@@ -102,7 +102,11 @@ class Topic(models.Model):
 class Entry(models.Model):
     """Algo específico aprendido sobre um assunto."""
 
-    
+    # Um relacionamento muitos para um.  Requer dois argumentos
+    # posicionais: a classe à qual o modelo está relacionado e a opção
+    # on_delete. 
+    # Site acessado em 13 de dezembro de 2020:
+    # https://docs.djangoproject.com/pt-br/3.1/ref/models/fields/#django.db.models.ForeignKey
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
