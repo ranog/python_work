@@ -49,6 +49,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Se um evento KEYDOWN ocorrer para a tecla K_LEFT, definimos
+    moving_left com True. Se um evento KEYUP ocorrer para a tecla
+    K_LEFT, definimos moving_left com False. Podemos usar blocos elif
+    nesse caso, pois cada evento está associado a apenas uma tecla. Se o
+    jogador pressionar as duas teclas ao mesmo tempo, dois eventos
+    diferentes serão detectados.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -59,6 +68,10 @@ HISTÓRICO
 
     20201212: João Paulo, dezembro de 2020.
         - Permitindo um movimento contínuo (pg 292-294).
+
+    20201512: João Paulo, dezembro de 2020.
+         - Movendo tanto para a esquerda quanto para a direita
+         (pg 294-295).
 
 ------------------------------------------------------------------------
 """
@@ -77,11 +90,14 @@ def check_events(ship):
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = True
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = True
 
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_RIGHT:
                 ship.moving_right = False
-
+            elif event.key == pygame.K_LEFT:
+                ship.moving_left = False
 
 
 def update_screen(ai_settings, screen, ship):
