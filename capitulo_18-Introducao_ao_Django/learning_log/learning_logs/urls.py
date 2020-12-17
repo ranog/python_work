@@ -7,4 +7,6 @@ from . import views
 urlpatterns = [
     # Página inicial
     path('', views.index, name='index'),
+    
+    path('topics/', views.topics, name='topics'),
 ]
