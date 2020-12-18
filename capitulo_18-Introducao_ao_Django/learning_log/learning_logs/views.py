@@ -23,7 +23,27 @@ Nesse caso, há apenas um par chave-valor, que contém o conjunto de
 assuntos a ser exibido na página.
 
 Ao construir uma página que use dados, passamos a variável context para
-render(), além do objeto request e o path do template."""
+render(), além do objeto request e o path do template.
+
+------------------------------------------------------------------------
+
+def topic(request, topic_idid
+
+    Essa é a primeira função de view que exige um parâmetro que não seja
+    o objeto request.
+
+    A função aceita o valor capturado pela expressão (?P<topic_id>\d+),
+    atualizado para o django 3.1.4, e o armazena em topic_id.
+
+    Usamos get() para obter o assunto, assim como fizemos no shell de Django.
+    
+    Recuperamos as entradas associadas aesse assunto e as ordenamos de
+    acordo com date_added: o sinal de menos na frente de date_added
+    ordena os resultados em ordem inversa, o que fará as entradas mais
+    recentes serem exibidas antes.
+
+    Armazenamos o assunto e as entradas no dicionário de contexto e
+    enviamos context para o template topic.html."""
 
 
 def index(request):
@@ -36,3 +56,11 @@ def topics(request):
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
+
+
+def topic(request, topic_id):
+    """Mostra um único assunto e todas as suas entradas."""
+    topic = Topic.objects.get(id=topic_id)
+    entries = topic.entry_set.order_by('-date_added')
+    context = {'topic': topic, 'entries': entries}
+    return render(request, 'learning_logs/topic.html', context)
