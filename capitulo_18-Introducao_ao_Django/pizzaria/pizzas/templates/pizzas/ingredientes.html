@@ -4,14 +4,14 @@
   <p>Pizza: {{ pizza }}</p>
   <p>Ingrediente:</p>
 
-    <ul>{% for entry in entries %}
+    <ul>{% for topping in toppings %}
       <li>
-        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ entry.text|linebreaks }}</p>
+        <p>{{ topping.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ topping.name|linebreaks }}</p>
       </li>
 
       {% empty %}
-        <li> There are no entries for this topic yet.
+        <li> We don't have that pizza yet.
         </li>
 
         {% endfor %}

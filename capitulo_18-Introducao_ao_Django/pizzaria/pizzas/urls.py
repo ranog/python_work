@@ -9,5 +9,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('pizzas/', views.pizzas, name='pizzas'),
     # Página dos ingredientes de um pizza.
-    path('pizzas/<int:pizza_id>', views.ingredientes, name='ingredientes'),
+    path('pizzas/<int:pizza_id>', views.pizza, name='pizza'),
 ]
