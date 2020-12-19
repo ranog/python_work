@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     # Página inicial
     path('', views.index, name='index'),
+    path('cardapio/', views.cardapio, name='cardapio'),
 ]
