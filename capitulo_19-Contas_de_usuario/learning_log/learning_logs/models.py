@@ -2,8 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-"""---------------------------------------------------------------------
-
+"""
 Criamos uma classe chamada Topic, que herda de Model – uma
 classe-pai incluída em Django, que define a funcionalidade básica de um
 modelo.
