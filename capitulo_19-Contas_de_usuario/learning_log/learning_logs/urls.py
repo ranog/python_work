@@ -12,4 +12,7 @@ urlpatterns = [
 
     # Página de detalhes para um único assunto
     path('topics/<int:topic_id>/', views.topic, name='topic'),
+
+    # Página para adicionar um novo assunto
+    path('new_topic/', views.new_topic, name='new_topic'),
 ]
