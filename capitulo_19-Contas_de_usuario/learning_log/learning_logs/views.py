@@ -156,7 +156,7 @@ def new_topic(request):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('learning_logs:topics'))
+            return HttpResponseRedirect(reverse('topics'))
 
     
     context = {'form': form}
