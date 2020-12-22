@@ -62,7 +62,66 @@ def topic(request, topic_idid
     for solicitada.
 
     Também importamos TopicForm, que é o formulário que acabamos de
-    criar. """
+    criar. 
+------------------------------------------------------------------------
+
+    A função new_topic() aceita o objeto de requisição como parâmetro.
+
+    Quando o usuário inicialmente solicita essa página, o navegador
+    envia uma requisição GET.
+
+    Depois que o usuário tiver preenchido e submetido o formulário, o
+    navegador enviará uma requisição POST.
+
+    Conforme a requisição, saberemos se o usuário está solicitando um
+    formulário em branco (uma requisição GET) ou nos pedindo para
+    processar um formulário preenchido (uma requisição POST).
+
+    O teste determina se o método de requisição é GET ou POST.
+
+    Se o método de requisição não for um POST, a requisição
+    provavelmente é um GET, portanto precisamos devolver um formulário
+    em branco (se for outro tipo de requisição, continua sendo seguro
+    devolver um formulário em branco).
+
+    Criamos uma instância de TopicForm, armazenamos essa instância em
+    uma variável form e enviamos o formulário para o template no
+    dicionário de contexto.
+
+    Como não incluímos nenhum argumento ao instanciar TopicForm, o
+    Django cria um formulário em branco que o usuário poderá preencher.
+
+    Se o método de requisição for um POST, o bloco else executará e
+    processará os dados submetidos no formulário.
+
+    Criamos uma instância de TopicForm e passamos os dados fornecidos
+    pelo usuário, armazenados em request.POST.
+
+    O objeto form devolvido contém as informações submetidas pelo
+    usuário.
+
+    Não podemos salvar as informações submetidas no banco de dados antes
+    de verificar se são válidas.
+
+    A função is_valid() verifica se todos os campos necessários foram
+    preenchidos (todos os campos em um formulário são obrigatórios por
+    padrão) e se os dados fornecidos são do tipo esperado para o campo –
+    por exemplo, se o tamanho de text é menor que 200 caracteres,
+    conforme especificado em models.py no Capítulo 18.
+
+    Essa validação automática nos poupa de muito trabalho.
+
+    Se tudo estiver válido, chamamos save(), que grava os dados do
+    formulário no banco de dados.
+
+    Depois que os dados forem salvos, podemos sair dessa página.
+
+    Usamos reverse() para obter o URL da página topics e o passamos para
+    HttpResponseRedirect(), que redireciona o navegador do usuário para
+    essa página.
+
+    Na página topics, o usuário deverá ver o assunto que ele acabou de
+    inserir na lista de assuntos. """
 
 
 def index(request):
@@ -92,7 +151,7 @@ def new_topic(request):
         form = TopicForm()
 
     else:
-         # Dados de POST submetidos; processa os dados
+        # Dados de POST submetidos; processa os dados
         form = TopicForm(request.POST)
 
         if form.is_valid():
