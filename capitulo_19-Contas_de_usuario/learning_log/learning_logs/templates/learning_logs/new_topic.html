@@ -1,0 +1,43 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+  <p>Add a new topic:</p>
+  <form action="{% url 'new_topic' %}" method='post'>
+  
+    {%csrf_token %}
+    {{ form.as_p }}
+  
+    <button name="submit">add topic</button>
+  </form>
+
+{% endblock content %}
+
+<!-- Esse template estende base.html, portanto tem a mesma estrutura
+  básica que o restante das páginas de Learning Log.
+
+  Definimos um formulário HTML.
+
+  O argumento action diz ao servidor para qual lugar devem ser enviados
+  os dados submetidos no formulário; nesse caso, eles serão enviados
+  para a função de view new_topic().
+
+  O argumento method diz ao navegador para submeter os dados com uma
+  requisição POST.
+
+  O Django utiliza a tag de template {% csrf_token %} para evitar que 
+  invasores usem o formulário a fim de ter acesso não autorizado ao
+  servidor (esse tipo de ataque é conhecido como cross-site request
+  forgery). Exibimos o formulário; nesse ponto, você pode ver como o
+  Django simplifica a execução de tarefas como a exibição de um
+  formulário.
+
+  Basta incluir a variável de template {{ form.as_p }} para que o
+  framework crie todos os campos necessários e exiba o formulário
+  automaticamente.
+
+  O modificador as_p diz a Django para renderizar todos os elementos do
+  formulário em formato de parágrafo, que é uma maneira simples de
+  exibir o formulário de modo organizado.
+
+  O Django não cria um botão de submissão para os formulários, portanto
+  definimos um. -->
