@@ -94,6 +94,38 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Adicionamos ai_settings à lista de parâmetros de __init__() para que
+    a espaçonave tenha acesso à sua configuração de velocidade.
+
+    Então transformamos o parâmetro ai_settings em um atributo para que
+    possamos usá-lo em update().
+
+    Agora que estamos ajustando a posição da espaçonave em frações de um
+    pixel, precisamos armazenar a posição em uma variável capaz de
+    armazenar um valor decimal.
+
+    Você pode usar um valor decimal para definir um atributo de rect,
+    mas rect armazenará apenas a parte inteira desse valor.
+
+    Para armazenar a posição da espaçonave de forma precisa, definimos
+    um novo atributo self.center, capaz de armazenar valores decimais.
+
+    Usamos a função float() para converter o valor de self.rect.centerx
+    em um decimal e armazenamos esse valor em self.center.
+
+    Agora, quando alterarmos a posição da espaçonave em update(), o
+    valor de self.center será ajustado de acordo com a quantidade
+    armazenada em ai_settings.ship_speed_factor.
+
+    Depois que self.center é atualizado, usamos o novo valor para
+    atualizar self.rect.centerx, que controla a posição da espaçonave.
+
+    Somente a parte inteira de self.center será armazenada em
+    self.rect.centerx, mas isso não é um problema para exibir a
+    espaçonave.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Criando a classe Ship (pg 286-288).
@@ -104,6 +136,9 @@ HISTÓRICO
     20201512: João Paulo, dezembro de 2020.
         - Movendo tanto para a esquerda quanto para a direita
         (pg 294-295).
+
+    20202412: João Paulo, dezembro de 2020.
+        - Ajustando a velocidade da espaçonave (pg 295-297).
 
 ------------------------------------------------------------------------
 """
@@ -117,9 +152,10 @@ class Ship():
     jogador."""
 
 
-    def __init__(self, screen):
+    def __init__(self, ai_settings, screen):
         """Inicializa a espaçonave e define sua posição inicial."""
         self.screen = screen
+        self.ai_settings = ai_settings
 
         # Carrega a imagem da espaçonave e obtém seu rect
         self.image = pygame.image.load('images/ship.bmp')
@@ -130,18 +166,25 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
+        # Armazena um valor decimal para o centro da espaçonave
+        self.center = float(self.rect.centerx)
+
         # Flag de movimento
         self.moving_right = False
         self.moving_left = False
 
 
     def update(self):
-        """Atualiza a posição da espaçonave de acordo com a flag de movimento."""
+        """Atualiza a posição da espaçonave de acordo com a flag de
+        movimento."""
+        # Atualiza o valor do centro da espaçonave, e não o retângulo
         if self.moving_right:
-            self.rect.centerx += 1
+            self.center += self.ai_settings.ship_speed_factor
         if self.moving_left:
-            self.rect.centerx -= 1
+            self.center -= self.ai_settings.ship_speed_factor
 
+        # Atualiza o objeto rect de acordo com self.center
+        self.rect.centerx = self.center
 
     def blitme(self):
         """Desenha a espaçonave em sua posição atual. """

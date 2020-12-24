@@ -138,6 +138,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Agora qualquer valor de ship_speed_faictor maior que um fará a
+    espaçonave se deslocar mais rapidamente.
+
+    Isso será útil para fazer com que a espaçonave responda rápido o
+    suficiente para atingir os alienígenas, e nos permitirá mudar o
+    ritmo do jogo à medida que o jogador fizer progressos no gameplay.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -157,6 +166,9 @@ HISTÓRICO
 
     20201212: João Paulo, dezembro de 2020.
         - Permitindo um movimento contínuo (pg 292-294).
+
+    20202412: João Paulo, dezembro de 2020.
+        - Ajustando a velocidade da espaçonave (pg 295-297).
 
 ------------------------------------------------------------------------
 """
@@ -181,7 +193,7 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     # Cria uma espaçonave
-    ship = Ship(screen)
+    ship = Ship(ai_settings, screen)
 
     # Inicia o laço principal do jogo
     while True:
