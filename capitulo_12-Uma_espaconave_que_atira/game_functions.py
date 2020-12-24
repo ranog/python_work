@@ -58,6 +58,20 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Criamos duas novas funções: check_keydown_events() e
+    check_keyup_events().
+
+    Cada uma delas precisa de um parâmetro event e de um parâmetro ship.
+
+    Os corpos dessas duas funções foram copiados de check_events() e
+    substituímos o código antigo por chamadas às novas funções.
+
+    A função check_events() está mais simples agora, com uma estrutura
+    de código mais limpa, o que facilitará o desenvolvimento de outras
+    respostas a entradas do usuário.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
