@@ -126,6 +126,25 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Esse código verifica a posição da espaçonave antes de alterar o
+    valor de self.center.
+
+    O código self.rect.right devolve o valor da coordenada x da borda
+    direita do rect da espaçonave.
+
+    Se esse valor for menor que o valor devolvido por
+    self.screen_rect.right, é sinal de que a espaçonave não alcançou a
+    borda direita da tela.
+
+    O mesmo vale para a borda esquerda: se o valor do lado esquerdo de
+    rect for maior que zero, a espaçonave não atingiu a borda esquerda
+    da tela.
+
+    Isso garante que a espaçonave esteja dentro desses limites antes de
+    ajustar o valor de self.center.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Criando a classe Ship (pg 286-288).
@@ -139,6 +158,7 @@ HISTÓRICO
 
     20202412: João Paulo, dezembro de 2020.
         - Ajustando a velocidade da espaçonave (pg 295-297).
+        - Limitando o alcance da espaçonave (pg 297).
 
 ------------------------------------------------------------------------
 """
@@ -178,9 +198,9 @@ class Ship():
         """Atualiza a posição da espaçonave de acordo com a flag de
         movimento."""
         # Atualiza o valor do centro da espaçonave, e não o retângulo
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
         # Atualiza o objeto rect de acordo com self.center
