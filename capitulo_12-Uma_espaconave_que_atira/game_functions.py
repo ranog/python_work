@@ -70,8 +70,11 @@ HISTÓRICO
         - Permitindo um movimento contínuo (pg 292-294).
 
     20201512: João Paulo, dezembro de 2020.
-         - Movendo tanto para a esquerda quanto para a direita
+        - Movendo tanto para a esquerda quanto para a direita
          (pg 294-295).
+
+    20202412: João Paulo, dezembro de 2020.
+        - Refatorando check_events() (pg 297-298).
 
 ------------------------------------------------------------------------
 """
@@ -81,6 +84,22 @@ import sys
 import pygame
 
 
+def check_keydown_events(event, ship):
+    """Responde a pressionamentos de tecla."""
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = True
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = True
+
+
+def check_keyup_events(event, ship):
+    """Responde a solturas de tecla."""
+    if event.key == pygame.K_RIGHT:
+        ship.moving_right = False
+    elif event.key == pygame.K_LEFT:
+        ship.moving_left = False
+
+
 def check_events(ship):
     """Responde a eventos de pressionamento de teclas e de mouse."""
     for event in pygame.event.get():
@@ -88,16 +107,10 @@ def check_events(ship):
             sys.exit()
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                ship.moving_right = True
-            elif event.key == pygame.K_LEFT:
-                ship.moving_left = True
+            check_keydown_events(event, ship)
 
         elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_RIGHT:
-                ship.moving_right = False
-            elif event.key == pygame.K_LEFT:
-                ship.moving_left = False
+            check_keyup_events(event, ship)
 
 
 def update_screen(ai_settings, screen, ship):

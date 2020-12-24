@@ -206,6 +206,7 @@ class Ship():
         # Atualiza o objeto rect de acordo com self.center
         self.rect.centerx = self.center
 
+
     def blitme(self):
         """Desenha a espaçonave em sua posição atual. """
         self.screen.blit(self.image, self.rect)
