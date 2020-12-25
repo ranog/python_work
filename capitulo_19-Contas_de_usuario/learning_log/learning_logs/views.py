@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from . models import Topic
-from . forms import TopicForm
+from . forms import TopicForm, EntryForm
 
 # Create your views here.
 """ Inicialmente importamos o modelo associado aos dados de que
@@ -161,3 +161,16 @@ def new_topic(request):
     
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
+
+
+def new_entry(request, topic_id):
+    """Acrescenta uma nova entrada para um assunto em particular."""
+    topic = Topic.objects.get(id=topic_id)
+
+    if request.method != 'POST':
+        # Nenhum dado submetido; cria um formulário em branco
+        form = EntryForm()
+    else:
+        # Dados de POST submetidos; processa os dados
+        form = EntryForm(date=request.POST)
+        if 
