@@ -29,6 +29,12 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    As configurações criam projéteis cinza-escuros, com largura de 3
+    pixels e altura de 15 pixels. Os projéteis se deslocarão de modo um
+    pouco mais lento que a espaçonave.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200312: João Paulo, dezembro de 2020.
         - Criando uma classe de configurações (pg 284-285).
@@ -52,3 +58,9 @@ class Settings():
 
         # Configurações da espaçonave
         self.ship_speed_factor = 1.5
+
+        # Configurações dos projéteis
+        self.bullet_speed_factor = 1
+        self.bullet_width = 3
+        self.bullet_height = 15
+        self.bullet_color = 60, 60, 60
