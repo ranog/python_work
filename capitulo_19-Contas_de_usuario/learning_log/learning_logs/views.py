@@ -63,6 +63,7 @@ def topic(request, topic_idid
 
     Também importamos TopicForm, que é o formulário que acabamos de
     criar. 
+
 ------------------------------------------------------------------------
 
     A função new_topic() aceita o objeto de requisição como parâmetro.
@@ -121,7 +122,55 @@ def topic(request, topic_idid
     essa página.
 
     Na página topics, o usuário deverá ver o assunto que ele acabou de
-    inserir na lista de assuntos. """
+    inserir na lista de assuntos. 
+
+------------------------------------------------------------------------
+
+    Atualizamos a instrução import para incluir o EntryForm que acabamos
+    de criar.
+
+    A definição de new_entry() tem um parâmetro topic_id para armazenar
+    o valor recebido do URL.
+
+    Precisaremos do assunto para renderizar a página e processar os
+    dados do formulário, portanto utilizamos topic_id para obter o
+    objeto correto para o assunto.
+
+    Verificamos se o método de requisição é POST ou GET.
+
+    O bloco if executará se for uma requisição GET, e criaremos uma
+    instância em branco de EntryForm.
+
+    Se o método de requisição for um POST, processaremos os dados
+    criando uma instância de EntryForm, preenchida com os dados de POST
+    do objeto request.
+
+    Então verificamos se o formulário é válido.
+
+    Se for, devemos definir o atributo
+topic do objeto de entrada antes de salvá-lo no banco de dados.
+
+    Quando chamamos save(), incluímos o argumento commit=False para
+    dizer a Django que crie um novo objeto de entrada e o armazene em
+    new_entry sem salvá-lo no banco de dados por enquanto.
+
+    Definimos o atributo topic de new_entry com o assunto extraído do
+    banco de dados no início da função; então chamamos save() sem
+    argumentos.
+
+    Essa instrução salva a entrada no banco de dados com o assunto
+    correto associado.
+
+    Redirecionamos o usuário para a página do assunto.
+
+    A chamada a reverse() exige dois argumentos: o nome do padrão de URL
+    para o qual queremos gerar um URL e uma lista args contendo qualquer
+    argumento que deva ser incluído no URL.
+
+    A lista args contém um item: topic_id. A chamada a
+    HttpResponseRedirect() então redireciona o usuário para a página do
+    assunto para o qual uma entrada foi criada, e a nova entrada deverá
+    ser vista na lista de entradas."""
 
 
 def index(request):
@@ -173,4 +222,11 @@ def new_entry(request, topic_id):
     else:
         # Dados de POST submetidos; processa os dados
         form = EntryForm(date=request.POST)
-        if 
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.topic = topic
+            new_entry.save()
+            return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic_id]))
+
+    context = {'topic': topic, 'form': form}
+    return render(request, 'new_emtry.html', context)
