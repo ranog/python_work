@@ -9,7 +9,7 @@ NOME
 ------------------------------------------------------------------------
 
 SINOPSES
-    from ship import Ship
+    from space_shuttle import SpaceShuttle as ss
 
 ------------------------------------------------------------------------
 
@@ -181,7 +181,7 @@ HISTÓRICO
 import pygame
 
 
-class Ship():
+class SpaceShuttle():
     """Administra a maior parte do comportamento da espaçonave do
     jogador."""
 
@@ -221,16 +221,16 @@ class Ship():
         # Atualiza o valor do centro da espaçonave, e não o retângulo
         if self.moving_right and self.rect.right < self.screen_rect.right:
             # XXX 12.3 – Foguete (pg 299):
-            self.centerx += self.ai_settings.ship_speed_factor
+            self.centerx += self.ai_settings.space_shuttle_speed_factor
         if self.moving_left and self.rect.left > 0:
             # XXX 12.3 – Foguete (pg 299):
-            self.centerx -= self.ai_settings.ship_speed_factor
+            self.centerx -= self.ai_settings.space_shuttle_speed_factor
 
         # XXX 12.3 – Foguete (pg 299):
         if self.moving_top and self.rect.top > 0:
-            self.centery -= self.ai_settings.ship_speed_factor
+            self.centery -= self.ai_settings.space_shuttle_speed_factor
         if self.moving_bottom and self.rect.bottom < self.screen_rect.bottom:
-            self.centery += self.ai_settings.ship_speed_factor
+            self.centery += self.ai_settings.space_shuttle_speed_factor
 
         # Atualiza o objeto rect de acordo com self.center
         # XXX 12.3 – Foguete (pg 299):

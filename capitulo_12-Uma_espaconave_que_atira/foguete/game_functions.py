@@ -112,53 +112,53 @@ import sys
 import pygame
 
 
-def check_keydown_events(event, ship):
+def check_keydown_events(event, space_shuttle):
     """Responde a pressionamentos de tecla."""
     if event.key == pygame.K_RIGHT:
-        ship.moving_right = True
+        space_shuttle.moving_right = True
     elif event.key == pygame.K_LEFT:
-        ship.moving_left = True
+        space_shuttle.moving_left = True
 
     # XXX 12.3 – Foguete (pg 299):
     if event.key == pygame.K_UP:
-        ship.moving_top = True
+        space_shuttle.moving_top = True
     elif event.key == pygame.K_DOWN:
-        ship.moving_bottom = True
+        space_shuttle.moving_bottom = True
 
 
-def check_keyup_events(event, ship):
+def check_keyup_events(event, space_shuttle):
     """Responde a solturas de tecla."""
     if event.key == pygame.K_RIGHT:
-        ship.moving_right = False
+        space_shuttle.moving_right = False
     elif event.key == pygame.K_LEFT:
-        ship.moving_left = False
+        space_shuttle.moving_left = False
 
     # XXX 12.3 – Foguete (pg 299)
     if event.key == pygame.K_UP:
-        ship.moving_top = False
+        space_shuttle.moving_top = False
     elif event.key == pygame.K_DOWN:
-        ship.moving_bottom = False
+        space_shuttle.moving_bottom = False
 
 
-def check_events(ship):
+def check_events(space_shuttle):
     """Responde a eventos de pressionamento de teclas e de mouse."""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
 
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ship)
+            check_keydown_events(event, space_shuttle)
 
         elif event.type == pygame.KEYUP:
-            check_keyup_events(event, ship)
+            check_keyup_events(event, space_shuttle)
 
 
-def update_screen(ai_settings, screen, ship):
+def update_screen(ai_settings, screen, space_shuttle):
     """Atualiza as imagens na tela e alterna para a nova tela."""
 
     # Redesenha a tela a cada passagem pelo laço.
     screen.fill(ai_settings.bg_color)
-    ship.blitme()
+    space_shuttle.blitme()
 
     # Deixa a tela mais recente visível
     pygame.display.flip()

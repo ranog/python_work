@@ -51,4 +51,4 @@ class Settings():
         self.bg_color = (230, 230, 230)
 
         # Configurações da espaçonave
-        self.ship_speed_factor = 1.5
+        self.space_shuttle_speed_factor = 1.5

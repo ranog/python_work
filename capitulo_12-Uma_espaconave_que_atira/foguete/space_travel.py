@@ -178,7 +178,7 @@ import pygame
 
 import game_functions as gf
 from settings import Settings
-from ship import Ship
+from space_shuttle import SpaceShuttle
 
 
 def run_game():
@@ -190,16 +190,16 @@ def run_game():
 
     screen = pygame.display.set_mode(
             (ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_caption("Space Travel")
 
     # Cria uma espaçonave
-    ship = Ship(ai_settings, screen)
+    space_shuttle = SpaceShuttle(ai_settings, screen)
 
     # Inicia o laço principal do jogo
     while True:
-        gf.check_events(ship)
-        ship.update()
-        gf.update_screen(ai_settings, screen, ship)
+        gf.check_events(space_shuttle)
+        space_shuttle.update()
+        gf.update_screen(ai_settings, screen, space_shuttle)
 
 
 run_game()
