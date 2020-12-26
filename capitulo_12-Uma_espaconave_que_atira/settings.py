@@ -42,6 +42,9 @@ HISTÓRICO
     20202412: João Paulo, dezembro de 2020.
         - Ajustando a velocidade da espaçonave (pg 295-297).
 
+    20202612: João Paulo, dezembro de 2020.
+        - Criando a classe Bullet (pg 300-301).
+
 ------------------------------------------------------------------------
 """
 

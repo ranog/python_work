@@ -60,6 +60,29 @@ DESCRIÇÃO
         Armazenamos a cor e as configurações de velocidade do projétil
         em self.color e em self.speed_factor.
 
+        O método update() administra a posição do projétil.
+
+        Quando um projétil é disparado, ele se move para cima na tela, o
+        que corresponde a um decréscimo no valor da coordenada y;
+        portanto, para atualizar a posição, subtraímos de self.y a
+        quantidade armazenada em self.speed_factor.
+
+        Então usamos o valor de self.y para definir o valor de
+        self.rect.y.
+
+        O atributo speed_factor nos permite aumentar a velocidade dos
+        projéteis à medida que o jogo progredir ou conforme for
+        necessário para melhor ajustar o comportamento do jogo.
+
+        Depois que o projétil é disparado, o valor de sua coordenada x
+        não muda, portanto ele só se deslocará na vertical, em linha
+        reta.
+
+        Se quisermos desenhar um projétil, chamaremos draw_bullet().
+
+        A função draw.rect() preenche a parte da tela definida pelo rect
+        do projétil com a cor armazenada em self.color.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
@@ -94,3 +117,17 @@ class Bullet(Sprite):
         self.y = float(self.rect.y)
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
+
+
+    def update(self):
+        """Move o projétil para cima na tela."""
+        # Atualiza a posição decimal do projétil
+        self.y -= self.speed_factor
+
+        # Atualiza a posição de rect
+        self.rect.y = self.y
+
+
+    def draw_bullet(self):
+        """Desenha o projétil na tela."""
+        pygame.draw.rect(self.screen, sef.color, self.rect)
