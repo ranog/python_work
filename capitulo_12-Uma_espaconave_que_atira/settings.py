@@ -45,6 +45,9 @@ HISTÓRICO
     20202612: João Paulo, dezembro de 2020.
         - Criando a classe Bullet (pg 300-301).
 
+    20202712: João Paulo, dezembro de 2020.
+        - Limitando o número de projéteis (pg 305-306).
+
 ------------------------------------------------------------------------
 """
 
@@ -54,16 +57,20 @@ class Settings():
     Alienígena."""
     def __init__(self):
         """Inicializa as configurações do jogo."""
-        # Configurações da tela
+        # Configurações da tela.
         self.screen_width = 1200
         self.screen_height = 600
         self.bg_color = (230, 230, 230)
 
-        # Configurações da espaçonave
+        # Configurações da espaçonave.
         self.ship_speed_factor = 1.5
 
-        # Configurações dos projéteis
+        # Configurações dos projéteis.
         self.bullet_speed_factor = 1
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = 60, 60, 60
+
+        # Essa instrução limita o jogador a três projéteis ao mesmo
+        # tempo.
+        self.bullets_allowed = 3
