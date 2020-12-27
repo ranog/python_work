@@ -94,7 +94,7 @@ HISTÓRICO
 
 
 import  pygame
-from pygame.sprit import Sprite
+from pygame.sprite import Sprite
 
 
 class Bullet(Sprite):
@@ -130,4 +130,4 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         """Desenha o projétil na tela."""
-        pygame.draw.rect(self.screen, sef.color, self.rect)
+        pygame.draw.rect(self.screen, self.color, self.rect)
