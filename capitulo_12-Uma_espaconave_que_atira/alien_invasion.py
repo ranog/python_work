@@ -147,6 +147,35 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Importamos Group de pygame.sprite.
+
+    Criamos uma instância de Group e a chamamos de bullets.
+
+    Esse grupo é criado fora do laço while para que um novo grupo de
+    projéteis não seja criado a cada ciclo do laço.
+
+    NOTA
+        Se você criar um grupo como esse dentro do laço, estará criando
+        milhares de grupos de projéteis, e seu jogo provavelmente ficará
+        muito lento.
+
+        Se seu jogo travar, observe com atenção o que está acontecendo
+        em seu laço while principal.
+
+    Passamos bullets para check_events() e para update_screen().
+
+    Teremos que trabalhar com bullets em check_events() quando a barra
+    de espaço for pressionada, e precisaremos atualizar os projéteis
+    desenhados na tela em update_screen().
+
+    Quando chamamos update() em um grupo, ele chamará update()
+    automaticamente para cada sprite do grupo.
+
+    A linha bullets.update() chama bullet.update() para cada projétil
+    que colocamos no grupo bullets.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -170,11 +199,17 @@ HISTÓRICO
     20202412: João Paulo, dezembro de 2020.
         - Ajustando a velocidade da espaçonave (pg 295-297).
 
+
+    20202712: João Paulo, dezembro de 2020.
+        - Armazenando projéteis em um grupo (pg 302).
+
 ------------------------------------------------------------------------
 """
 
 
 import pygame
+from pygame.sprite import Group
+
 
 import game_functions as gf
 from settings import Settings
@@ -195,11 +230,15 @@ def run_game():
     # Cria uma espaçonave
     ship = Ship(ai_settings, screen)
 
+    # Cria um grupo no qual serão armazenados os projéteis
+    bullets = Group()
+
     # Inicia o laço principal do jogo
     while True:
-        gf.check_events(ship)
+        gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        gf.update_screen(ai_settings, screen, ship)
+        bullets.update()
+        gf.update_screen(ai_settings, screen, ship, bullets)
 
 
 run_game()
