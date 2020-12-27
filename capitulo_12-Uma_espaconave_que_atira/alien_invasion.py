@@ -176,6 +176,22 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Não devemos remover itens de uma lista ou de um grupo em um laço
+    for, portanto precisamos usar uma cópia do grupo no laço.
+
+    Utilizamos o método copy() para preparar o laço for, o que nos
+    permite modificar bullets no laço.
+
+    Verificamos cada projétil para ver se ele desapareceu por ter
+    ultrapassado a parte superior da tela.
+
+    Em caso afirmativo, o projétil é removido de bullets.
+
+    Inserimos uma instrução print para mostrar quantos projéteis existem
+    no momento no jogo e conferir se estão sendo apagados.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -202,6 +218,7 @@ HISTÓRICO
 
     20202712: João Paulo, dezembro de 2020.
         - Armazenando projéteis em um grupo (pg 302).
+        - Apagando projéteis antigos (pg 304-305).
 
 ------------------------------------------------------------------------
 """
@@ -217,7 +234,7 @@ from ship import Ship
 
 
 def run_game():
-    # Inicializa o jogo e cria um objeto para a tela
+    # Inicializa o jogo e cria um objeto para a tela.
     pygame.init()
 
     # Instância da classe Settings do módulo settings.py.
@@ -227,17 +244,24 @@ def run_game():
             (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    # Cria uma espaçonave
+    # Cria uma espaçonave.
     ship = Ship(ai_settings, screen)
 
-    # Cria um grupo no qual serão armazenados os projéteis
+    # Cria um grupo no qual serão armazenados os projéteis.
     bullets = Group()
 
-    # Inicia o laço principal do jogo
+    # Inicia o laço principal do jogo.
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         bullets.update()
+
+        # Livra-se dos projéteis que desapareceram.
+        for bullet in bullets.copy():
+            if bullet.rect.bottom <= 0:
+                bullets.remove(bullet)
+                # print(len(bullets))
+
         gf.update_screen(ai_settings, screen, ship, bullets)
 
 
