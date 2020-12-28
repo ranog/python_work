@@ -110,6 +110,13 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    A função fire_bullet() simplesmente contém o código usado para
+    disparar um projétil quando a barra de espaço for pressionada; além
+    disso, acrescentamos uma chamada a fire_bullet() em
+    check_keydown_events() quando isso ocorrer.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -134,6 +141,7 @@ HISTÓRICO
 
     20202812: João Paulo, dezembro de 2020.
         - Criando a função update_bullets (pg 306).
+        - Criando a função fire_bullet() (pg 306-307).
 
 ------------------------------------------------------------------------
 """
@@ -146,6 +154,15 @@ import pygame
 from bullet import Bullet
 
 
+def fire_bullet(ai_settings, screen, ship, bullets):
+    """Dispara um projétil se o limite ainda não foi alcançado."""
+
+    # Cria um novo projétil e o adiciona ao grupo de projéteis.
+    if len(bullets) < ai_settings.bullets_allowed:
+        new_bullet = Bullet(ai_settings, screen, ship)
+        bullets.add(new_bullet)
+
+
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Responde a pressionamentos de tecla."""
     if event.key == pygame.K_RIGHT:
@@ -153,10 +170,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_LEFT:
         ship.moving_left = True
     elif event.key == pygame.K_SPACE:
-        # Cria um novo projétil e o adiciona ao grupo de projéteis.
-        if len(bullets) < ai_settings.bullets_allowed:
-            new_bullet = Bullet(ai_settings, screen, ship)
-            bullets.add(new_bullet)
+        fire_bullet(ai_settings, screen, ship, bullets)
 
 
 def check_keyup_events(event, ship):
