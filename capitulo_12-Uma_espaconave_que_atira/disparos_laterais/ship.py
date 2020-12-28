@@ -190,21 +190,21 @@ class Ship():
         self.center = float(self.rect.centery)
 
         # Flag de movimento
-        self.moving_right = False
-        self.moving_left = False
+        self.moving_top = False
+        self.moving_bottom = False
 
 
     def update(self):
         """Atualiza a posição da espaçonave de acordo com a flag de
         movimento."""
         # Atualiza o valor do centro da espaçonave, e não o retângulo
-        if self.moving_right and self.rect.right < self.screen_rect.right:
+        if self.moving_top and self.rect.top < self.screen_rect.top:
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_left and self.rect.left > 0:
+        if self.moving_bottom and self.rect.bottom > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
         # Atualiza o objeto rect de acordo com self.center
-        self.rect.centerx = self.center
+        self.rect.centery = self.center
 
 
     def blitme(self):
