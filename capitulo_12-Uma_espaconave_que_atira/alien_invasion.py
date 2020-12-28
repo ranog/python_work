@@ -192,6 +192,19 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Criamos o programa de modo que o nosso laço principal contenha
+    apenas um mínimo de código para que possamos ler rapidamente os
+    nomes das funções e entender o que acontece no jogo.
+
+    O laço principal verifica se há entradas do jogador e então atualiza
+    a posição da espaçonave e de qualquer projétil que tenha sido
+    disparado.
+
+    Em seguida usamos as posições atualizadas para desenhar uma nova
+    tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -219,6 +232,9 @@ HISTÓRICO
     20202712: João Paulo, dezembro de 2020.
         - Armazenando projéteis em um grupo (pg 302).
         - Apagando projéteis antigos (pg 304-305).
+
+    20202812: João Paulo, dezembro de 2020.
+        - Criando a função update_bullets() (pg 306).
 
 ------------------------------------------------------------------------
 """
@@ -254,14 +270,7 @@ def run_game():
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
-        bullets.update()
-
-        # Livra-se dos projéteis que desapareceram.
-        for bullet in bullets.copy():
-            if bullet.rect.bottom <= 0:
-                bullets.remove(bullet)
-                # print(len(bullets))
-
+        gf.update_bullets(bullets)
         gf.update_screen(ai_settings, screen, ship, bullets)
 
 

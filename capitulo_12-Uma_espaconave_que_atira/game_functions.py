@@ -104,6 +104,12 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    O código de update_bullets() é removido de alien_invasion.py e
+    colado no novo arquivo; o único parâmetro necessário é o grupo
+    bullets.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -125,6 +131,9 @@ HISTÓRICO
     20202712: João Paulo, dezembro de 2020.
         - Disparando os projéteis (pg 303-304).
         - Limitando o número de projéteis (pg 305-306).
+
+    20202812: João Paulo, dezembro de 2020.
+        - Criando a função update_bullets (pg 306).
 
 ------------------------------------------------------------------------
 """
@@ -186,3 +195,16 @@ def update_screen(ai_settings, screen, ship, bullets):
 
     # Deixa a tela mais recente visível
     pygame.display.flip()
+
+
+def update_bullets(bullets):
+    """Atualiza a posição dos projéteis e se livra dos projéteis
+    antigos."""
+
+    # Atualiza as posições dos projéteis.
+    bullets.update()
+
+    # Livra-se dos projéteis que desapareceram.
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
