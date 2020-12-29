@@ -191,17 +191,21 @@ class Ship():
         self.screen = screen
         self.ai_settings = ai_settings
 
-        # Carrega a imagem da espaçonave e obtém seu rect
+        # Carrega a imagem da espaçonave e obtém seu rect.
+        # 12.5 – Disparos laterais (pg 307).
         self.image = pygame.image.load('images/fighter_30.bmp')
+
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
         # Inicia cada nova espaçonave no centro e do lado esquerdo da
         # tela.
+        # 12.5 – Disparos laterais (pg 307).
         self.rect.centery = self.screen_rect.centery
         self.rect.left = self.screen_rect.left
 
         # Armazena um valor decimal para o centro da espaçonave
+        # 12.5 – Disparos laterais (pg 307).
         self.center = float(self.rect.centery)
 
         # Flag de movimento
@@ -220,7 +224,7 @@ class Ship():
         if self.moving_top and self.rect.top > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
-        # Atualiza o objeto rect de acordo com self.center
+        # Atualiza o objeto rect de acordo com self.center.
         self.rect.centery = self.center
 
 

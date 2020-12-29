@@ -85,9 +85,24 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    12.5 – Disparos laterais: Escreva um jogo que posicione uma
+    espaçonave do lado esquerdo da tela e permita que o jogador a
+    desloque para cima e para baixo.
+
+    Faça a espaçonave disparar um projétil que se move para a direita da
+    tela quando o jogador pressionar a barra de espaço.
+
+    Garanta que os projéteis sejam apagados quando desaparecerem da
+    tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
         20202612: João Paulo, dezembro de 2020.
             - Criando a classe Bullet (pg 300-301).
+
+        20202812: João Paulo, dezembro de 2020.
+            - 12.5 – Disparos laterais (pg 307).
 
 ------------------------------------------------------------------------
 """
@@ -110,22 +125,31 @@ class Bullet(Sprite):
         # define a posição correta.
         self.rect = pygame.Rect(0,0, ai_settings.bullet_width,
                 ai_settings.bullet_height)
-        self.rect.centerx = ship.rect.centerx
-        self.rect.top = ship.rect.top
+
+        # 12.5 – Disparos laterais (pg 307).
+        self.rect.centery = ship.rect.centery
+
+        # 12.5 – Disparos laterais (pg 307).
+        self.rect.right = ship.rect.right
 
         # Armazena a posição do projétil como um valor decimal.
-        self.y = float(self.rect.y)
+
+        # 12.5 – Disparos laterais (pg 307).
+        self.x = float(self.rect.x)
+
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
 
 
     def update(self):
         """Move o projétil para cima na tela."""
-        # Atualiza a posição decimal do projétil
-        self.y -= self.speed_factor
+        # Atualiza a posição decimal do projétil.
+        # 12.5 – Disparos laterais (pg 307).
+        self.x += self.speed_factor
 
-        # Atualiza a posição de rect
-        self.rect.y = self.y
+        # Atualiza a posição de rect.
+        # 12.5 – Disparos laterais (pg 307).
+        self.rect.x = self.x
 
 
     def draw_bullet(self):

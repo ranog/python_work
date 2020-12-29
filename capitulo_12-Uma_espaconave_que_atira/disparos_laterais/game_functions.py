@@ -226,7 +226,7 @@ def update_screen(ai_settings, screen, ship, bullets):
     pygame.display.flip()
 
 
-def update_bullets(bullets):
+def update_bullets(bullets, ai_settings):
     """Atualiza a posição dos projéteis e se livra dos projéteis
     antigos."""
 
@@ -234,6 +234,7 @@ def update_bullets(bullets):
     bullets.update()
 
     # Livra-se dos projéteis que desapareceram.
+    # 12.5 – Disparos laterais (pg 307).
     for bullet in bullets.copy():
-        if bullet.rect.bottom <= 0:
+        if bullet.rect.left >= ai_settings.screen_width:
             bullets.remove(bullet)
