@@ -205,6 +205,15 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Nesse código importamos a nova classe Alien e criamos uma instância
+    dessa classe, imediatamente antes de entrar no laço principal while.
+
+    Como ainda não mudamos a posição do alienígena, não estamos
+    acrescentando nada novo no laço; entretanto, modificamos a chamada a
+    update_screen() para lhe passar a instância alien.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -236,6 +245,9 @@ HISTÓRICO
     20202812: João Paulo, dezembro de 2020.
         - Criando a função update_bullets() (pg 306).
 
+    20202912: João Paulo, dezembro de 2020.
+        - Criando uma instância do alienígena (pg 312-313).
+
 ------------------------------------------------------------------------
 """
 
@@ -247,6 +259,7 @@ from pygame.sprite import Group
 import game_functions as gf
 from settings import Settings
 from ship import Ship
+from alien import Alien
 
 
 def run_game():
@@ -266,12 +279,15 @@ def run_game():
     # Cria um grupo no qual serão armazenados os projéteis.
     bullets = Group()
 
+    # Cria um alienígena.
+    alien = Alien(ai_settings, screen)
+
     # Inicia o laço principal do jogo.
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_screen(ai_settings, screen, ship, alien, bullets)
 
 
 run_game()
