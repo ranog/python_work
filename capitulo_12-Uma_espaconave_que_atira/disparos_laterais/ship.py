@@ -145,6 +145,17 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    12.5 – Disparos laterais: Escreva um jogo que posicione uma
+    espaçonave do lado esquerdo da tela e permita que o jogador a
+    desloque para cima e para baixo.
+
+    Faça a espaçonave disparar um projétil que se move para a direita da
+    tela quando o jogador pressionar a barra de espaço.
+
+    Garanta que os projéteis sejam apagados quando desaparecerem da tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Criando a classe Ship (pg 286-288).
@@ -159,6 +170,9 @@ HISTÓRICO
     20202412: João Paulo, dezembro de 2020.
         - Ajustando a velocidade da espaçonave (pg 295-297).
         - Limitando o alcance da espaçonave (pg 297).
+
+    20202812: João Paulo, dezembro de 2020.
+        - 12.5 – Disparos laterais (pg 307).
 
 ------------------------------------------------------------------------
 """
@@ -182,7 +196,8 @@ class Ship():
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
-        # Inicia cada nova espaçonave na parte esquerda da tela
+        # Inicia cada nova espaçonave no centro e do lado esquerdo da
+        # tela.
         self.rect.centery = self.screen_rect.centery
         self.rect.left = self.screen_rect.left
 
@@ -190,6 +205,7 @@ class Ship():
         self.center = float(self.rect.centery)
 
         # Flag de movimento
+        # 12.5 – Disparos laterais (pg 307).
         self.moving_top = False
         self.moving_bottom = False
 
@@ -197,10 +213,11 @@ class Ship():
     def update(self):
         """Atualiza a posição da espaçonave de acordo com a flag de
         movimento."""
-        # Atualiza o valor do centro da espaçonave, e não o retângulo
-        if self.moving_top and self.rect.top < self.screen_rect.top:
+        # Atualiza o valor do centro da espaçonave, e não o retângulo.
+        # 12.5 – Disparos laterais (pg 307).
+        if self.moving_bottom and self.rect.bottom < self.screen_rect.bottom:
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_bottom and self.rect.bottom > 0:
+        if self.moving_top and self.rect.top > 0:
             self.center -= self.ai_settings.ship_speed_factor
 
         # Atualiza o objeto rect de acordo com self.center

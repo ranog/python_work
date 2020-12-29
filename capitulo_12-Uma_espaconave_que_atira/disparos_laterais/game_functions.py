@@ -117,6 +117,18 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    12.5 – Disparos laterais: Escreva um jogo que posicione uma
+    espaçonave do lado esquerdo da tela e permita que o jogador a
+    desloque para cima e para baixo.
+
+    Faça a espaçonave disparar um projétil que se move para a direita da
+    tela quando o jogador pressionar a barra de espaço.
+
+    Garanta que os projéteis sejam apagados quando desaparecerem da
+    tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -142,6 +154,7 @@ HISTÓRICO
     20202812: João Paulo, dezembro de 2020.
         - Criando a função update_bullets (pg 306).
         - Criando a função fire_bullet() (pg 306-307).
+        - 12.5 – Disparos laterais (pg 307).
 
 ------------------------------------------------------------------------
 """
@@ -165,20 +178,22 @@ def fire_bullet(ai_settings, screen, ship, bullets):
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """Responde a pressionamentos de tecla."""
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = True
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = True
+    # 12.5 – Disparos laterais (pg 307).
+    if event.key == pygame.K_UP:
+        ship.moving_top = True
+    elif event.key == pygame.K_DOWN:
+        ship.moving_bottom = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
 
 
 def check_keyup_events(event, ship):
     """Responde a solturas de tecla."""
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = False
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = False
+    # 12.5 – Disparos laterais (pg 307).
+    if event.key == pygame.K_UP:
+        ship.moving_top = False
+    elif event.key == pygame.K_DOWN:
+        ship.moving_bottom = False
 
 
 def check_events(ai_settings, screen, ship, bullets):

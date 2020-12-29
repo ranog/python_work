@@ -67,8 +67,8 @@ class Settings():
 
         # Configurações dos projéteis.
         self.bullet_speed_factor = 1
-        self.bullet_width = 3
-        self.bullet_height = 15
+        self.bullet_width = 15
+        self.bullet_height = 3
         self.bullet_color = 60, 60, 60
 
         # Essa instrução limita o jogador a três projéteis ao mesmo
