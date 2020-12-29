@@ -129,6 +129,12 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Desenhamos o alienígena na tela depois que a espaçonave e os
+    projéteis foram desenhados para que os alienígenas estejam na camada
+    superior da tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -155,6 +161,9 @@ HISTÓRICO
         - Criando a função update_bullets (pg 306).
         - Criando a função fire_bullet() (pg 306-307).
         - Revisando o seu projeto (pg 310-311).
+
+    20202912: João Paulo, dezembro de 2020.
+        - Fazendo o alienígena aparecer na tela (pg 313).
 
 ------------------------------------------------------------------------
 """
@@ -209,7 +218,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, bullets):
+def update_screen(ai_settings, screen, ship, alien, bullets):
     """Atualiza as imagens na tela e alterna para a nova tela."""
 
     # Redesenha a tela a cada passagem pelo laço.
@@ -221,6 +230,7 @@ def update_screen(ai_settings, screen, ship, bullets):
         bullet.draw_bullet()
 
     ship.blitme()
+    alien.blitme()
 
     # Deixa a tela mais recente visível
     pygame.display.flip()
