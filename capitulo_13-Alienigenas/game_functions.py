@@ -185,6 +185,25 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    O corpo de get_number_aliens_x() está exatamente como era em
+    create_fleet().
+
+    O corpo de create_alien() também não mudou em relação a
+    create_fleet(), exceto que usamos o alienígena que acabou de ser
+    criado para obter a sua largura.
+
+    Substituímos o código para determinar o espaçamento horizontal por
+    uma chamada a get_number_aliens_x() e removemos a linha que
+    referenciava alien_width, pois isso é tratado agora em
+    create_alien().
+
+    Chamamos create_alien().
+
+    Essa refatoração facilitará o acréscimo de novas linha e a criação
+    de uma frota completa.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -216,6 +235,9 @@ HISTÓRICO
         - Fazendo o alienígena aparecer na tela (pg 313).
         - Criando linhas de alienígenas (pg 314-315).
         - Criando a frota (pg 315-317).
+
+    20203012: João Paulo, dezembro de 2020.
+        - Refatorando create_fleet() (pg 317-318).
 
 ------------------------------------------------------------------------
 """
@@ -302,21 +324,29 @@ def update_bullets(bullets):
             bullets.remove(bullet)
 
 
+def get_number_aliens_x(ai_settings, alien_width):
+    """Determina o número de alienígenas que cabem em uma linha."""
+    available_space_x = ai_settings.screen_width - 2 * alien_width
+    number_aliens_x = int(available_space_x / (2 * alien_width))
+    return number_aliens_x
+
+
+def create_alien(ai_settings, screen, aliens, alien_number):
+    """Cria um alienígena e o posiciona na linha."""
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    alien.x = alien_width + 2 * alien_width * alien_number
+    alien.rect.x = alien.x
+    aliens.add(alien)
+
+
 def create_fleet(ai_settings, screen, aliens):
     """Cria uma frota completa de alienígenas."""
 
     # Cria um alienígena e calcula o número de alienígenas em uma linha.
-    # O espaçamento entre os alienígenas é igual à largura de um
-    # alienígena.
     alien = Alien(ai_settings, screen)
-    alien_width = alien.rect.width
-    available_space_x = ai_settings.screen_width - 2 * alien_width
-    number_aliens_x = int(available_space_x / (2 * alien_width))
+    number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
 
     # Cria a primeira linha de alienígenas.
     for alien_number in range(number_aliens_x):
-        # Cria um alienígena e o posiciona na linha.
-        alien = Alien(ai_settings, screen)
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        aliens.add(alien)
+        create_alien(ai_settings, screen, aliens, alien_number)
