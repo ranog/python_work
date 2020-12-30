@@ -263,6 +263,9 @@ HISTÓRICO
         - Criando uma instância do alienígena (pg 312-313).
         - Criando linhas de alienígenas (pg 314-315).
 
+    20203012: João Paulo, dezembro de 2020.
+        - Adicionando linhas (pg 318-320).
+
 ------------------------------------------------------------------------
 """
 
@@ -294,7 +297,7 @@ def run_game():
     aliens = Group()
 
     # Cria a frota de alienígenas.
-    gf.create_fleet(ai_settings, screen, aliens)
+    gf.create_fleet(ai_settings, screen, ship, aliens)
 
     # Inicia o laço principal do jogo.
     while True:

@@ -204,6 +204,52 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Para calcular o número de linhas que cabem na tela, colocamos nossos
+    cálculos de available_space_y e de number_rows na
+    função get_number_rows(), que é semelhante a get_number_aliens_x().
+
+    O cálculo está entre parênteses para que o resultado possa ser
+    separado em duas linhas, o que resulta em linhas de 79 caracteres ou
+    menos, conforme recomendado.
+
+    Usamos int() porque não queremos criar uma linha parcial de
+    alienígenas.
+
+    Para criar várias linhas, usamos dois laços aninhados: um laço
+    externo e outro interno.
+
+    O laço interno cria os alienígenas em uma linha.
+
+    O laço externo conta de 0 até o número de linhas que queremos;
+    Python usará o código para criar uma única linha e repeti-la pelo
+    número de vezes em number_rows.
+
+    Para aninhar os laços, escreva o novo laço for e indente o código
+    que você deseja repetir.
+
+    Agora, ao chamar create_alien() , incluímos um argumento para o
+    número da linha para que cada linha possa ser colocada cada vez mais
+    para baixo na tela.
+
+    A definição de create_alien() exige um parâmetro para armazenar o
+    número da linha.
+
+    Em create_alien() mudamos o valor da coordenada y de um alienígena
+    quando ele não estiver na primeira linha, começando com a altura de
+    um alienígena para criar um espaço vazio na parte superior da tela.
+
+    Cada linha está separada da linha anterior pela altura de dois
+    alienígenas, portanto multiplicamos a altura do alienígena por dois
+    e então pelo número da linha.
+
+    O número da primeira linha é 0, assim o posicionamento vertical da
+    primeira linha não muda.
+
+    Todas as linhas subsequentes são colocadas cada vez mais para baixo
+    na tela.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -238,6 +284,7 @@ HISTÓRICO
 
     20203012: João Paulo, dezembro de 2020.
         - Refatorando create_fleet() (pg 317-318).
+        - Adicionando linhas (pg 318-320).
 
 ------------------------------------------------------------------------
 """
@@ -331,22 +378,35 @@ def get_number_aliens_x(ai_settings, alien_width):
     return number_aliens_x
 
 
-def create_alien(ai_settings, screen, aliens, alien_number):
+def get_number_rows(ai_settings, ship_height, alien_height):
+    """Determina o número de linhas com alienígenas que cabem na
+    tela."""
+    available_space_y = (ai_settings.screen_height -
+        (3 * alien_height) - ship_height)
+    number_rows = int(available_space_y / (2 * alien_height))
+    return number_rows
+
+
+def create_alien(ai_settings, screen, aliens, alien_number, row_number):
     """Cria um alienígena e o posiciona na linha."""
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
     alien.x = alien_width + 2 * alien_width * alien_number
     alien.rect.x = alien.x
+    alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
     aliens.add(alien)
 
 
-def create_fleet(ai_settings, screen, aliens):
+def create_fleet(ai_settings, screen, ship, aliens):
     """Cria uma frota completa de alienígenas."""
 
     # Cria um alienígena e calcula o número de alienígenas em uma linha.
     alien = Alien(ai_settings, screen)
     number_aliens_x = get_number_aliens_x(ai_settings, alien.rect.width)
+    number_rows = get_number_rows(ai_settings, ship.rect.height,
+        alien.rect.height)
 
-    # Cria a primeira linha de alienígenas.
-    for alien_number in range(number_aliens_x):
-        create_alien(ai_settings, screen, aliens, alien_number)
+    # Cria a frota de alienígenas
+    for row_number in range(number_rows):
+        for alien_number in range(number_aliens_x):
+            create_alien(ai_settings, screen, aliens, alien_number, row_number)
