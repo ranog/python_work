@@ -135,6 +135,56 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Quando draw() é chamado em um grupo, o Pygame desenha
+    automaticamente cada elemento do grupo na posição definida pelo seu
+    atributo rect. Nesse caso, aliens.draw(screen) desenhará cada
+    alienígena do grupo na tela.
+
+------------------------------------------------------------------------
+
+    Já analisamos a maior parte desse código. Precisamos conhecer a
+    largura e a altura do alienígena para posicioná-los, portanto
+    criamos um alienígena antes de fazer os cálculos.
+
+    Esse alienígena não fará parte da frota, assim, não o adicione ao
+    grupo aliens.
+
+    Adquirimos a largura do alienígena a partir de seu atributo rect e
+    armazenamos esse valor em alien_width; desse modo não precisaremos
+    trabalhar com o atributo rect.
+
+    Calculamos o espaço horizontal disponível para os alienígenas e o
+    número de alienígenas que cabem nesse espaço.
+
+    A única mudança aqui em relação às nossas fórmulas originais está no
+    uso de int() para garantir que teremos um número inteiro de
+    alienígenas, pois não queremos criar alienígenas parciais, e a
+    função range() precisa de um inteiro.
+
+    A função int() ignora a parte decimal de um número, fazendo o seu
+    arredondamento para baixo (Isso é útil porque preferimos ter um
+    pouco de espaço extra em cada linha a ter uma linha excessivamente
+    congestionada).
+
+    A seguir, defina um laço que conte de 0 até o número de alienígenas
+    que devemos criar.
+
+    No corpo principal do laço, crie um novo alienígena e então defina o
+    valor de sua coordenada x para posicioná-lo na linha.
+
+    Cada alienígena é inserido à direita, com um espaçamento
+    correspondente à largura de um alienígena, a partir da margem
+    esquerda.
+
+    Em seguida, multiplicamos a largura do alienígena por dois para
+    levar em consideração o espaço ocupado por cada alienígena,
+    incluindo o espaço vazio à sua direita, e multiplicamos esse valor
+    pela posição do alienígena na linha.
+
+    Então adicionamos cada novo alienígena ao grupo aliens.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -164,6 +214,8 @@ HISTÓRICO
 
     20202912: João Paulo, dezembro de 2020.
         - Fazendo o alienígena aparecer na tela (pg 313).
+        - Criando linhas de alienígenas (pg 314-315).
+        - Criando a frota (pg 315-317).
 
 ------------------------------------------------------------------------
 """
@@ -174,6 +226,7 @@ import pygame
 
 
 from bullet import Bullet
+from alien import Alien
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
@@ -218,7 +271,7 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, alien, bullets):
+def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Atualiza as imagens na tela e alterna para a nova tela."""
 
     # Redesenha a tela a cada passagem pelo laço.
@@ -230,7 +283,7 @@ def update_screen(ai_settings, screen, ship, alien, bullets):
         bullet.draw_bullet()
 
     ship.blitme()
-    alien.blitme()
+    aliens.draw(screen)
 
     # Deixa a tela mais recente visível
     pygame.display.flip()
@@ -247,3 +300,23 @@ def update_bullets(bullets):
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)
+
+
+def create_fleet(ai_settings, screen, aliens):
+    """Cria uma frota completa de alienígenas."""
+
+    # Cria um alienígena e calcula o número de alienígenas em uma linha.
+    # O espaçamento entre os alienígenas é igual à largura de um
+    # alienígena.
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    available_space_x = ai_settings.screen_width - 2 * alien_width
+    number_aliens_x = int(available_space_x / (2 * alien_width))
+
+    # Cria a primeira linha de alienígenas.
+    for alien_number in range(number_aliens_x):
+        # Cria um alienígena e o posiciona na linha.
+        alien = Alien(ai_settings, screen)
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        aliens.add(alien)

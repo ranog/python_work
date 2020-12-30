@@ -214,6 +214,20 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Como não estamos mais criando alienígenas diretamente em
+    alien_invasion.py, não será necessário importar a classe Alien nesse
+    arquivo.
+
+    Crie um grupo vazio para armazenar todos os alienígenas do jogo.
+
+    Em seguida chame a nova função create_fleet() e passe-lhe
+    ai_settings, o objeto screen e o grupo vazio aliens.
+
+    Então modifique a chamada a update_screen() para que ela tenha
+    acesso ao grupo de alienígenas.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -247,6 +261,7 @@ HISTÓRICO
 
     20202912: João Paulo, dezembro de 2020.
         - Criando uma instância do alienígena (pg 312-313).
+        - Criando linhas de alienígenas (pg 314-315).
 
 ------------------------------------------------------------------------
 """
@@ -259,7 +274,6 @@ from pygame.sprite import Group
 import game_functions as gf
 from settings import Settings
 from ship import Ship
-from alien import Alien
 
 
 def run_game():
@@ -273,21 +287,21 @@ def run_game():
             (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
-    # Cria uma espaçonave.
+    # Cria uma espaçonave, um grupo de projéteis e um grupo de
+    # alienígenas.
     ship = Ship(ai_settings, screen)
-
-    # Cria um grupo no qual serão armazenados os projéteis.
     bullets = Group()
+    aliens = Group()
 
-    # Cria um alienígena.
-    alien = Alien(ai_settings, screen)
+    # Cria a frota de alienígenas.
+    gf.create_fleet(ai_settings, screen, aliens)
 
     # Inicia o laço principal do jogo.
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_screen(ai_settings, screen, ship, alien, bullets)
+        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
 run_game()
