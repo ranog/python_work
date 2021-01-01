@@ -17,11 +17,21 @@ DESCRIÇÃO
         13.1 – Estrelas: Encontre uma imagem de uma estrela. Faça uma
         grade de estrelas aparecer na tela.
 
+        13.2 – Estrelas melhoradas: Você pode criar um padrão mais
+        realista de estrelas introduzindo uma aleatoriedade ao
+        posicionar cada estrela. Lembre-se de que um número aleatório
+        pode ser obtido assim: from random import randint
+        random_number = randint(-10,10) Esse código devolve um inteiro
+        aleatório entre −10 e 10. Usando o seu código do Exercício 13.1,
+        ajuste a posição de cada estrela de acordo com um valor
+        aleatório.
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
         20203112: João Paulo, dezembro de 2020.
             - 13.1 – Estrelas (pg 320).
+            - 13.2 – Estrelas melhoradas (pg 320).
 
 ------------------------------------------------------------------------
 """
@@ -55,7 +65,7 @@ def update_screen(ai_settings, screen, stars):
 
 def get_number_stars_x(ai_settings, star_width):
     """Determina o número de estrelas que cabem em uma linha."""
-    available_space_x = ai_settings.screen_width - star_width
+    available_space_x = ai_settings.screen_width
     number_stars_x = int(available_space_x / star_width)
     return number_stars_x
 
@@ -63,7 +73,7 @@ def get_number_stars_x(ai_settings, star_width):
 def get_number_rows(ai_settings, star_height):
     """Determina o número de linhas com estrelas que cabem na
     tela."""
-    available_space_y = (ai_settings.screen_height -  star_height)
+    available_space_y = (ai_settings.screen_height - star_height)
     number_rows = int(available_space_y / (2 * star_height))
     return number_rows
 

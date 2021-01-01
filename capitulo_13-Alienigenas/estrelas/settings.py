@@ -18,20 +18,16 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
-    Definimos o valor inicial de ship_speed_factor com 1.5 .
+    13.1 – Estrelas: Encontre uma imagem de uma estrela. Faça uma grade
+    de estrelas aparecer na tela.
 
-    Quando quisermos mover a espaçonave, ajustaremos sua posição em 1,5
-    pixel, e não em 1 pixel.
-
-    Usamos valores decimais para a configuração da velocidade para que
-    possamos ter um controle mais preciso da velocidade da espaçonave
-    quando aumentarmos o ritmo do jogo mais tarde.
-
-------------------------------------------------------------------------
-
-    As configurações criam projéteis cinza-escuros, com largura de 3
-    pixels e altura de 15 pixels. Os projéteis se deslocarão de modo um
-    pouco mais lento que a espaçonave.
+    13.2 – Estrelas melhoradas: Você pode criar um padrão mais realista
+    de estrelas introduzindo uma aleatoriedade ao posicionar cada
+    estrela. Lembre-se de que um número aleatório pode ser obtido assim:
+    from random import randint random_number = randint(-10,10) Esse
+    código devolve um inteiro aleatório entre −10 e 10. Usando o seu
+    código do Exercício 13.1, ajuste a posição de cada estrela de acordo
+    com um valor aleatório.
 
 ------------------------------------------------------------------------
 
@@ -39,14 +35,9 @@ HISTÓRICO
     20200312: João Paulo, dezembro de 2020.
         - Criando uma classe de configurações (pg 284-285).
 
-    20202412: João Paulo, dezembro de 2020.
-        - Ajustando a velocidade da espaçonave (pg 295-297).
-
-    20202612: João Paulo, dezembro de 2020.
-        - Criando a classe Bullet (pg 300-301).
-
-    20202712: João Paulo, dezembro de 2020.
-        - Limitando o número de projéteis (pg 305-306).
+    20203112: João Paulo, dezembro de 2020.
+        - 13.1 – Estrelas (pg 320).
+        - 13.2 – Estrelas melhoradas (pg 320).
 
 ------------------------------------------------------------------------
 """
