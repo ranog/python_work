@@ -24,9 +24,22 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+        Sempre que atualizarmos a posição de um alienígena, ele será
+        movido para a direita de acordo com o valor armazenado em
+        alien_speed_factor.
+
+        Controlamos a posição exata do alienígena com o atributo self.x,
+        que é capaz de armazenar valores decimais. Então usamos o valor
+        de self.x para atualizar a posição do rect do alienígena.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
         20202912: João Paulo, dezembro de 2020.
             - Criando a classe Alien (pg 312).
+
+        20210101: João Paulo, janeiro de 2021.
+            - Movendo os alienígenas para a direita (pg 321).
 
 ------------------------------------------------------------------------
 """
@@ -56,6 +69,12 @@ class Alien(Sprite):
 
         # Armazena a posição exata do alienígena.
         self.x = float(self.rect.x)
+
+
+    def update(self):
+        """Move o alienígena para a direita."""
+        self.x += self.ai_settings.alien_speed_factor
+        self.rect.x = self.x
 
 
     def blitme(self):

@@ -228,6 +228,12 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Atualizamos as posições dos alienígenas depois que os projéteis
+    foram atualizados, pois logo depois verificaremos se algum projétil
+    atingiu um alienígena.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200112: João Paulo, dezembro de 2020.
         - Criando uma janela do Pygame e respondendo às entradas do
@@ -265,6 +271,9 @@ HISTÓRICO
 
     20203012: João Paulo, dezembro de 2020.
         - Adicionando linhas (pg 318-320).
+
+    20210101: João Paulo, janeiro de 2021.
+        - Movendo os alienígenas para a direita (pg 321).
 
 ------------------------------------------------------------------------
 """
@@ -304,6 +313,7 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
+        gf.update_aliens(aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 

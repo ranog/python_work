@@ -250,6 +250,11 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Usamos o método update() no grupo aliens, o que faz o método
+    update() de cada alienígena ser chamado automaticamente.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -285,6 +290,9 @@ HISTÓRICO
     20203012: João Paulo, dezembro de 2020.
         - Refatorando create_fleet() (pg 317-318).
         - Adicionando linhas (pg 318-320).
+
+    20210101: João Paulo, janeiro de 2021.
+        - Movendo os alienígenas para a direita (pg 321).
 
 ------------------------------------------------------------------------
 """
@@ -410,3 +418,8 @@ def create_fleet(ai_settings, screen, ship, aliens):
     for row_number in range(number_rows):
         for alien_number in range(number_aliens_x):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
+
+
+def update_aliens(aliens):
+    """Atualiza as posições de todos os alienígenas da frota."""
+    aliens.update()

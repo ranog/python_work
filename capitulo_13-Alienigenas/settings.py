@@ -48,6 +48,9 @@ HISTÓRICO
     20202712: João Paulo, dezembro de 2020.
         - Limitando o número de projéteis (pg 305-306).
 
+    20210101: João Paulo, janeiro de 2021.
+        -   Movendo os alienígenas para a direita (pg 321).
+
 ------------------------------------------------------------------------
 """
 
@@ -74,3 +77,6 @@ class Settings():
         # Essa instrução limita o jogador a três projéteis ao mesmo
         # tempo.
         self.bullets_allowed = 3
+
+        # Configurações dos alienígenas
+        self.alien_speed_factor = 1
