@@ -35,6 +35,28 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    A configuração fleet_drop_speed controla a velocidade com que a
+    frota desce na tela sempre que um alienígena alcançar uma das
+    bordas.
+
+    É conveniente separar essa velocidade da velocidade horizontal dos
+    alienígenas para que você possa ajustar as duas velocidades de modo
+    independente.
+
+    Para implementar a configuração fleet_direction poderíamos ter usado
+    um valor textual, por exemplo, 'left' ou 'right' , mas acabaríamos
+    com instruções if-elif para testar a direção da frota.
+
+    Em vez disso, como temos apenas duas direções, vamos usar os valores
+    1 e -1 e alternar entre eles sempre que a frota mudar de direção.
+
+    (Usar números também faz sentido porque movimentar-se para a direita
+    envolve somar um valor à coordenada x de cada alienígena, enquanto
+    movimentar-se para a esquerda envolve fazer uma subtração no valor
+    da coordenada x de cada alienígena.)
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200312: João Paulo, dezembro de 2020.
         - Criando uma classe de configurações (pg 284-285).
@@ -49,7 +71,8 @@ HISTÓRICO
         - Limitando o número de projéteis (pg 305-306).
 
     20210101: João Paulo, janeiro de 2021.
-        -   Movendo os alienígenas para a direita (pg 321).
+        - Movendo os alienígenas para a direita (pg 321).
+        - Criando configurações para a direção da frota (pg 322).
 
 ------------------------------------------------------------------------
 """
@@ -80,3 +103,7 @@ class Settings():
 
         # Configurações dos alienígenas
         self.alien_speed_factor = 1
+        self.fleet_drop_speed = 10
+        # fleet_direction igual a 1 representa a direita; -1 representa
+        # a esquerda.
+        self.fleet_direction = 1
