@@ -34,12 +34,35 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+        Podemos chamar o novo método check_edges() em qualquer
+        alienígena para ver se ele está na borda esquerda ou direita.
+
+        O alienígena estará na borda direita se o atributo right de seu
+        rect for maior ou igual ao atributo right do rect da tela.
+
+        Estará na borda esquerda se o valor de left for menor ou igual a
+        0.
+
+        Modificamos o método update() para permitir o movimento para a
+        esquerda ou para a direita multiplicando o fator de velocidade
+        do alienígena pelo valor de fleet_direction.
+
+        Se fleet_direction for 1, o valor de alien_speed_factor será
+        somado à posição atual do alienígena, movendo-o para a direita;
+        se fleet_direction for -1, o valor será subtraído da posição do
+        alienígena, movendo-o para a esquerda.
+
+------------------------------------------------------------------------
+
 HISTÓRICO
         20202912: João Paulo, dezembro de 2020.
             - Criando a classe Alien (pg 312).
 
         20210101: João Paulo, janeiro de 2021.
             - Movendo os alienígenas para a direita (pg 321).
+
+        20200201: João Paulo, janeiro de 2021.
+            - Verificando se um alienígena atingiu a borda (pg 322-323).
 
 ------------------------------------------------------------------------
 """
@@ -71,9 +94,19 @@ class Alien(Sprite):
         self.x = float(self.rect.x)
 
 
+    def check_edges(self):
+        """Devolve True se o alienígena estiver na borda da tela."""
+        screen_rect = self.screen.get_rect()
+        if sel.rect.right >=  screen_rect.right:
+            return True
+        elif self.rect.left <= 0:
+            return True
+
+
     def update(self):
-        """Move o alienígena para a direita."""
-        self.x += self.ai_settings.alien_speed_factor
+        """Move o alienígena para a direita ou para a esquerda."""
+        self.x += (self.ai_settings.alien_speed_factor *
+            self.ai_settings.fleet_direction)
         self.rect.x = self.x
 
 
