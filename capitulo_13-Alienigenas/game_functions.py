@@ -255,6 +255,23 @@ DESCRIÇÃO
 
 ------------------------------------------------------------------------
 
+    Em check_fleet_edges() percorremos a frota com um laço e chamamos
+    check_edges() em cada alienígena.
+
+    Se check_edges() devolver True, saberemos que um alienígena está em
+    uma borda e toda a frota deverá mudar de direção, portanto chamamos
+    change_fleet_direction() e saímos do laço.
+
+    Em change_fleet_direction() percorremos todos os alienígenas com um
+    laço e fazemos cada um deles descer na tela usando a configuração
+    fleet_drop_speed; então alteramos o valor de fleet_direction
+    multiplicando seu valor atual por -1.
+
+    Modificamos a função update_aliens() a fim de determinar se algum
+    alienígena está em uma das bordas chamando check_fleet_edges().
+
+------------------------------------------------------------------------
+
 HISTÓRICO
     20200512: João Paulo, dezembro de 2020.
         - Função check_events() (pg 289-290).
@@ -294,6 +311,9 @@ HISTÓRICO
     20210101: João Paulo, janeiro de 2021.
         - Movendo os alienígenas para a direita (pg 321).
 
+    20200201: João Paulo, janeiro de 2021.
+        - Fazendo a frota descer e mudando a direção (pg 323-324).
+
 ------------------------------------------------------------------------
 """
 
@@ -307,7 +327,7 @@ from alien import Alien
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
-    """Dispara um projétil se o limite ainda não foi alcançado."""
+    """ Dispara um projétil se o limite ainda não foi alcançado. """
 
     # Cria um novo projétil e o adiciona ao grupo de projéteis.
     if len(bullets) < ai_settings.bullets_allowed:
@@ -316,7 +336,7 @@ def fire_bullet(ai_settings, screen, ship, bullets):
 
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
-    """Responde a pressionamentos de tecla."""
+    """ Responde a pressionamentos de tecla. """
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
     elif event.key == pygame.K_LEFT:
@@ -328,7 +348,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
 
 
 def check_keyup_events(event, ship):
-    """Responde a solturas de tecla."""
+    """ Responde a solturas de tecla. """
     if event.key == pygame.K_RIGHT:
         ship.moving_right = False
     elif event.key == pygame.K_LEFT:
@@ -336,7 +356,7 @@ def check_keyup_events(event, ship):
 
 
 def check_events(ai_settings, screen, ship, bullets):
-    """Responde a eventos de pressionamento de teclas e de mouse."""
+    """ Responde a eventos de pressionamento de teclas e de mouse. """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -349,7 +369,7 @@ def check_events(ai_settings, screen, ship, bullets):
 
 
 def update_screen(ai_settings, screen, ship, aliens, bullets):
-    """Atualiza as imagens na tela e alterna para a nova tela."""
+    """ Atualiza as imagens na tela e alterna para a nova tela. """
 
     # Redesenha a tela a cada passagem pelo laço.
     screen.fill(ai_settings.bg_color)
@@ -367,8 +387,8 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
 
 
 def update_bullets(bullets):
-    """Atualiza a posição dos projéteis e se livra dos projéteis
-    antigos."""
+    """ Atualiza a posição dos projéteis e se livra dos projéteis
+    antigos. """
 
     # Atualiza as posições dos projéteis.
     bullets.update()
@@ -380,15 +400,15 @@ def update_bullets(bullets):
 
 
 def get_number_aliens_x(ai_settings, alien_width):
-    """Determina o número de alienígenas que cabem em uma linha."""
+    """ Determina o número de alienígenas que cabem em uma linha. """
     available_space_x = ai_settings.screen_width - 2 * alien_width
     number_aliens_x = int(available_space_x / (2 * alien_width))
     return number_aliens_x
 
 
 def get_number_rows(ai_settings, ship_height, alien_height):
-    """Determina o número de linhas com alienígenas que cabem na
-    tela."""
+    """ Determina o número de linhas com alienígenas que cabem na
+    tela. """
     available_space_y = (ai_settings.screen_height -
         (3 * alien_height) - ship_height)
     number_rows = int(available_space_y / (2 * alien_height))
@@ -396,7 +416,7 @@ def get_number_rows(ai_settings, ship_height, alien_height):
 
 
 def create_alien(ai_settings, screen, aliens, alien_number, row_number):
-    """Cria um alienígena e o posiciona na linha."""
+    """ Cria um alienígena e o posiciona na linha. """
     alien = Alien(ai_settings, screen)
     alien_width = alien.rect.width
     alien.x = alien_width + 2 * alien_width * alien_number
@@ -406,7 +426,7 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
 
 
 def create_fleet(ai_settings, screen, ship, aliens):
-    """Cria uma frota completa de alienígenas."""
+    """ Cria uma frota completa de alienígenas. """
 
     # Cria um alienígena e calcula o número de alienígenas em uma linha.
     alien = Alien(ai_settings, screen)
@@ -420,6 +440,25 @@ def create_fleet(ai_settings, screen, ship, aliens):
             create_alien(ai_settings, screen, aliens, alien_number, row_number)
 
 
-def update_aliens(aliens):
-    """Atualiza as posições de todos os alienígenas da frota."""
+def change_fleet_direction(ai_settings, aliens):
+    """ Faz toda a frota descer e muda a sua direção. """
+    for alien in aliens.sprites():
+        alien.rect.y += ai_settings.fleet_drop_speed
+
+    ai_settings.fleet_direction *= -1
+
+
+def check_fleet_edges(ai_settings, aliens):
+    """ Responde apropriadamente se algum alienígena alcançou uma
+    borda. """
+    for alien in aliens.sprites():
+        if alien.check_edges():
+            change_fleet_direction(ai_settings, aliens)
+            break
+
+
+def update_aliens(ai_settings, aliens):
+    """ Verifica se a frota está em uma das bordas e então atualiza as
+    posições de todos os alienígenas da frota. """
+    check_fleet_edges(ai_settings, aliens)
     aliens.update()

@@ -275,6 +275,9 @@ HISTÓRICO
     20210101: João Paulo, janeiro de 2021.
         - Movendo os alienígenas para a direita (pg 321).
 
+    20200201: João Paulo, janeiro de 2021.
+        - Fazendo a frota descer e mudando a direção (pg 323-324).
+
 ------------------------------------------------------------------------
 """
 
@@ -313,7 +316,7 @@ def run_game():
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
-        gf.update_aliens(aliens)
+        gf.update_aliens(ai_settings, aliens)
         gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 
 
