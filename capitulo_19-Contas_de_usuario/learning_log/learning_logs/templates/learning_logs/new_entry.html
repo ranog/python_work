@@ -1,27 +1,15 @@
-<!-- Mostramos o assunto na parte superior da página para que o usuário
-possa ver para qual assunto ele está adicionando uma entrada.
-
-Esse item também atua como um link de volta para a página principal
-desse assunto.
-
-O argumento action do formulário inclui o valor topic_id no URL para que
-a função de view possa associar a nova entrada ao assunto correto.
-
-Exceto por isso, esse template se parece exatamente com new_topic.html.
--->
-
-{% extends"learning_logs/base.html" %}
+{% extends "learning_logs/base.html" %}
 
 {% block content %}
 
   <p>
-    <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}
+    <a href="{% url 'topic' topic.id %}">{{ topic }}
     </a>
   </p>
 
   <p>Add a new entry:</p> 
 
-  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
+  <form action="{% url 'new_entry' topic.id %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
   
@@ -31,3 +19,15 @@ Exceto por isso, esse template se parece exatamente com new_topic.html.
   </form>
 
 {% endblock content %}
+
+<!-- Mostramos o assunto na parte superior da página para que o usuário
+
+possa ver para qual assunto ele está adicionando uma entrada.
+
+Esse item também atua como um link de volta para a página principal
+desse assunto.
+
+O argumento action do formulário inclui o valor topic_id no URL para que
+a função de view possa associar a nova entrada ao assunto correto.
+
+Exceto por isso, esse template se parece exatamente com new_topic.html.-->
