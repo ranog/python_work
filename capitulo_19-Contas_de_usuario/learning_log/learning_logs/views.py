@@ -1,10 +1,37 @@
+""" 
+20210501: João Paulo, janeiro de 2020.
+    - Função de view edit_entry() (pg 487):
+        Inicialmente devemos importar o modelo Entry.
+
+        Adquirimos o objeto da entrada que o usuário quer editar e o
+        assunto associado a essa entrada.
+        No bloco if, executado para uma requisição GET, criamos uma
+        instância de EntryForm com o argumento instance=entry.
+
+        Esse argumento diz a Django para criar o formulário previamente
+        preenchido com informações do objeto de entrada existente.
+
+        O usuário verá os dados existentes e poderá editá-los.
+
+    Ao processar uma requisição POST, passamos os argumentos
+    instance=entry e data=request.POST para dizer a Django que crie uma
+    instância de formulário baseada nas informações associadas ao objeto
+    de entrada existente, atualizadas com qualquer dado relevante de
+    request.POST.
+    Então verificamos se o formulário é válido; em caso afirmativo,
+    chamamos save() sem argumentos.
+
+    Em seguida redirecionamos o usuário para a página topic, na qual ele
+    deverá ver a versão atualizada da entrada editada.
+"""
+
 from django.shortcuts import render
 from django.http import HttpResponseRedirect 
 
 # Livro: from django.core.urlresolvers import reverse
 from django.urls import reverse
 
-from . models import Topic
+from . models import Topic, Entry
 from . forms import TopicForm, EntryForm
 
 # Create your views here.
@@ -230,3 +257,25 @@ def new_entry(request, topic_id):
 
     context = {'topic': topic, 'form': form}
     return render(request, 'learning_logs/new_entry.html', context)
+
+
+def edit_entry(request, entry_id):
+    """Edita uma entrada existente."""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+
+    if request.method != 'POST':
+        # Requisição inicial;
+        # preenche previamente o formulário com a entrada atual.
+        form = EntryForm(instance=entry)
+    else:
+        # Dados de POST submetidos; processa os dados.
+        form = EntryForm(instance=entry, data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('topic', args=[topic.id]))
+
+    context = {'entry': entry, 'topic': topic, 'form': form}
+
+    return render(request, 'learning_logs/edit_entry.html', context)
