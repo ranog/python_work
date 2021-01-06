@@ -1,5 +1,19 @@
-<!-- Adicionamos o link imediatamente antes de mostrar as entradas, pois
-acrescentar uma nova entrada será a ação mais comum nessa página. -->
+<!--
+  Adicionamos o link imediatamente antes de mostrar as entradas, pois
+acrescentar uma nova entrada será a ação mais comum nessa página. 
+
+20210601: João Paulo, janeiro 2021.
+  - Criando um link para a página edit_entry (pg 488-499):
+    Incluímos o link de edição depois que a data de cada entrada e o
+    texto forem exibidos.
+
+    Usamos a tag de template \{\% url %} para determinar o URL referente
+    ao padrão de URL, cujo nome é edit_entry, juntamente com o atributo
+    ID da entrada atual no laço (entry.id).
+
+    O texto do link "edit entry" aparece depois de cada entrada na
+    página.
+-->
 
 {% extends 'learning_logs/base.html' %}
 
@@ -15,8 +29,20 @@ acrescentar uma nova entrada será a ação mais comum nessa página. -->
 
     <ul>{% for entry in entries %}
       <li>
-        <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ entry.text|linebreaks }}</p>
+        <p>
+          {{ entry.date_added|date:'M d, Y H:i' }}
+        </p>
+
+        <p>
+          {{ entry.text|linebreaks }}
+        </p>
+
+        <p> 
+          <a href="{% url 'edit_entry' entry.id %}">
+            edit entry
+          </a> 
+        </p>
+
       </li>
 
       {% empty %}
