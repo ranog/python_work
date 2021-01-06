@@ -13,16 +13,17 @@
 
         O usuário verá os dados existentes e poderá editá-los.
 
-    Ao processar uma requisição POST, passamos os argumentos
-    instance=entry e data=request.POST para dizer a Django que crie uma
-    instância de formulário baseada nas informações associadas ao objeto
-    de entrada existente, atualizadas com qualquer dado relevante de
-    request.POST.
-    Então verificamos se o formulário é válido; em caso afirmativo,
+        Ao processar uma requisição POST, passamos os argumentos
+        instance=entry e data=request.POST para dizer a Django que crie
+        uma instância de formulário baseada nas informações associadas
+        ao objeto de entrada existente, atualizadas com qualquer dado
+        relevante de request.POST.
+    
+        Então verificamos se o formulário é válido; em caso afirmativo,
     chamamos save() sem argumentos.
 
-    Em seguida redirecionamos o usuário para a página topic, na qual ele
-    deverá ver a versão atualizada da entrada editada.
+        Em seguida redirecionamos o usuário para a página topic, na qual ele
+        deverá ver a versão atualizada da entrada editada.
 """
 
 from django.shortcuts import render
