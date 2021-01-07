@@ -40,6 +40,7 @@ class BlogPost(models.Model):
         Um assunto que foi postado no blog.
     """
     title = models.CharField(max_length=200)
+    text = models.TextField()
     date_add = models.DataTimeField(auto_now_add=True)
 
 
