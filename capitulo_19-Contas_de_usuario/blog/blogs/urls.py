@@ -7,5 +7,5 @@ from . import views
 
 urlpatterns = [
     # Página incial.
-    path('', view.index, name='index'),
+    path('', views.index, name='index'),
 ]
