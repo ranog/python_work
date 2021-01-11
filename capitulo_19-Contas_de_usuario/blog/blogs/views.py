@@ -5,9 +5,9 @@ from django.shortcuts import render
 from . models import BlogPost
 
 def index(request):
-    """ 
+    """
     Página inicial que mostra todas as postagens.
     """
-    blog_post = BlogPost.objects.order_by('date_added')
+    blog_post = BlogPost.objects.all().order_by('-date_added')
     context = {'blog_post': blog_post}
     return render(request, 'blogs/index.html', context)
