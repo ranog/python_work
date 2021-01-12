@@ -1,6 +1,11 @@
 {% extends "blogs/base.html" %}
 
 {% block content %}
+  
+  <a href="{% url 'new_post' %}">
+    Add a new post
+  </a>
+
   <ul>
     {% for posts in blog_post %}
     <li>{{ posts.title }} ({{ posts.date_added }}):</li>
@@ -11,5 +16,5 @@
     <li>No topics have been added yet.</li>
     {% endfor %}
   </ul>
-
+  
 {% endblock content %}
