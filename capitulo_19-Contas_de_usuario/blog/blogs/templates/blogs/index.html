@@ -12,6 +12,13 @@
     <p>
       {{ posts.text }}
     </p>
+    
+    <p>
+      <a href="{% url 'edit_post' title.id %}">
+        edit entry
+      </a>
+    </p>
+
     {% empty %}
     <li>No topics have been added yet.</li>
     {% endfor %}
