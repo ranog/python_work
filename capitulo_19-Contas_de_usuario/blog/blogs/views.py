@@ -40,7 +40,7 @@ def edit_post(request, post_id):
     Edita uma entrada existente.
     """
     post = BlogPost.objects.get(id=post_id)
-    title = post.title
+    index = post.title
 
     if request.method != 'POST':
         # Requisição inicial;
@@ -52,7 +52,7 @@ def edit_post(request, post_id):
 
         if form.is_valid():
             form.save
-            return HttpResponseRedirect(reverse('index', args=[title.id]))
+            return HttpResponseRedirect(reverse('index', args=[index.id]))
 
-    context = {'post': post, 'title': title, 'form': form}
+    context = {'post': post, 'index': index, 'form': form}
     return render(request, 'blogs/edit_post.html', context)

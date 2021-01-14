@@ -8,19 +8,19 @@
 
   <ul>
     {% for posts in blog_post %}
-    <li>{{ posts.title }} ({{ posts.date_added }}):</li>
-    <p>
-      {{ posts.text }}
-    </p>
-    
-    <p>
-      <a href="{% url 'edit_post' title.id %}">
-        edit entry
-      </a>
-    </p>
+      <li>{{ posts.title }} ({{ posts.date_added }}):</li>
+      <p>
+        {{ posts.text }}
+      </p>
+      
+      <p>
+        <a href="{% url 'edit_post' index.id %}">
+          edit entry
+        </a>
+      </p>
 
-    {% empty %}
-    <li>No topics have been added yet.</li>
+      {% empty %}
+        <li>No topics have been added yet.</li>
     {% endfor %}
   </ul>
   

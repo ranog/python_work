@@ -2,14 +2,14 @@
 
 {% block content %}
   <p>
-    <a href="{% url 'title' title.id %}">
-        {{ title }}
+    <a href="{% url 'index' text.id %}">
+        {{ text }}
     </a>
   </p>
 
   <p>Edit post:</p>
   
-  <form action="{% url 'edit_post' title.id %}" method='post'>
+  <form action="{% url 'edit_post' text.id %}" method='post'>
     {% csrf_token %}
     {{ form.as_p }}
 
