@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/home/python_work/capitulo_19-Contas_de_usuario/blog/b_env/bin/python
+#!/home/joao/python_work/capitulo_19-Contas_de_usuario/blog/b_env/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
