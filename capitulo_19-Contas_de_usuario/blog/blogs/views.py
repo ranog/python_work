@@ -6,5 +6,11 @@ from . models import BlogPost
 
 
 def index(request):
-    """A página inicial de Blog."""
-    return render(request, 'blogs/index.html')
+    """
+        A página inicial que mostre todos as postagens em ordem
+        cronológica.
+    """
+    posts = BlogPost.objects.order_by('-date_added')
+    context = {'posts': posts}
+
+    return render(request, 'blogs/index.html', context)
