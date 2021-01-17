@@ -16,4 +16,7 @@ class BlogPost(models.Model):
         """
             Devolve uma representação em string do modelo.
         """
+        if len(self.title) > 50:
+            return self.title[:50] + "..."
+
         return self.title
