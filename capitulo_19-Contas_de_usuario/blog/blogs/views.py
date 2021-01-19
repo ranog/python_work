@@ -38,3 +38,27 @@ def new_post(request):
 
     context = {'form': form}
     return render(request, 'blogs/new_post.html', context)
+
+
+def edit_post(request, post_id):
+    """
+        Edita um post existente.
+    """
+    review = BlogPost.objects.get(id=post_id)
+    posts = review.text
+
+    if request.method != 'POST':
+        # Requisição inicial; preenche previamente o formulário com a
+        # entrada atual.
+        form = BlogPostForm(instance=review)
+
+    else:
+        # Dados de POST submetidos; processa os dados.
+        form = BlogPostForm(instance=review, data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('index'))
+
+    context = {'review': review, 'posts': posts, 'form': form}
+    return render(request, 'blogs/edit_post.html', context)

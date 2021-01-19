@@ -11,6 +11,8 @@
       
       <p>{{ post.text }}</p>
 
+      <p> <a href="{% url 'edit_post' post.id %}">edit post</a> </p>
+
       {% empty %}
       
       <li>No posts have been added yet.</li>
