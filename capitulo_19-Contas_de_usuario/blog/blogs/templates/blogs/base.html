@@ -3,9 +3,18 @@
 -->
 
 <p>
-  <a href="{% url 'index' %}">
-    Blog
-  </a>
+  <a href="{% url 'index' %}">Blog</a> -
+  
+  <!--
+    Registro, login e logout de usuários.
+  -->
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }} -
+    <a href="{% url 'logout' %}">log out</a>
+  {% else %}
+    <a href="{% url 'register' %}">register</a> -
+    <a href="{% url 'login' %}">log in</a>
+  {% endif %}
 </p>
 
 {% block content %}
