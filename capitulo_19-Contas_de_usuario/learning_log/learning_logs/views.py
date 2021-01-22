@@ -1,67 +1,58 @@
-""" 
-20210501: João Paulo, janeiro de 2020.
-    - Função de view edit_entry() (pg 487):
-        Inicialmente devemos importar o modelo Entry.
+"""
+20210501: João Paulo, janeiro de 2021.
+- Função de view edit_entry() (pg 487):
+    Inicialmente devemos importar o modelo Entry.
 
-        Adquirimos o objeto da entrada que o usuário quer editar e o
-        assunto associado a essa entrada.
-        No bloco if, executado para uma requisição GET, criamos uma
-        instância de EntryForm com o argumento instance=entry.
+    Adquirimos o objeto da entrada que o usuário quer editar e o assunto
+    associado a essa entrada.
+    No bloco if, executado para uma requisição GET, criamos uma
+    instância de EntryForm com o argumento instance=entry.
 
-        Esse argumento diz a Django para criar o formulário previamente
-        preenchido com informações do objeto de entrada existente.
+    Esse argumento diz a Django para criar o formulário previamente
+    preenchido com informações do objeto de entrada existente.
 
-        O usuário verá os dados existentes e poderá editá-los.
+    O usuário verá os dados existentes e poderá editá-los.
 
-        Ao processar uma requisição POST, passamos os argumentos
-        instance=entry e data=request.POST para dizer a Django que crie
-        uma instância de formulário baseada nas informações associadas
-        ao objeto de entrada existente, atualizadas com qualquer dado
-        relevante de request.POST.
-    
-        Então verificamos se o formulário é válido; em caso afirmativo,
+    Ao processar uma requisição POST, passamos os argumentos
+    instance=entry e data=request.POST para dizer a Django que crie uma
+    instância de formulário baseada nas informações associadas ao objeto
+    de entrada existente, atualizadas com qualquer dado relevante de
+    request.POST.
+
+    Então verificamos se o formulário é válido; em caso afirmativo,
     chamamos save() sem argumentos.
 
-        Em seguida redirecionamos o usuário para a página topic, na qual ele
-        deverá ver a versão atualizada da entrada editada.
-"""
-
-from django.shortcuts import render
-from django.http import HttpResponseRedirect 
-
-# Livro: from django.core.urlresolvers import reverse
-from django.urls import reverse
-
-from . models import Topic, Entry
-from . forms import TopicForm, EntryForm
-
-# Create your views here.
-""" Inicialmente importamos o modelo associado aos dados de que
-precisamos.
-
-A função topics() exige um parâmetro: o objeto request que Django
-recebeu do servidor.
-
-Consultamos o banco de dados pedindo os objetos Topic, ordenados de
-acordo com o atributo date_added.
-
-Armazenamos o queryset resultante em topics.
-
-Definimos um contexto que será enviado ao template.
-
-Um contexto é um dicionário em que as chaves são os nomes que usaremos
-no template para acessar os dados e os valores são os dados que devemos
-enviar ao template.
-
-Nesse caso, há apenas um par chave-valor, que contém o conjunto de
-assuntos a ser exibido na página.
-
-Ao construir uma página que use dados, passamos a variável context para
-render(), além do objeto request e o path do template.
+    Em seguida redirecionamos o usuário para a página topic, na qual ele
+    deverá ver a versão atualizada da entrada editada.
 
 ------------------------------------------------------------------------
 
-def topic(request, topic_idid
+    Inicialmente importamos o modelo associado aos dados de que
+    precisamos.
+
+    A função topics() exige um parâmetro: o objeto request que Django
+    recebeu do servidor.
+
+    Consultamos o banco de dados pedindo os objetos Topic, ordenados de
+    acordo com o atributo date_added.
+
+    Armazenamos o queryset resultante em topics.
+
+    Definimos um contexto que será enviado ao template.
+
+    Um contexto é um dicionário em que as chaves são os nomes que
+    usaremos no template para acessar os dados e os valores são os dados
+    que devemos enviar ao template.
+
+    Nesse caso, há apenas um par chave-valor, que contém o conjunto de
+    assuntos a ser exibido na página.
+
+    Ao construir uma página que use dados, passamos a variável context
+    para render(), além do objeto request e o path do template.
+
+------------------------------------------------------------------------
+
+def topic(request, topic_id):
 
     Essa é a primeira função de view que exige um parâmetro que não seja
     o objeto request.
@@ -69,8 +60,9 @@ def topic(request, topic_idid
     A função aceita o valor capturado pela expressão (?P<topic_id>\d+),
     atualizado para o django 3.1.4, e o armazena em topic_id.
 
-    Usamos get() para obter o assunto, assim como fizemos no shell de Django.
-    
+    Usamos get() para obter o assunto, assim como fizemos no shell de
+    Django.
+
     Recuperamos as entradas associadas aesse assunto e as ordenamos de
     acordo com date_added: o sinal de menos na frente de date_added
     ordena os resultados em ordem inversa, o que fará as entradas mais
@@ -90,7 +82,7 @@ def topic(request, topic_idid
     for solicitada.
 
     Também importamos TopicForm, que é o formulário que acabamos de
-    criar. 
+    criar.
 
 ------------------------------------------------------------------------
 
@@ -150,7 +142,7 @@ def topic(request, topic_idid
     essa página.
 
     Na página topics, o usuário deverá ver o assunto que ele acabou de
-    inserir na lista de assuntos. 
+    inserir na lista de assuntos.
 
 ------------------------------------------------------------------------
 
@@ -175,8 +167,8 @@ def topic(request, topic_idid
 
     Então verificamos se o formulário é válido.
 
-    Se for, devemos definir o atributo
-topic do objeto de entrada antes de salvá-lo no banco de dados.
+    Se for, devemos definir o atributo topic do objeto de entrada antes
+    de salvá-lo no banco de dados.
 
     Quando chamamos save(), incluímos o argumento commit=False para
     dizer a Django que crie um novo objeto de entrada e o armazene em
@@ -198,7 +190,29 @@ topic do objeto de entrada antes de salvá-lo no banco de dados.
     A lista args contém um item: topic_id. A chamada a
     HttpResponseRedirect() então redireciona o usuário para a página do
     assunto para o qual uma entrada foi criada, e a nova entrada deverá
-    ser vista na lista de entradas."""
+    ser vista na lista de entradas.
+
+20212201: João Paulo, janeiro de 2021.
+- Restringindo o acesso à página de assuntos (pg 489-499):
+    Inicialmente importamos a função login_required(). Aplicamos
+    login_required() como um decorador da função de view topics()
+    prefixando login_required com o símbolo @ para que Python saiba que
+    deve executar o código em login_required() antes do código em
+    topics(). O código em login_required() verifica se um usuário está
+    logado, e Django executará o código em topics() somente em caso
+    afirmativo. Se não estiver logado, o usuário será redirecionado para
+    a página de login.
+"""
+
+
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
+from . models import Topic, Entry
+from . forms import TopicForm, EntryForm
 
 
 def index(request):
@@ -206,6 +220,7 @@ def index(request):
     return render(request, 'learning_logs/index.html')
 
 
+@login_required
 def topics(request):
     """Mostra todos os assuntos."""
     topics = Topic.objects.order_by('date_added')
@@ -220,13 +235,12 @@ def topic(request, topic_id):
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
- 
+
 def new_topic(request):
     """Adiciona um novo assunto."""
     if request.method != 'POST':
         # Nenhum dado submetido; cria um formulário em branco
         form = TopicForm()
-
     else:
         # Dados de POST submetidos; processa os dados
         form = TopicForm(request.POST)
@@ -235,7 +249,6 @@ def new_topic(request):
             form.save()
             return HttpResponseRedirect(reverse('topics'))
 
-    
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
 
@@ -250,6 +263,7 @@ def new_entry(request, topic_id):
     else:
         # Dados de POST submetidos; processa os dados
         form = EntryForm(data=request.POST)
+
         if form.is_valid():
             new_entry = form.save(commit=False)
             new_entry.topic = topic
@@ -278,5 +292,4 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('topic', args=[topic.id]))
 
     context = {'entry': entry, 'topic': topic, 'form': form}
-
     return render(request, 'learning_logs/edit_entry.html', context)
