@@ -43,12 +43,14 @@ de um modelo.
 Nesse caso, escrevemos um método __str__() que devolve a string
 armazenada no atributo text."""
 
+from django.contrib.auth.models import User
 
 class Topic(models.Model):
     """Um assunto sobre o qual o usuário está aprendendo."""
 
     text = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         """Devolve uma representação em string do modelo."""
@@ -117,7 +119,6 @@ class Entry(models.Model):
 
     def __str__(self):
         """Devolve uma representação em string do modelo."""
-
 
             # 18.2 – Entradas menores (pg 459-460):
             # No momento, o método __str__() no modelo Entry concatena
