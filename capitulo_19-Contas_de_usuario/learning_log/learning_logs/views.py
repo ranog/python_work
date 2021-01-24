@@ -223,7 +223,11 @@ def index(request):
 @login_required
 def topics(request):
     """Mostra todos os assuntos."""
-    topics = Topic.objects.order_by('date_added')
+
+    # Restringindo o acesso aos assuntos para os usuários apropriados
+    # (pg 503-504):
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+
     context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
