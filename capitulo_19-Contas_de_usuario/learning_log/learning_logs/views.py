@@ -293,6 +293,14 @@ def new_entry(request, topic_id):
     """
     topic = Topic.objects.get(id=topic_id)
 
+    # 20212501: 19.4 – Protegendo new_entry (pg 506):
+    # Um usuário pode adicionar uma nova entrada no registro de
+    # aprendizado de outro usuário se fornecer um URL com o ID de um
+    # assunto que pertença a outro usuário. Evite esse ataque
+    # verificando se o usuário atual é dono do assunto associado à
+    # entrada antes de salvar a nova entrada.
+    check_topic_owner(request, topic)
+
     if request.method != 'POST':
         # Nenhum dado submetido; cria um formulário em branco
         form = EntryForm()
