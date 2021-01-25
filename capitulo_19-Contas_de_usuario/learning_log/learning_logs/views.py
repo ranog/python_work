@@ -257,7 +257,21 @@ def new_topic(request):
         form = TopicForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            # Associando novos assuntos ao usuário atual (pg 505-506):
+                # Quando chamamos form.save() pela primeira vez,
+                # passamos o argumento commit=False porque precisamos
+                # modificar o novo assunto antes de salvá-lo no banco de
+                # dados. Então definimos o atributo owner do novo
+                # assunto com o usuário atual. Por fim, chamamos save()
+                # na instância do assunto que acabou de ser definido.
+                # Agora o assunto tem todos os dados necessários e será
+                # salvo com sucesso.
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user
+            new_topic.save()
+
+            #-----------------------------------------------------------
+
             return HttpResponseRedirect(reverse('topics'))
 
     context = {'form': form}
