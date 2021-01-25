@@ -266,7 +266,8 @@ def new_topic(request):
 
 @login_required
 def new_entry(request, topic_id):
-    """Acrescenta uma nova entrada para um assunto em particular."""
+    """ Acrescenta uma nova entrada para um assunto em particular.
+    """
     topic = Topic.objects.get(id=topic_id)
 
     if request.method != 'POST':
@@ -288,9 +289,20 @@ def new_entry(request, topic_id):
 
 @login_required
 def edit_entry(request, entry_id):
-    """Edita uma entrada existente."""
+    """ Edita uma entrada existente.
+    """
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
+
+    # 20212501 - Protegendo a página edit_entry (pg 505):
+        # Recuperamos a entrada e o assunto associado a ela. Então
+        # verificamos se o dono do assunto coincide com o usuário logado
+        # no momento; se não forem iguais, levantamos uma exceção
+        # Http404.
+    if topic.owner != request.user:
+        raise Http404
+
+    #-------------------------------------------------------------------
 
     if request.method != 'POST':
         # Requisição inicial;
