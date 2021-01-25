@@ -215,6 +215,16 @@ from . models import Topic, Entry
 from . forms import TopicForm, EntryForm
 
 
+# 20212501: 19.3 – Refatoração (pg 506):
+# Há dois lugares em views.py em que garantimos que o usuário associado
+# a um assunto seja igual ao usuário logado no momento. Coloque o código
+# dessa verificação em uma função chamada check_topic_owner() e chame
+# essa função nos lugares apropriados.
+def check_topic_owner(request, topic):
+    if topic.owner != request.user:
+        raise Http404
+
+
 def index(request):
     """A página inicial de Learning Log."""
     return render(request, 'learning_logs/index.html')
@@ -237,9 +247,8 @@ def topic(request, topic_id):
     """Mostra um único assunto e todas as suas entradas."""
     topic = Topic.objects.get(id=topic_id)
 
-    # Garante que o assunto pertence ao usuário atual
-    if topic.owner != request.user:
-        raise Http404
+    # XXX Garante que o assunto pertence ao usuário atual:
+    check_topic_owner(request, topic)
 
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
@@ -308,13 +317,12 @@ def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
 
-    # 20212501 - Protegendo a página edit_entry (pg 505):
+    # XXX 20212501 - Protegendo a página edit_entry (pg 505):
         # Recuperamos a entrada e o assunto associado a ela. Então
         # verificamos se o dono do assunto coincide com o usuário logado
         # no momento; se não forem iguais, levantamos uma exceção
         # Http404.
-    if topic.owner != request.user:
-        raise Http404
+    check_topic_owner(request, topic)
 
     #-------------------------------------------------------------------
 
