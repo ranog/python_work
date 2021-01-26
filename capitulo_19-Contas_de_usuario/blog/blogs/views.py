@@ -47,7 +47,7 @@ def edit_post(request, post_id):
     """
         Edita um post existente.
     """
-    review = BlogPost.objects.get(id=post_id)
+    review = BlogPost.objects.filter(owner=request.user).get(id=post_id)
     posts = review.text
 
     if request.method != 'POST':
