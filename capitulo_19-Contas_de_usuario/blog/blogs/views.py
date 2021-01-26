@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 from . models import BlogPost
 from . forms import BlogPostForm
@@ -20,6 +21,7 @@ def index(request):
     return render(request, 'blogs/index.html', context)
 
 
+@login_required
 def new_post(request):
     """
         Adiciona um novo post.
@@ -40,6 +42,7 @@ def new_post(request):
     return render(request, 'blogs/new_post.html', context)
 
 
+@login_required
 def edit_post(request, post_id):
     """
         Edita um post existente.
