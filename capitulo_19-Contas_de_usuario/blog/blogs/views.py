@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -17,7 +17,6 @@ def index(request):
     """
     posts = BlogPost.objects.order_by('-date_added')
     context = {'posts': posts}
-
     return render(request, 'blogs/index.html', context)
 
 
@@ -35,7 +34,9 @@ def new_post(request):
         form = BlogPostForm(request.POST)
 
         if form.is_valid():
-            form.save()
+            new_post = form.save(commit=False)
+            new_post.owner = request.user
+            new_post.save()
             return HttpResponseRedirect(reverse('index'))
 
     context = {'form': form}
@@ -47,14 +48,16 @@ def edit_post(request, post_id):
     """
         Edita um post existente.
     """
-    review = BlogPost.objects.filter(owner=request.user).get(id=post_id)
+    review = BlogPost.objects.get(id=post_id)
     posts = review.text
+
+    if review.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         # Requisição inicial; preenche previamente o formulário com a
         # entrada atual.
         form = BlogPostForm(instance=review)
-
     else:
         # Dados de POST submetidos; processa os dados.
         form = BlogPostForm(instance=review, data=request.POST)
