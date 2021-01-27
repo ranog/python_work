@@ -7,9 +7,10 @@
   
   <ul>
     {% for post in posts %}
-      <li><b>{{ post }}</b> ({{ post.date_added|date:'M d, Y H:i' }}):</li> 
+      <li><b>{{ post.owner }}</b> ({{ post.date_added|date:'M d, Y H:i' }}):</li> 
       
-      <p>{{ post.text }}</p>
+      <p><b>{{ post }}:</b></p>
+      <p>- {{ post.text }}</p>
 
       <p> <a href="{% url 'edit_post' post.id %}">edit post</a> </p>
 
