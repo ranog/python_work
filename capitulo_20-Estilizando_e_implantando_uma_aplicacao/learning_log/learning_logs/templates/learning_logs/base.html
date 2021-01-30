@@ -3,85 +3,124 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning Log</title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Learning Log</title>
 
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-</head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  </head>
 
-<!-- Tag de abertura <body>. O corpo de um arquivo HTML contém o que os
-  usuários verão em uma página.
--->
-<body>
-  <!-- Static navbar -->
-  
-  <!-- O elemento <nav> representa a seção de links de navegação da
-    página.
-
-    Tudo que estiver nesse elemento será estilizado de acordo com as
-    regras de estilo do Bootstrap definidas pelos seletores navbar,
-    navbar-default e navbar-static-top.
-
-    Um seletor determina a quais elementos de uma página uma determinada
-    regra de estilo se aplica.
+  <!-- Tag de abertura <body>. O corpo de um arquivo HTML contém o que os
+    usuários verão em uma página.
   -->
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      
-      <div class="navbar-header">
+  <body>
+    <!-- Static navbar -->
+  
+    <!-- O elemento <nav> representa a seção de links de navegação da
+      página.
 
-        <!-- O template define um botão que aparecerá se a janela do
-          navegador for estreita demais para exibir toda a barra de
-          navegação horizontalmente.
+      Tudo que estiver nesse elemento será estilizado de acordo com as
+      regras de estilo do Bootstrap definidas pelos seletores navbar,
+      navbar-default e navbar-static-top.
 
-          Quando o usuário clicar no botão, os elementos de navegação
-          aparecerão em uma lista suspensa.
+      Um seletor determina a quais elementos de uma página uma
+      determinada regra de estilo se aplica.
+    -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
 
-          A referência collapse faz a barra de navegação ser contraída
-          quando o usuário reduzir a janela do navegador ou quando o
-          site for exibido em dispositivos móveis, com telas menores.
-        -->
-        <button type="button" class="navbar-toggle collapsed"
-          data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-        </button>
+          <!-- O template define um botão que aparecerá se a janela do
+            navegador for estreita demais para exibir toda a barra de
+            navegação horizontalmente.
+
+            Quando o usuário clicar no botão, os elementos de navegação
+            aparecerão em uma lista suspensa.
+
+            A referência collapse faz a barra de navegação ser contraída
+            quando o usuário reduzir a janela do navegador ou quando o
+            site for exibido em dispositivos móveis, com telas menores.
+          -->
+          <button type="button" class="navbar-toggle collapsed"
+            data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
+          </button>
         
-        <!-- Nome do projeto, essa informação aparecerá em todas as
-          páginas do projeto.
+          <!-- Nome do projeto, essa informação aparecerá em todas as
+            páginas do projeto.
+          -->
+          <a class="navbar-brand" href="{% url 'index' %}">Learning Log</a>
+        </div>
+
+        <!-- Conjunto de links que permite aos usuários navegar pelo site.
+
+          Uma barra de navegação é basicamente uma lista que começa com
+          <ul>, e cada link é um item dessa lista (<li>).
         -->
-        <a class="navbar-brand" href="{% url 'index' %}">Learning Log</a>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'topics' %}">Topics</a></li>
+          </ul>
+        
+          <!-- O seletor navbar-right estiliza o conjunto de links para
+            que eles apareçam na borda direita da barra de navegação, em
+            um local em que normalmente se vê links para login e para
+            cadastramento. Nesse caso, exibiremos a saudação ao usuário
+            e o link para logout ou os links para cadastramento ou
+            login.
+          -->
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+              <li><a>Hello, {{ user.username }}.</a></li>
+              <li><a href="{% url 'logout' %}">log out</a></li>
+            {% else %}
+              <li><a href="{% url 'register' %}">register</a></li>
+              <li><a href="{% url 'login' %}">log in</a></li>
+            {% endif %}
+          </ul>
+        </div> <!-- /nav-collapse -->
       </div>
+    </nav>
 
-      <!-- Conjunto de links que permite aos usuários navegar pelo site.
+    <!--
+      div de abertura com a classe container.
 
-        Uma barra de navegação é basicamente uma lista que começa com
-        <ul>, e cada link é um item dessa lista (<li>).
+      Uma div é uma seção de uma página web que pode ser usada para
+      qualquer finalidade, e pode ser estilizada com uma borda, espaços
+      em torno do elemento (margens), espaço entre o conteúdo e a borda
+      (preenchimento), cores de fundo e outras regras de estilo.
+
+      Essa div em particular atua como um contêiner no qual colocamos
+      dois elementos:
+        - um novo bloco chamado header; 
+        - bloco content.
+    -->
+    <div class="container">
+
+      <!--
+        O bloco de cabeçalho diz aos usuários quais tipos de informação
+        estão na página e o que eles podem fazer.
+
+        Esse bloco tem a classe page-header, que aplica um conjunto de
+        regras de estilo ao bloco.
       -->
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="{% url 'topics' %}">Topics</a></li>
-        </ul>
-        
-        <!-- O seletor navbar-right estiliza o conjunto de links para
-          que eles apareçam na borda direita da barra de navegação, em
-          um local em que normalmente se vê links para login e para
-          cadastramento. Nesse caso, exibiremos a saudação ao usuário e
-          o link para logout ou os links para cadastramento ou login.
-        -->
-        <ul class="nav navbar-nav navbar-right">
-          {% if user.is_authenticated %}
-            <li><a>Hello, {{ user.username }}.</a></li>
-            <li><a href="{% url 'logout' %}">log out</a></li>
-          {% else %}
-            <li><a href="{% url 'register' %}">register</a></li>
-            <li><a href="{% url 'login' %}">log in</a></li>
-          {% endif %}
-        </ul>
-      </div> <!--/.nav-collapse -->
-    </div>
-  </nav>
-</body>
+      <div class="page-header">
+        {% block header %}
+        {% endblock header %}
+      </div>
+      
+      <!--
+        O bloco de conteúdo está em uma div separada, sem uma classe
+        específica de estilo.
+      -->
+      <div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div> <!-- /container -->
+  </body>
+</html>
