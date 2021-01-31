@@ -22,14 +22,14 @@ acrescentar uma nova entrada será a ação mais comum nessa página.
 {% endblock header%}
 
 {% block content %}
-  <p><a href="{% url 'new_entry' topic.id%}">add new entry</a></p>
+  <p><a href="{% url 'new_entry' topic.id%}">Add new entry</a></p>
 
   {% for entry in entries %}
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>{{ entry.date_added|date:'M d, Y H:i' }}
           <small>
-            <a href="{% url 'edit_entry' entry.id %}">edit entry</a>
+            <a href="{% url 'edit_entry' entry.id %}">Edit entry</a>
           </small>
         </h3>
       </div>
