@@ -1,24 +1,28 @@
 {% extends "blogs/base.html" %}
 
+
+{% block header %}
+  <p><a href="{% url 'new_post' %}">Add a new post</a></p>
+{% endblock header%}
+
 {% block content %}
-  <p>
-    <a href="{% url 'new_post' %}">Add a new post:</a>
-  </p>
-  
-  <ul>
-    {% for post in posts %}
-      <li><b>{{ post.owner }}</b> ({{ post.date_added|date:'M d, Y H:i' }}):</li> 
-      
-      <p><b>{{ post }}:</b></p>
-      <p>- {{ post.text }}</p>
+  {% for post in posts %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3><b>{{ post }}</b>
+          <small>
+            {{ post.owner }}. {{ post.date_added|date:'M d, Y H:i'}}
+            <a href="{% url 'edit_post' post.id %}">Edit post</a>
+          </small>
+        </h3>
+      </div>
 
-      <p> <a href="{% url 'edit_post' post.id %}">edit post</a> </p>
-
-      {% empty %}
-      
-      <li>No posts have been added yet.</li>
-
-    {% endfor %}
-  </ul>
-
+      <div class="panel-body">
+        {{ post.text|linebreaks }}
+      </div>
+    </div>    
+    
+    {% empty %}
+      No posts have been added yet.
+  {% endfor %}
 {% endblock content %}
