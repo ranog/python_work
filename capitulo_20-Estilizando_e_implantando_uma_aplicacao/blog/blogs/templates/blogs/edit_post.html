@@ -3,12 +3,10 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2>{{ review }}</h2>
+  <h2>Edit post</h2>
 {% endblock header %}
 
 {% block content %}
-  <a href="{% url 'edit_post' review.id %}">Edit post</a></p>
-
   <form method="post" action="{% url 'edit_post' review.id %}" class='form'>
     {% csrf_token %}
     {% bootstrap_form form %}
