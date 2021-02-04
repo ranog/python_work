@@ -205,7 +205,7 @@ def topic(request, topic_id):
 """
 
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, Http404
 
 from django.urls import reverse
@@ -245,7 +245,7 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     """Mostra um único assunto e todas as suas entradas."""
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
 
     # XXX Garante que o assunto pertence ao usuário atual:
     check_topic_owner(request, topic)
