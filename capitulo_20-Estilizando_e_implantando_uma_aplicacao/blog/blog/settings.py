@@ -147,7 +147,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Only allow heroku to host the project.
-    ALLOWED_HOSTS = ['about.herokuapp.com']
+    ALLOWED_HOSTS = ['infinite-caverns-89259.herokuapp.com']
     DEDUG = False
 
     # Static asset configuration.

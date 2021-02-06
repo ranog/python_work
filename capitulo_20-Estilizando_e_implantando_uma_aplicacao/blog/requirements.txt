@@ -4,7 +4,7 @@ dj-static==0.0.6
 Django==3.1.5
 django-bootstrap3==14.2.0
 gunicorn==20.0.4
+psycopg2-binary==2.8.6
 pytz==2020.5
 sqlparse==0.4.1
 static3==0.7.0
-psycopg2>=2.6.1
