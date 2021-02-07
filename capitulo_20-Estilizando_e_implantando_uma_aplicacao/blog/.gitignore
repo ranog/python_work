@@ -1,3 +1,4 @@
+.gitignore
 b_env/
 __pycache__/
 *.sqlite3
