@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -48,7 +48,7 @@ def edit_post(request, post_id):
     """
         Edita um post existente.
     """
-    review = BlogPost.objects.get(id=post_id)
+    review = get_object_or_404(BlogPost, id=post_id)
     posts = review.text
 
     if review.owner != request.user:
