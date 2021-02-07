@@ -5,3 +5,4 @@ django-bootstrap3==14.2.0
 gunicorn==20.0.4
 psycopg2>=2.6.1
 static3==0.7.0
+psycopg2>=2.6.1
