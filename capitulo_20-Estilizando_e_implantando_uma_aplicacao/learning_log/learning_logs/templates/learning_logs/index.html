@@ -4,17 +4,18 @@
   <!-- Em um elemento jumbotron, colocamos uma tagline concisa para dar
     uma noção do que o Learning Log faz. 
   -->
-  <div class='jumbotron'><h1>Track your learning</h1></div>
+  <div class='jumbotron'><h1>Monitore seu aprendizado</h1></div>
 {% endblock header %}
 
 {% block content %}
   <h2 align="justify">
-    <a href="{% url 'register' %}">Register an account</a>
-    to make your own Learning Log, and list the topics you're learning about.
+    <a href="{% url 'register' %}">Registre uma conta</a>
+    para fazer seu próprio registro de aprendizado e relacionar os tópicos
+    sobre os quais está aprendendo.
   </h2>
 
   <h2 align="justify">
-    Whenever you learn something new about a topic, make an entry summarizing
-    what you've learned.
+    Sempre que você aprender algo novo sobre um tópico, faça uma entrada
+    resumindo do que você aprendeu.
   </h2>
 {% endblock content %}
