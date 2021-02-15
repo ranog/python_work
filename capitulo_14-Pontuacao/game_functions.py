@@ -369,9 +369,10 @@ def check_events(ai_settings, screen, ship, bullets):
             check_keyup_events(event, ship)
 
 
-def update_screen(ai_settings, screen, ship, aliens, bullets):
-    """ Atualiza as imagens na tela e alterna para a nova tela. """
-
+def update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button):
+    """
+        Atualiza as imagens na tela e alterna para a nova tela.
+    """
     # Redesenha a tela a cada passagem pelo laço.
     screen.fill(ai_settings.bg_color)
 
@@ -382,6 +383,10 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
 
     ship.blitme()
     aliens.draw(screen)
+
+    # Desenha o botão Play se o jogo estiver inativo
+    if not stats.game_active:
+        play_button.draw_button()
 
     # Deixa a tela mais recente visível
     pygame.display.flip()
