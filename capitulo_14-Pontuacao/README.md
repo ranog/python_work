@@ -1,27 +1,13 @@
-Capítulo: 13 Alienígenas!
+Capítulo: 14 Pontuação
 
-Revisando o seu projeto
+Neste capítulo terminaremos o jogo Invasão Alienígena.
 
-Ao iniciar uma nova fase do desenvolvimento em um projeto grande, é
-sempre uma boa ideia revisar seu plano e deixar claro o que você quer
-realizar com o código que está prestes a escrever. Neste capítulo vamos:
+Adicionaremos um botão Play para iniciar o jogo por demanda ou
+ reiniciá-lo depois que terminar.
 
-• Analisar o nosso código e determinar se precisamos refatorá-lo antes
- de implementar novas funcionalidades.
+Também mudaremos o jogo para que fique mais rápido quando o jogador
+ passar para o próximo nível e implementaremos um sistema de pontuação.
 
-• Acrescentar um único alienígena no canto superior esquerdo da tela,
- com um espaçamento apropriado ao seu redor.
-
-• Usar o espaçamento em torno do primeiro alienígena e o tamanho da tela
- como um todo para determinar quantos alienígenas cabem na tela.
- Escreveremos um laço para criar alienígenas de modo a preencher a parte
- superior da tela.
-
-• Fazer a frota se mover para as laterais e para baixo até que a frota
- toda seja atingida ou um alienígena atinja a espaçonave ou o solo. Se a
- frota toda for atingida, criaremos uma nova frota. Se um alienígena
- atingir a espaçonave ou o solo, destruiremos a espaçonave e criaremos
- uma nova frota.
-
-• Limitar o número de espaçonaves que o jogador pode usar e encerrar o
- jogo quando ele tiver usado o seu lote de espaçonaves.
+No final do capítulo você saberá o suficiente para começar a escrever
+ jogos que aumentem o nível de dificuldade à medida que o jogador
+ progredir e que mostrem as pontuações.
