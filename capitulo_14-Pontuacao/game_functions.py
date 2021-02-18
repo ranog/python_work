@@ -437,8 +437,10 @@ def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
     if len(aliens) == 0:
-        # Destrói os projéteis existentes e cria uma nova frota.
+        # Destrói os projéteis existentes, aumenta a velocidade do jogo
+        # e cria uma nova frota.
         bullets.empty()
+        ai_settings.increase_speed()
         create_fleet(ai_settings, screen, ship, aliens)
 
 
