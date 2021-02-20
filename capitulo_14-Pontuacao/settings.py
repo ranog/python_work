@@ -125,6 +125,9 @@ class Settings():
         # a esquerda.
         self.fleet_direction = 1
 
+        # Pontuação.
+        self.alien_points = 50
+
 
     def increase_speed(self):
         """
