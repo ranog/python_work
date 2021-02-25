@@ -437,6 +437,15 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets):
     check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets)
 
 
+def check_high_score(stats, sb):
+    """
+        Verifica se há uma nova pontuação máxima.
+    """
+    if stats.score > stats.high_score:
+        stats.high_score = stats.score
+        sb.prep_high_score()
+
+
 def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, bullets):
     """Responde a colisões entre projéteis e alienígenas."""
     # Remove qualquer projétil e alienígena que tenham colidido.
@@ -446,6 +455,8 @@ def check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
         for aliens in collisions.values():
             stats.score += ai_settings.alien_points * len(aliens)
             sb.prep_score()
+
+        check_high_score(stats, sb)
 
     if len(aliens) == 0:
         # Destrói os projéteis existentes, aumenta a velocidade do jogo

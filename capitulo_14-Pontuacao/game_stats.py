@@ -12,6 +12,10 @@ class GameStats():
         # Inicia a Invasão Alienígena em um estado ativo.
         self.game_active = False
 
+        # A pontuação máxima jamais deverá ser reiniciada.
+        self.high_score = 0
+
+
 
     def reset_stats(self):
         """
