@@ -165,15 +165,21 @@ HISTÓRICO
 
 
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship():
-    """Administra a maior parte do comportamento da espaçonave do
-    jogador."""
+class Ship(Sprite):
+    """
+        Administra a maior parte do comportamento da espaçonave do
+        jogador.
+    """
 
 
     def __init__(self, ai_settings, screen):
-        """Inicializa a espaçonave e define sua posição inicial."""
+        """
+            Inicializa a espaçonave e define sua posição inicial.
+        """
+        super(Ship, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
