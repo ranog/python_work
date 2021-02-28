@@ -32,11 +32,32 @@ DESCRIÇÃO
     clicar no ícone do disco, poderá salvar a imagem de qualquer gráfico
     que quiser.
 
+
+    O parâmetro linewidth controla a espessura da linha gerada por
+    plot().
+
+    A função title() define um título para o gráfico.
+
+    Os parâmetros fontsize, que aparecem repetidamente pelo código,
+    controlam o tamanho do texto no gráfico.
+
+    As funções xlabel() e ylabel() permitem definir um título para cada
+    um dos eixos, e a função tick_params() estiliza as marcações nos
+    eixos x.
+
+    Os argumentos mostrados aqui afetam as marcações tanto no eixo x
+    quanto no eixo y (axes='both') e definem o tamanho da fonte dos
+    rótulos das marcações com 14 ( labelsize=14 ).
+
 ------------------------------------------------------------------------
 
 HISTÓRICO
     20202412: João Paulo, dezembro de 2020.
         - Gerando um gráfico linear simples (pg 369).
+
+    20212802: João Paulo, fevereiro de 2021.
+        - Alterando o tipo do rótulo e a espessura do gráfico
+        (pg 369-370).
 
 ------------------------------------------------------------------------
 """
@@ -47,5 +68,13 @@ import matplotlib.pyplot as plt
 
 squares = [1, 4, 9, 16, 25]
 
-plt.plot(squares)
+plt.plot(squares, linewidth=5)
+
+# Define o título do gráfico e nomeia os eixos.
+plt.title("Square Numbers", fontsize=24)
+plt.xlabel("Value", fontsize=14)
+plt.ylabel("Square of Value", fontsize=14)
+
+# Define o tamanho dos rótulos das marcações.
+plt.tick_params(axis='both', labelsize=14)
 plt.show()
