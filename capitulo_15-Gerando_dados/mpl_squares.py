@@ -59,6 +59,9 @@ HISTÓRICO
         - Alterando o tipo do rótulo e a espessura do gráfico
         (pg 369-370).
 
+    20210203: João Paulo, março de 2021.
+        - Corrigindo o gráfico (pg 371).
+
 ------------------------------------------------------------------------
 """
 
@@ -66,9 +69,10 @@ HISTÓRICO
 import matplotlib.pyplot as plt
 
 
+input_valeus = [1, 2, 3, 4, 5]
 squares = [1, 4, 9, 16, 25]
 
-plt.plot(squares, linewidth=5)
+plt.plot(input_valeus, squares, linewidth=5)
 
 # Define o título do gráfico e nomeia os eixos.
 plt.title("Square Numbers", fontsize=24)
