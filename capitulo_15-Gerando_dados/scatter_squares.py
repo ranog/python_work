@@ -17,7 +17,8 @@ HISTÓRICO
         - Plotando uma série de pontos com scatter() (pg 373).
 
     20210503: João Paulo, março de 2021.
-        - Calculando dados automaticamente (373-374).
+        - Calculando dados automaticamente (pg 373-374);
+        - Removendo os contornos dos pontos de dados (pg 374).
 """
 
 import matplotlib.pyplot as plt
@@ -25,7 +26,7 @@ import matplotlib.pyplot as plt
 x_values = list(range(1, 1001))
 y_values = [x**2 for x in x_values]
 
-plt.scatter(x_values, y_values, s=40)
+plt.scatter(x_values, y_values, edgecolor='none', s=40)
 
 # Define o título do gráfico e nomeia os eixos:
 plt.title("Square Numbers", fontsize=24)
