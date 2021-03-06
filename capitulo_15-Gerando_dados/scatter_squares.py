@@ -18,7 +18,8 @@ HISTÓRICO
         - Definindo cores personalizadas (pg 375).
 
     20210603: João Paulo, março de 2021.
-        - Usando um colormap (pg 375-376).
+        - Usando um colormap (pg 375-376);
+        - Salvando seus gráficos automaticamente (pg 376).
 """
 
 import matplotlib.pyplot as plt
@@ -39,4 +40,11 @@ plt.tick_params(axis='both', which='major', labelsize=14)
 # Define o intervalo para cada eixo:
 plt.axis([0, 1100, 0, 1100000])
 
+# Salva o gráfico automaticamente:
+plt.savefig('squares_plot.png')
+
+# Remove espaços em branco extras do gráfico:
+# plt.savefig('squares_plot.png', bbox_inches='tight')
+
+# Exibe o gráfico:
 plt.show()
