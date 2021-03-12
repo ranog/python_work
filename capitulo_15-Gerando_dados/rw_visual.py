@@ -25,6 +25,7 @@ while True:
     # Salva os gráficos automaautomatic:
     plt.savefig('random_walk_plot' + str(i) + '.png')
     i += 1
+
     plt.show()
 
     keep_running = input("Make another walk? (y/n): ")
