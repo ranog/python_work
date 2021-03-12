@@ -4,6 +4,9 @@
 HISTÓRICO
     20211003: João Paulo, março de 2021.
         - Gerando vários passeios aleatórios (pg 379-380).
+
+    20211203: João Paulo, março de 2021.
+        - Plotando os pontos de início e de fim (pg 381-382).
 """
 
 import matplotlib.pyplot as plt
@@ -21,6 +24,10 @@ while True:
     point_numbers = list(range(rw.num_points))
 
     plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, edgecolor='none', s=15) 
+
+    # Enfatiza o primeiro e o último ponto:
+    plt.scatter(0, 0, c='green', edgecolors='none', s=100)
+    plt.scatter(rw.x_values[-1], rw.y_values[-1], edgecolors='none', s=100)
 
     # Salva os gráficos automaautomatic:
     plt.savefig('random_walk_plot' + str(i) + '.png')
