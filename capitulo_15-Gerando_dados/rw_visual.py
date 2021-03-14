@@ -10,6 +10,9 @@ HISTÓRICO
 
     20211303: João Paulo, março de 2021.
         - Limpando os eixos (pg 382).
+
+    20211403: João Paulo, março de 2021.
+        - Adicionando pontos para plotagem (pg 382-383).
 """
 
 import matplotlib.pyplot as plt
@@ -20,14 +23,15 @@ i = 0
 
 # Continua criando novos passeios enquanto o programa estiver ativo:
 while True:
-    # Cria um passeio aleatório e plota os pontos:
-    rw = RandomWalk()
+    # Cria um passeio aleatório:
+    rw = RandomWalk(50000)
     rw.fill_walk()
 
+    # Plota os pontos e mostra o gráfico:
     point_numbers = list(range(rw.num_points))
 
     plt.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues,
-            edgecolor='none', s=15)
+            edgecolor='none', s=1)
 
     # Enfatiza o primeiro e o último ponto:
     plt.scatter(0, 0, c='green', edgecolors='none', s=100)
