@@ -12,7 +12,8 @@ HISTÓRICO
         - Limpando os eixos (pg 382).
 
     20211403: João Paulo, março de 2021.
-        - Adicionando pontos para plotagem (pg 382-383).
+        - Adicionando pontos para plotagem (pg 382-383);
+        - Alterando o tamanho para preencher a tela (pg 383-384).
 """
 
 import matplotlib.pyplot as plt
@@ -26,6 +27,10 @@ while True:
     # Cria um passeio aleatório:
     rw = RandomWalk(50000)
     rw.fill_walk()
+
+    # Define o tamanho da janela de plotagem:
+    plt.figure(figsize=(16, 9))
+
 
     # Plota os pontos e mostra o gráfico:
     point_numbers = list(range(rw.num_points))
