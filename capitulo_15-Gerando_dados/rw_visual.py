@@ -48,7 +48,7 @@ while True:
     plt.axes().get_yaxis().set_visible(False)
 
     # Salva os gráficos automaautomatic:
-    plt.savefig('random_walk_plot_sem_eixos' + str(i) + '.png')
+    plt.savefig('random_walk_plot15.' + str(i) + '.png')
     i += 1
 
     plt.show()
