@@ -36,17 +36,15 @@ while True:
     plt.plot(rw.x_values[-1], rw.y_values[-1], c='red')
 
     # Remove os eixos:
-    plt.axes().get_xaxis().set_visible(False)
-    plt.axes().get_yaxis().set_visible(False)
+#    plt.axes().get_xaxis().set_visible(False)
+#    plt.axes().get_yaxis().set_visible(False)
 
     # Salva os gráficos automaticamente:
-    plt.savefig('movimento_molecular_' + str(i) + '.png')
-    i += 1
+#    plt.savefig('movimento_molecular.png')
+#    i += 3
 
     plt.show()
 
     keep_running = input("Make another walk? (y/n): ")
     if keep_running == 'n':
       break
-
-
