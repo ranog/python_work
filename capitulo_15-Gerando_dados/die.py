@@ -12,7 +12,7 @@ class Die():
         Uma classe que representa um único dado.
     """
 
-    
+
     def __init__(self, num_sides=6):
         """
             Supõe que seja um dado de seis lados.
