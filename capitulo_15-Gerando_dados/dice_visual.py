@@ -26,7 +26,7 @@ for value in range(2, max_result + 1):
 # Visualiza os resultados:
 hist = pygal.Bar()
 hist.title = "Results of rolling two D6 1000 times."
-hist.x_labels = [str(x) for x in range(2,13)]
+hist.x_labels = [str(x_label) for x_label in range(2,13)]
 hist.x_title = "Result"
 hist.y_title = "Frequency of Result"
 hist.add('D6 + D6', frequencies)
